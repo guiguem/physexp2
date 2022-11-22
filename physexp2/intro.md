@@ -1,4 +1,4 @@
-# Welcome to your Jupyter Book
+# Physique Expérimentale 2: Introduction à l’analyse de données et aux statistiques pour la physique
 
 L'analyse de données qui consiste à transformer des données en mesures occupe une place centrale dans tout travail scientifique.
 Qu'elle se base sur des opérations mathématiques ou bien des concepts statistiques plus complexes, c'est une étape obligatoire pour comparer les résultats obtenus avec des prédictions faites par des modèles physiques.
@@ -12,7 +12,7 @@ La représentation et l'analyse de données reposant sur l'utilisation d'outils 
 
 Ce cours a été construit à partir de nombreuses sources.
 Parmi elles, les sources suivantes seront particulièrement utiles:
-- le manuel en ligne "Data and Error Analysis", par Ryan D. Martin `` {cite}`Martin2018` ``
-- le livre "Analyse de données en sciences expérimentales", par Benoit Clément `` {cite}`Clement2012` ``
+- le manuel en ligne "Data and Error Analysis", par Ryan D. Martin
+- le livre "Analyse de données en sciences expérimentales", par Benoit Clément
 
 
