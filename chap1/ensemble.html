@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Définition ensembliste et propriétés des probabilités &#8212; physexp2</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Population, probabilité et échantillon" href="population.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">physexp2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Physique Expérimentale 2: Introduction à l’analyse de données et aux statistiques pour la physique
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="chap1.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="stats.html">
+     La place des statistiques en physique expérimentale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="population.html">
+     Population, probabilité et échantillon
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Définition ensembliste et propriétés des probabilités
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/guiguem/physexp2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/guiguem/physexp2/issues/new?title=Issue%20on%20page%20%2Fchap1/ensemble.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chap1/ensemble.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-ensembliste">
+   Définition ensembliste
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proprietes-fondamentales">
+   Propriétés fondamentales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite-conditionnelle-et-theoreme-de-bayes">
+   Probabilité conditionnelle et théorème de Bayes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evenements-independants">
+   Évènements indépendants
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Définition ensembliste et propriétés des probabilités</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-ensembliste">
+   Définition ensembliste
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proprietes-fondamentales">
+   Propriétés fondamentales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite-conditionnelle-et-theoreme-de-bayes">
+   Probabilité conditionnelle et théorème de Bayes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evenements-independants">
+   Évènements indépendants
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="definition-ensembliste-et-proprietes-des-probabilites">
+<h1>Définition ensembliste et propriétés des probabilités<a class="headerlink" href="#definition-ensembliste-et-proprietes-des-probabilites" title="Permalink to this headline">#</a></h1>
+<p>En 1933, Andrey Kolmogorov publie un livre intitulé “Foundations of the
+Theory of Probability”: en utilisant une algèbre de Boole et quelques
+axiomes supplémentaires, il introduit une théorie des probabilités que
+l’on peut qualifier d’ensembliste. Notamment, il donne une
+correspondance entre des ensembles et les évènements aléatoires, comme
+nous l’avons fait dans la Section
+<a href="#sec:univers-evenements" data-reference-type="ref" data-reference="sec:univers-evenements">[sec:univers-evenements]</a>.
+Nous allons aborder cela dans cette section.</p>
+<p>Plus récemment, la théorie de la mesure (que nous n’aborderons pas dans
+ce cours) généralise la notion de calcul d’aire et d’intégrale et permet
+de donner une version plus forte des définitions ci-dessous, notamment
+des ensembles discontinus comme <span class="math notranslate nohighlight">\(\mathbb{R}-\{0\}\)</span>.</p>
+<section id="definition-ensembliste">
+<h2>Définition ensembliste<a class="headerlink" href="#definition-ensembliste" title="Permalink to this headline">#</a></h2>
+<p>Dans cette approche, pour un évènement <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, l’ensemble des
+éléments de l’univers pour lesquels <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> est vrai est noté <span class="math notranslate nohighlight">\(A\)</span>.
+<span class="math notranslate nohighlight">\(\overline{A}\)</span> définit donc l’ensemble des éléments de l’univers pour
+lesquels <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> est faux. Aussi, on peut définir l’évènement
+<span class="math notranslate nohighlight">\(\mathcal{A}\,ou\,\mathcal{B}\)</span> pour lequel <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> ou
+<span class="math notranslate nohighlight">\(\mathcal{B}\)</span> est vrai comme l’étant l’ensemble <span class="math notranslate nohighlight">\(A\cup B\)</span> (union de
+l’ensemble <span class="math notranslate nohighlight">\(A\)</span> et de l’ensemble <span class="math notranslate nohighlight">\(B\)</span>). De façon similaire, l’évènement
+<span class="math notranslate nohighlight">\(A\,et\,B\)</span> correspond à l’ensemble <span class="math notranslate nohighlight">\(A\cap B\)</span>.</p>
+<p>On définit la <strong>probabilité</strong> d’un évènement <span class="math notranslate nohighlight">\(A\)</span> par une mesure sur
+l’ensemble des évènements <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> de <span class="math notranslate nohighlight">\(A\)</span> telle que:
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+    &amp;0 \leq P(A) \leq 1,\label{eq:axiome-1}\footnotemark\\
+    &amp;P(\Omega ) = 1, \label{eq:axiome-2} \\
+    &amp;P(A\cup B) = P(A)+P(B) \mathrm{\,si\,} A\cap B = \emptyset\label{eq:axiome-3}.\footnotemark\end{aligned}\)</span>$</p>
+<p>L’interprétation de ces axiomes en terme de fréquence d’occurence
+d’évènements est alors triviale. En effet, la propriété
+<a href="#eq:axiome-2" data-reference-type="eqref" data-reference="eq:axiome-2">[eq:axiome-2]</a>
+signifie qu’un évènement toujours vrai (i.e. l’univers <span class="math notranslate nohighlight">\(\Omega\)</span>) a une
+probabilité égale à 1. La propriété
+<a href="#eq:axiome-3" data-reference-type="eqref" data-reference="eq:axiome-3">[eq:axiome-3]</a>
+traduit le fait que l’union d’évènements incompatibles (tels que
+<span class="math notranslate nohighlight">\(A\cap B = \emptyset\)</span>[4]) voient leur probabilité s’additionner. On a
+alors: $<span class="math notranslate nohighlight">\(P(\mathcal{A}\, ou\, \mathcal{B}) = P(A\cup B) = P(A)+P(B).\)</span>$</p>
+</section>
+<section id="proprietes-fondamentales">
+<h2>Propriétés fondamentales<a class="headerlink" href="#proprietes-fondamentales" title="Permalink to this headline">#</a></h2>
+<p>Énonçons ici quelques conséquences des axiomes définis plus haut.</p>
+<p>En effet, on peut en déduire facilement que <span class="math notranslate nohighlight">\(P(\Omega) = 1\)</span>. Aussi, si
+on définit <span class="math notranslate nohighlight">\(\overline{A}\)</span> comme étant le complémentaire de <span class="math notranslate nohighlight">\(A\)</span>[5], on a
+<span class="math notranslate nohighlight">\(A\cup \overline{A} = \Omega\)</span> et <span class="math notranslate nohighlight">\(A\cap \overline{A} = \emptyset\)</span> et on
+en déduit des équations
+<a href="#eq:axiome-2" data-reference-type="eqref" data-reference="eq:axiome-2">[eq:axiome-2]</a>
+et
+<a href="#eq:axiome-3" data-reference-type="eqref" data-reference="eq:axiome-3">[eq:axiome-3]</a>:
+$<span class="math notranslate nohighlight">\(P(\overline{A}) = 1 - P(A).\)</span>$</p>
+<p>Notamment, on peut étendre la propriété
+<a href="#eq:axiome-3" data-reference-type="ref" data-reference="eq:axiome-3">[eq:axiome-3]</a>
+pour des ensembles non disjoints:
+$<span class="math notranslate nohighlight">\(P(A\cup B) = P(A) + P(B) - P(A\cap B).\)</span><span class="math notranslate nohighlight">\( La figure
+&lt;a href=&quot;#fig:recouvrement&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fig:recouvrement&quot;&gt;[fig:recouvrement]&lt;/a&gt;
+illustre bien cela: l’aire de l’union entre \)</span>A<span class="math notranslate nohighlight">\( et \)</span>B<span class="math notranslate nohighlight">\( est la somme des
+surfaces individuelles moins une fois l’aire commune entre \)</span>A<span class="math notranslate nohighlight">\( et \)</span>B$
+(puisque celle-ci est comptée deux fois sinon).</p>
+<p>On peut alors remarquer que $<span class="math notranslate nohighlight">\(P(A\cup B) \leq P(A) + P(B).\)</span>$</p>
+<p>Cette notion d’ensembles disjoints s’étend facilement lorsque l’on
+considère un nombre <span class="math notranslate nohighlight">\(N\)</span> d’ensembles. Si <span class="math notranslate nohighlight">\(\Omega = \bigcup _{i=1}^N A_i\)</span>
+avec <span class="math notranslate nohighlight">\(A_i\)</span> disjoints deux à deux, l’ensemble des évènements
+<span class="math notranslate nohighlight">\(\left\{ \mathcal{A}_i \right\} _{i=1...N}\)</span> est appelé <strong>système complet
+d’évènements</strong>. Pour tout ensemble <span class="math notranslate nohighlight">\(B\)</span>, on a alors:
+$<span class="math notranslate nohighlight">\(\label{eq:decomposition-system}
+    P(B) = P(B\cap \Omega) = P(B\cap \bigcup _{i=1}^N A_i) = \sum _{i=1}^N P(A_i \cap B).\)</span>$
+Cette dernière formule est utile pour “décomposer” un évènement en terme
+d’évènements plus élémentaires.</p>
+</section>
+<section id="probabilite-conditionnelle-et-theoreme-de-bayes">
+<h2>Probabilité conditionnelle et théorème de Bayes<a class="headerlink" href="#probabilite-conditionnelle-et-theoreme-de-bayes" title="Permalink to this headline">#</a></h2>
+<p>Il est souvent utile de considérer la simultanéité de deux évènements.
+Par exemple, quelle est la probabilité pour qu’un chien a le pelage
+marron, sachant que celui d’un de ses parents est aussi marron? Cette
+probabilité n’est pas le produit entre la probabilité pour qu’un chien
+soit de couleur marron et celle que ses parents le soient aussi. Il faut
+plutôt considérer uniquement l’ensemble des chiens dont les parents sont
+de couleur noir et calculer la proportion de pelage marron: on se
+restreint donc à un sous-ensemble <span class="math notranslate nohighlight">\(\Omega '\)</span> plutôt que l’univers
+<span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<p>On définit donc la notion de <strong>probabilité conditionnelle</strong>
+<span class="math notranslate nohighlight">\(P(A\vert B)\)</span> comme étant la probabilité de l’évènement <span class="math notranslate nohighlight">\(A\)</span> sachant que
+l’évènement <span class="math notranslate nohighlight">\(B\)</span> est vrai et on la définit comme:
+$<span class="math notranslate nohighlight">\(\label{eq:def-conditionnelle}
+    P(A\vert B) = \frac{P(A\cap B)}{P(B)}.\)</span><span class="math notranslate nohighlight">\( Remarquons ici que cette
+probabilité est définie uniquement si \)</span>P(B)\neq 0<span class="math notranslate nohighlight">\(; en effet, si
+\)</span>P(B) = 0<span class="math notranslate nohighlight">\(, \)</span>B$ est un évènement (presque) impossible.</p>
+<p>On peut vérifier que cette probabilité conditionnelle respecte bien les
+propriétés
+<a href="#eq:axiome-1" data-reference-type="eqref" data-reference="eq:axiome-1">[eq:axiome-1]</a>,
+<a href="#eq:axiome-2" data-reference-type="eqref" data-reference="eq:axiome-2">[eq:axiome-2]</a>
+et
+<a href="#eq:axiome-3" data-reference-type="eqref" data-reference="eq:axiome-3">[eq:axiome-3]</a>
+d’une probabilité. Notamment, on peut voir que: $<span class="math notranslate nohighlight">\(\begin{aligned}
+    &amp;P(\Omega '\vert B) = \frac{P(B)}{P(B)} = 1, \\
+    &amp;P(A_1 \cup A_2 \vert B) = P(A_1 \vert B) + P(A_2 \vert B)\mathrm{\,si\,} A_1\cap A_2 = \emptyset.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+la probabilité conditionnelle est donc une probabilité définie sur un
+univers restreint \)</span>\Omega ‘ = B<span class="math notranslate nohighlight">\(. On peut déduire de l’équation
+&lt;a href=&quot;#eq:def-conditionnelle&quot; data-reference-type=&quot;eqref&quot; data-reference=&quot;eq:def-conditionnelle&quot;&gt;[eq:def-conditionnelle]&lt;/a&gt;
+que: \)</span><span class="math notranslate nohighlight">\(\label{eq:intersection}
+    P(A\cap B ) =  P(A\vert B)\times P(B).\)</span><span class="math notranslate nohighlight">\( Dans le cas où
+\)</span>\left{B_i\right}_{i=1…N}<span class="math notranslate nohighlight">\( forme un systme complet d’évènements, on
+en déduit grace à l’équation
+&lt;a href=&quot;#eq:decomposition-system&quot; data-reference-type=&quot;eqref&quot; data-reference=&quot;eq:decomposition-system&quot;&gt;[eq:decomposition-system]&lt;/a&gt;
+que: \)</span><span class="math notranslate nohighlight">\(\label{eq:decomposition-2}
+    P(A) = \sum _{i=1}^N P(A \cap B_i) = \sum _{i=1}^N P(A\vert B_i)P(B_i).\)</span>$</p>
+<p>Puisque <span class="math notranslate nohighlight">\(A\cap B = B\cap A\)</span>, on peut déduire de l’équation
+<a href="#eq:intersection" data-reference-type="eqref" data-reference="eq:intersection">[eq:intersection]</a>:
+$<span class="math notranslate nohighlight">\(P(A\cap B) = P(A\vert B)P(B) = P(B\cap A) = P(B\vert A) P(A).\)</span><span class="math notranslate nohighlight">\( De
+cette relation, on en déduit le **théorème de Bayès**:
+\)</span><span class="math notranslate nohighlight">\(P(B\vert A) = \frac{P(A\vert B)P(B)}{P(A)}.\)</span><span class="math notranslate nohighlight">\( Cette relation permet de
+relier les probabilités conditionnelles de deux évènements \)</span>A<span class="math notranslate nohighlight">\( et \)</span>B<span class="math notranslate nohighlight">\(.
+Si on dispose d’un système complet d’évènements
+\)</span>\left{B_i\right}_{i=1…N}<span class="math notranslate nohighlight">\(, on peut utiliser la relation
+&lt;a href=&quot;#eq:decomposition-2&quot; data-reference-type=&quot;eqref&quot; data-reference=&quot;eq:decomposition-2&quot;&gt;[eq:decomposition-2]&lt;/a&gt;
+pour écrire la probabilité conditionnelle d’un des évènements \)</span>B_i<span class="math notranslate nohighlight">\(:
+\)</span><span class="math notranslate nohighlight">\(P(B_i\vert A) = \frac{P(A\vert B_i)P(B_i)}{\sum _{i=1}^N P(A\vert B_i)P(B_i)}.\)</span>$</p>
+</section>
+<section id="evenements-independants">
+<h2>Évènements indépendants<a class="headerlink" href="#evenements-independants" title="Permalink to this headline">#</a></h2>
+<p>L’indépendance entre deux évènements est définie par:
+$<span class="math notranslate nohighlight">\(\label{eq:independence}
+P(A\cap B) = P(A)\times P(B).\)</span><span class="math notranslate nohighlight">\( Cela se traduit aussi par le fait que la
+probabilité de \)</span>A<span class="math notranslate nohighlight">\( est la même quelque soit le résultat de \)</span>B<span class="math notranslate nohighlight">\(, soit
+\)</span>P(A\vert B) = P(A)$.</p>
+<p>Lancer de dé Généralement, le résultat de chaque lancer de dé est
+indépendant. Ainsi, la probabilité d’obtenir un 6 lors d’un lancer <span class="math notranslate nohighlight">\(B\)</span>
+après avoir déjà obtenu un 6 lors d’un lancer <span class="math notranslate nohighlight">\(A\)</span> vaut
+<span class="math notranslate nohighlight">\(P(B=6\vert A=6) = P(B = 6) = \frac{1}{6}\)</span>. En revanche, la probabilité
+d’obtenir deux 6 simultanément vaut
+<span class="math notranslate nohighlight">\(P(A=6\cup B=6) = P(B=6\vert A = 6)\times P(A=6) = P(B=6)\times P(A=6) = \frac{1}{6}\times \frac{1}{6} = \frac{1}{36}\)</span>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chap1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="population.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Population, probabilité et échantillon</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mathieu Guigue<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
