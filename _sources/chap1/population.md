@@ -4,7 +4,7 @@
 ### Expérience aléatoire
 
 On définit une **expérience aléatoire** comme un processus qui va donner
-des résultats imprévisibles à l'avance[2]. Il est important de remarquer
+des résultats imprévisibles à l'avance [2]. Il est important de remarquer
 que dans le cadre des sciences expérimentales une expérience ne définit
 donc pas uniquement le phénomène physique que l'on étudie, mais aussi le
 matériel utilisé et la façon dont les données sont "reçues" par
@@ -14,9 +14,9 @@ l'origine de fluctuations statistiques ou d'erreurs de mesure.
 ### Univers et évènements
 
 L'ensemble des résultats possibles d'une expérience est appelé **univers
-des possibles**. Cet ensemble dépend bien de l'expérience mais aussi de
+des possibles**. Cet ensemble dépend bien de l'expérience, mais aussi de
 la façon de lire les "résultats". Donnons ici quelques exemples
-d'univers liés à des expériences simples:
+d'univers liés à des expériences simples :
 
 1.  Prenons un dé à 6 faces simple: si on considère l'expérience
     consistant à lancer le dé et prendre comme résultat de l'expérience
