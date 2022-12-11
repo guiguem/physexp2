@@ -2,11 +2,11 @@
 
 La physique consiste à dresser les lois qui régissent les processus
 naturels qui nous entourent. De telles lois sont souvent décrites grâce
-à des équations; ces mêmes équations permettent alors de faire des
+à des équations ; ces mêmes équations permettent alors de faire des
 prédictions, comme le fait que toutes les pommes tombent vers le sol ou
 qu’il fera beau demain. En général on préfère qu’un modèle puisse
 prédire un grand nombre de phénomènes avec une grande précision en
-utilisant le moins de paramètres libres possibles: on parle alors de
+utilisant le moins de paramètres libres possibles : on parle ainsi de
 **modèle prédictif**.
 
 La physique expérimentale consiste à confronter les prédictions des

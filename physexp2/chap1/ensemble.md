@@ -29,7 +29,7 @@ $A\,et\,B$ correspond à l’ensemble $A\cap B$.
 On définit la **probabilité** d’un évènement $A$ par une mesure sur
 l’ensemble des évènements $\mathcal{A}$ de $A$ telle que:
 $$\begin{aligned}
-    &0 \leq P(A) \leq 1,\label{eq:axiome-1}\footnotemark\\
+    &0 \leq P(A) \leq 1,\label{eq:axiome-1}\\
     &P(\Omega ) = 1, \label{eq:axiome-2} \\
     &P(A\cup B) = P(A)+P(B) \mathrm{\,si\,} A\cap B = \emptyset\label{eq:axiome-3}.\footnotemark\end{aligned}$$
 
