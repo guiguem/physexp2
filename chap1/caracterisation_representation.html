@@ -359,6 +359,23 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moyenne-et-ecart-types">
+   Moyenne et écart-types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mesure-de-position">
+     Mesure de position
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mesure-de-dispersion">
+     Mesure de dispersion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#covariance-et-correlations">
    Covariance et corrélations
   </a>
@@ -391,6 +408,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#representation-graphique">
    Représentation graphique
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moyenne-et-ecart-types">
+   Moyenne et écart-types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mesure-de-position">
+     Mesure de position
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mesure-de-dispersion">
+     Mesure de dispersion
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#covariance-et-correlations">
@@ -546,16 +580,13 @@ Le tableau ci-dessous montre une partie des données météorologiques relevée 
 <td><p>30.0</p></td>
 <td><p>1023.1</p></td>
 </tr>
-<tr class="row-even"><td><p>Utilisé seulement des tables de données brutes pour extraire des comportements globaux (comme l’évolution de la pression durant la journée) est souvent très difficiles; il est alors utile de trouver des représentations des données brutes plus visuelles ou bien permettant de réduire la complexité en quelques nombres-clés.</p></td>
-<td><p></p></td>
-<td><p></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
+<p>Utilisé seulement des tables de données brutes pour extraire des comportements globaux (comme l’évolution de la pression durant la journée) est souvent très difficiles; il est alors utile de trouver des représentations des données brutes plus visuelles ou bien permettant de réduire la complexité en quelques nombres-clés.</p>
 <section id="representation-graphique">
 <h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h2>
-<p>Une première façon simple consiste à représenter des données sous forme de graphique\footnote{On pourra consulter la section \ref{app:matplotlib} pour des exemples de code pour créer les graphiques suivants.}.
+<p>Une première façon simple consiste à représenter des données sous forme de graphique.
+On pourra consulter la section \ref{app:matplotlib} pour des exemples de code pour créer les graphiques suivants.
 Faisons une représentation temporelle des données.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -599,18 +630,10 @@ ax2.plot(date_objects, hygrometries, color=&quot;C1&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Lire le fichier depuis internet (on sautera les 10 premières lignes)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff248ea7d60&gt;]
 </pre></div>
 </div>
+<img alt="../_images/caracterisation_representation_2_1.png" src="../_images/caracterisation_representation_2_1.png" />
 </div>
 </div>
 <p>Ce type de représentation permet d’étudier graphiquement les similarités de variations temporelles des quantités physiques (ici la temperature et l’humidité) et comment elles évoluent dans le temps. Une autre représentation consiste à afficher simplement chaque mesures par couple (i.e. en un instant donné) comme sur la figure suivante.</p>
@@ -654,14 +677,18 @@ mode_temp = ( bins[bin_max] + bins[bin_max+1] ) /2.
 <p>Les classes utilisées pour cet histogramme sont (en degrés Celsius): <span class="math notranslate nohighlight">\(\left[10, 12\right]\)</span>, <span class="math notranslate nohighlight">\(\left[12, 14\right]\)</span>, … and <span class="math notranslate nohighlight">\(\left[34, 36\right]\)</span>.
 Notons que chaque classe est alors définie par une borne supérieure et inférieure, ainsi qu’un centre.
 Cela permet d’estimer les propriétés de localisation et de dispersion des mesures ou bien évaluer le caractère aléatoire des données.</p>
-<p>** Moyenne et écart-types</p>
+</section>
+<section id="moyenne-et-ecart-types">
+<h2>Moyenne et écart-types<a class="headerlink" href="#moyenne-et-ecart-types" title="Permalink to this headline">#</a></h2>
 <p>Les statistiques consistent à inférer les propriétés des probabilités sous-jacentes aux mesures physiques à partir de celles-ci.
 Les représentations graphiques sont un moyen visuel de le faire.
 Cependant, il est parfois utile de définir plusieurs grandeurs permettant de caractériser la distribution des données.</p>
-<p>*** Mesure de position</p>
-<p>Une des mesures de position les plus connues est la \textbf{moyenne} de l’échantillon <span class="math notranslate nohighlight">\(\left\{x_i\right\}_{i\in \left\{1,n\right\}}\)</span>:
-$<span class="math notranslate nohighlight">\( \overline{x} = \frac{1}{n}\left( x_1+x_2+...+x_n \right) = \frac{1}{n}\sum _{i=1}^n x_i.\)</span>$
-Par exemple, on peut calculer la moyenne des températures de la semaine 38 de 2020.</p>
+<section id="mesure-de-position">
+<h3>Mesure de position<a class="headerlink" href="#mesure-de-position" title="Permalink to this headline">#</a></h3>
+<p>Une des mesures de position les plus connues est la \textbf{moyenne} de l’échantillon <span class="math notranslate nohighlight">\(\left\{x_i\right\}_{i\in \left\{1,n\right\}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \overline{x} = \frac{1}{n}\left( x_1+x_2+...+x_n \right) = \frac{1}{n}\sum _{i=1}^n x_i.\]</div>
+<p>Par exemple, on peut calculer la moyenne des températures de la semaine 38 de 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;La température moyenne vaut {:.2f} C&quot;.format(np.mean(temperatures)))
@@ -707,14 +734,18 @@ Cependant, pour un échantillon de valeurs continues comme la température, il e
 </div>
 </div>
 </div>
-<p>*** Mesure de dispersion</p>
+</section>
+<section id="mesure-de-dispersion">
+<h3>Mesure de dispersion<a class="headerlink" href="#mesure-de-dispersion" title="Permalink to this headline">#</a></h3>
 <p>Comme les mesures de position permettent de réduire la distribution en une quantité numérique, les mesures de dispersions permettent de caractériser l’étalement des données autour d’une valeur particulière : généralement on considère l’étalement autour de la valeur moyenne.</p>
-<p>La <strong>variance</strong> de l’échantillon autour de sa moyenne est définie par:
-$<span class="math notranslate nohighlight">\(var(x) = \sigma ^2 = \frac{1}{n}\sum _i (x_i - \overline{x})^2.\)</span><span class="math notranslate nohighlight">\(
-La variance est la moyenne des écarts à la moyenne.
-Effectivement, il est parfois utile de la réécrire sous la forme:
-\)</span><span class="math notranslate nohighlight">\(var(x) = = \frac{1}{n}\sum _i x_i ^2 + \frac{1}{n} \sum _i \overline{x}^2 - \frac{2}{n}\sum _i x_i \times \overline{x} = \frac{1}{n}\sum _i x_i ^2 - \frac{1}{n} \sum _i \overline{x}^2 = \overline{x^2} - \overline{x}^2.\)</span><span class="math notranslate nohighlight">\(
-La racine carrée de la variance est appelée **écart-type** et notée souvent \)</span>\sigma$.
+<p>La <strong>variance</strong> de l’échantillon autour de sa moyenne est définie par:</p>
+<div class="math notranslate nohighlight">
+\[var(x) = \sigma ^2 = \frac{1}{n}\sum _i (x_i - \overline{x})^2.\]</div>
+<p>La variance est la moyenne des écarts à la moyenne.
+Effectivement, il est parfois utile de la réécrire sous la forme:</p>
+<div class="math notranslate nohighlight">
+\[var(x) = = \frac{1}{n}\sum _i x_i ^2 + \frac{1}{n} \sum _i \overline{x}^2 - \frac{2}{n}\sum _i x_i \times \overline{x} = \frac{1}{n}\sum _i x_i ^2 - \frac{1}{n} \sum _i \overline{x}^2 = \overline{x^2} - \overline{x}^2.\]</div>
+<p>La racine carrée de la variance est appelée <strong>écart-type</strong> et notée souvent <span class="math notranslate nohighlight">\(\sigma\)</span>.
 L’écart-type caractérise la dispersion des valeurs de l’échantillon autour de la valeur moyenne et est fréquemment utilisé pour estimer une incertitude de mesure (nous y reviendrons dans le chapitre 2).
 Cette caractéristique s’applique bien à l’échantillon des températures.</p>
 <div class="cell docutils container">
@@ -750,14 +781,17 @@ La distance interquantile vaut 8.32 C
 </div>
 </div>
 </section>
+</section>
 <section id="covariance-et-correlations">
 <h2>Covariance et corrélations<a class="headerlink" href="#covariance-et-correlations" title="Permalink to this headline">#</a></h2>
-<p>La <strong>covariance</strong> est une généralisation de la variance des échantillons contenant plusieurs grandeurs pour chaque mesure (comme celle de la température et de l’humidité) et vaut pour un échantillon constitué de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> :
-$<span class="math notranslate nohighlight">\(cov(x,y) = \frac{1}{n} \sum _i (x_i - \overline{x})(y_i - \overline{y}) = \overline{xy} - \overline{x}\times\overline{y}.\)</span><span class="math notranslate nohighlight">\(
-On a bien \)</span>cov(x,x) = var(x) = \sigma _x^2<span class="math notranslate nohighlight">\( et \)</span>cov(y,y) = var(y) = \sigma _y^2$.</p>
-<p>On peut alors définir le <strong>coefficient de corrélation</strong> <span class="math notranslate nohighlight">\(\rho\)</span> tel que:
-$<span class="math notranslate nohighlight">\(\rho = \frac{cov(x,y)}{\sigma_x\sigma_y}.\)</span><span class="math notranslate nohighlight">\(
-Ce nombre compris entre -1 et 1 définit le niveau de corrélation entre les deux grandeurs \)</span>x<span class="math notranslate nohighlight">\( et \)</span>y<span class="math notranslate nohighlight">\(: un échantillon est entièrement corrélé si \)</span>\rho = 1<span class="math notranslate nohighlight">\(, entièrement décorrélé si \)</span>\rho = -1<span class="math notranslate nohighlight">\( et décorrélé si \)</span>\rho = 0$.</p>
+<p>La <strong>covariance</strong> est une généralisation de la variance des échantillons contenant plusieurs grandeurs pour chaque mesure (comme celle de la température et de l’humidité) et vaut pour un échantillon constitué de <span class="math notranslate nohighlight">\(n\)</span> couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[cov(x,y) = \frac{1}{n} \sum _i (x_i - \overline{x})(y_i - \overline{y}) = \overline{xy} - \overline{x}\times\overline{y}.\]</div>
+<p>On a bien <span class="math notranslate nohighlight">\(cov(x,x) = var(x) = \sigma _x^2\)</span> et <span class="math notranslate nohighlight">\(cov(y,y) = var(y) = \sigma _y^2\)</span>.</p>
+<p>On peut alors définir le <strong>coefficient de corrélation</strong> <span class="math notranslate nohighlight">\(\rho\)</span> tel que:</p>
+<div class="math notranslate nohighlight">
+\[\rho = \frac{cov(x,y)}{\sigma_x\sigma_y}.\]</div>
+<p>Ce nombre compris entre -1 et 1 définit le niveau de corrélation entre les deux grandeurs <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>: un échantillon est entièrement corrélé si <span class="math notranslate nohighlight">\(\rho = 1\)</span>, entièrement décorrélé si <span class="math notranslate nohighlight">\(\rho = -1\)</span> et décorrélé si <span class="math notranslate nohighlight">\(\rho = 0\)</span>.</p>
 <p>Par exemple, on peut calculer le coefficient de corrélation entre la température et l’humidité relative de la semaine 38 de 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,7 +881,7 @@ Cependant, pour un échantillon de valeurs continues comme la température, il e
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le mode vaut 27 C
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le mode des températures vaut 27 C
 </pre></div>
 </div>
 </div>
