@@ -106,14 +106,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Physique Expérimentale 2: Introduction à l’analyse de données et aux statistiques pour la physique
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="chap1.html">
@@ -240,19 +232,10 @@ title="Fullscreen mode"
   </span>
 
 </button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/guiguem/physexp2"
+<a href="https://github.com/guiguem/physexp2"
    class="headerbtn"
    data-toggle="tooltip"
-data-placement="left"
+data-placement="bottom"
 title="Source repository"
 >
   
@@ -260,31 +243,8 @@ title="Source repository"
 <span class="headerbtn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+
 </a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/guiguem/physexp2/issues/new?title=Issue%20on%20page%20%2Fchap1/caracterisation_representation.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -590,47 +550,47 @@ On pourra consulter la section \ref{app:matplotlib} pour des exemples de code po
 Faisons une représentation temporelle des données.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt # importer matplotlib
-import matplotlib.dates as mdates
-from datetime import datetime
-import pandas as pd
-import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-# Lire le fichier depuis internet (on sautera les 10 premières lignes)
-url=&#39;https://github.com/guiguem/physexp2/releases/download/v1/meteo.csv&#39;
-df =  pd.read_csv(url, header=10)
-# Extraction des dates des mesures
-dates = df[df.columns[0]].to_list()
-date_objects = [datetime.strptime(date, &#39;%Y%m%dT%H%M&#39;) for date in dates]
-# Extraction des valeurs de températeurs, d&#39;hygrométrie et de pression (on utilise `pd.to_numeric` pour convertir en valeurs numériques)
-temperatures = pd.to_numeric(df[df.columns[1]]).to_list()
-hygrometries = pd.to_numeric(df[df.columns[2]]).to_list()
-pressures = pd.to_numeric(df[df.columns[3]]).to_list()
+<span class="c1"># Lire le fichier depuis internet (on sautera les 10 premières lignes)</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://github.com/guiguem/physexp2/releases/download/v1/meteo.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Extraction des dates des mesures</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">date_objects</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">T%H%M&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]</span>
+<span class="c1"># Extraction des valeurs de températeurs, d&#39;hygrométrie et de pression (on utilise `pd.to_numeric` pour convertir en valeurs numériques)</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">hygrometries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">pressures</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 
-# On prépare la figure
-fig, ax = plt.subplots()
-plt.xticks(rotation=70)
-ax.xaxis.set_major_formatter(mdates.DateFormatter(&quot;%d%m&quot;))
-ax.xaxis.set_minor_formatter(mdates.DateFormatter(&quot;%d%m&quot;))
-ax.tick_params(axis=&#39;y&#39;, labelcolor=&quot;C0&quot;) # plot de y1 vs x
-ax.set_ylabel(&quot;Température [C]&quot;, color=&quot;C0&quot;)
-ax.set_xlabel(&quot;Dates&quot;, color=&quot;black&quot;)
-# On affiche les données sur ce deuxième axe
-ax.plot(date_objects,temperatures,&quot;-&quot;, color=&quot;C0&quot;)
+<span class="c1"># On prépare la figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">%m&quot;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">%m&quot;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Température [C]&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Dates&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="c1"># On affiche les données sur ce deuxième axe</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date_objects</span><span class="p">,</span><span class="n">temperatures</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
 
-# On créé un second axe pour l&#39;humidité
-ax2 = ax.twinx()
-ax2.xaxis.set_major_formatter(mdates.DateFormatter(&quot;%d-%m&quot;))
-ax2.xaxis.set_minor_formatter(mdates.DateFormatter(&quot;%d-%m&quot;))
-ax2.tick_params(axis=&#39;y&#39;, labelcolor=&quot;C1&quot;)
-ax2.set_ylabel(&#39;Humidité relative [%]&#39;, color=&quot;C1&quot;)
-# On affiche les données sur ce deuxième axe
-ax2.plot(date_objects, hygrometries, color=&quot;C1&quot;)
+<span class="c1"># On créé un second axe pour l&#39;humidité</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m&quot;</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m&quot;</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Humidité relative [%]&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+<span class="c1"># On affiche les données sur ce deuxième axe</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date_objects</span><span class="p">,</span> <span class="n">hygrometries</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f060938d0d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fd7d659b370&gt;]
 </pre></div>
 </div>
 <img alt="../_images/caracterisation_representation_2_1.png" src="../_images/caracterisation_representation_2_1.png" />
@@ -639,11 +599,11 @@ ax2.plot(date_objects, hygrometries, color=&quot;C1&quot;)
 <p>Ce type de représentation permet d’étudier graphiquement les similarités de variations temporelles des quantités physiques (ici la temperature et l’humidité) et comment elles évoluent dans le temps. Une autre représentation consiste à afficher simplement chaque mesures par couple (i.e. en un instant donné) comme sur la figure suivante.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots()
-color = &#39;tab:blue&#39;
-ax.plot(hygrometries,temperatures,&quot;x&quot;)
-ax.set_ylabel(&quot;Température [C]&quot;)  # we already handled the x-label with ax1
-ax.set_xlabel(&quot;Humidité relative [%]&quot;)  # we already handled the x-label with ax1
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hygrometries</span><span class="p">,</span><span class="n">temperatures</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Température [C]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Humidité relative [%]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
 </pre></div>
 </div>
 </div>
@@ -661,12 +621,12 @@ Par exemple, si l’on s’intéresse à la température, on peut créer des int
 Si on représente la quantité de mesures dans chaque intervalle, on obtient la figure \ref{fig:histo_temp}.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots()
-bins_list = [10+2*i for i in range(0,14)]
-n, bins, patches = plt.hist(temperatures, bins = bins_list, alpha=0.75)
-ax.set_xlabel(&quot;Température [C]&quot;)  # we already handled the x-label with ax1
-bin_max = int(np.where(n == n.max())[0])
-mode_temp = ( bins[bin_max] + bins[bin_max+1] ) /2.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">bins_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">)]</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins_list</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Température [C]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+<span class="n">bin_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="n">n</span><span class="o">.</span><span class="n">max</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">mode_temp</span> <span class="o">=</span> <span class="p">(</span> <span class="n">bins</span><span class="p">[</span><span class="n">bin_max</span><span class="p">]</span> <span class="o">+</span> <span class="n">bins</span><span class="p">[</span><span class="n">bin_max</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span><span class="mf">2.</span>
 </pre></div>
 </div>
 </div>
@@ -691,7 +651,7 @@ Cependant, il est parfois utile de définir plusieurs grandeurs permettant de ca
 <p>Par exemple, on peut calculer la moyenne des températures de la semaine 38 de 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;La température moyenne vaut {:.2f} C&quot;.format(np.mean(temperatures)))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température moyenne vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -707,7 +667,7 @@ En revanche, si la taille est paire, la médiane correspond à la moyenne arithm
 Calculons la médiane dans le cas de nos températures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;La température médiane vaut {:.2f} C&quot;.format(np.median(temperatures)))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température médiane vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -724,7 +684,7 @@ Cette valeur naturellement n’existe que pour des valeurs discrètes (comme pou
 Cependant, pour un échantillon de valeurs continues comme la température, il est possible de l’extraire en définissant d’abord un histogramme, puis en prenant la valeur du centre de la classe qui contient le plus d’élément.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;Le mode des températures vaut {:.0f} C&quot;.format(mode_temp))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le mode des températures vaut </span><span class="si">{:.0f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode_temp</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -750,7 +710,7 @@ L’écart-type caractérise la dispersion des valeurs de l’échantillon autou
 Cette caractéristique s’applique bien à l’échantillon des températures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;L&#39;écart-type vaut {:.2f} C&quot;.format(np.std(temperatures)))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;écart-type vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -765,10 +725,10 @@ On a donc un quart des données plus petites que <span class="math notranslate n
 On eput donc calculer les quantiles comme ci-dessous.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>quantiles = np.quantile(temperatures, [0.25, 0.75])
-print(&quot;Le premier quantile est à {:.2f} C&quot;.format(quantiles[0]))
-print(&quot;Le troisième quantile est à {:.2f} C&quot;.format(quantiles[1]))
-print(&quot;La distance interquantile vaut {:.2f} C&quot;.format(quantiles[1] - quantiles[0]))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le premier quantile est à </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le troisième quantile est à </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La distance interquantile vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -795,8 +755,8 @@ La distance interquantile vaut 8.32 C
 <p>Par exemple, on peut calculer le coefficient de corrélation entre la température et l’humidité relative de la semaine 38 de 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>corr = np.corrcoef(temperatures, hygrometries)[0][1]
-print(&quot;Le coefficient de corrélation entre la température et l&#39;humidité vaut {:.2f}&quot;.format(corr))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">hygrometries</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le coefficient de corrélation entre la température et l&#39;humidité vaut </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -817,12 +777,12 @@ Par exemple, si l’on s’intéresse à la température, on peut créer des int
 Si on représente la quantité de mesures dans chaque intervalle, on obtient la figure \ref{fig:histo_temp}.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots()
-bins_list = [10+2*i for i in range(0,14)]
-n, bins, patches = plt.hist(temperatures, bins = bins_list, alpha=0.75)
-ax.set_xlabel(&quot;Température [C]&quot;)  # we already handled the x-label with ax1
-bin_max = int(np.where(n == n.max())[0])
-mode_temp = ( bins[bin_max] + bins[bin_max+1] ) /2.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">bins_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">)]</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins_list</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Température [C]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+<span class="n">bin_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="n">n</span><span class="o">.</span><span class="n">max</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">mode_temp</span> <span class="o">=</span> <span class="p">(</span> <span class="n">bins</span><span class="p">[</span><span class="n">bin_max</span><span class="p">]</span> <span class="o">+</span> <span class="n">bins</span><span class="p">[</span><span class="n">bin_max</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span><span class="mf">2.</span>
 </pre></div>
 </div>
 </div>
@@ -843,7 +803,7 @@ $<span class="math notranslate nohighlight">\( \overline{x} = \frac{1}{n}\left( 
 Par exemple, on peut calculer la moyenne des températures de la semaine 38 de 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;La température moyenne vaut {:.2f} C&quot;.format(np.mean(temperatures)))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température moyenne vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -859,7 +819,7 @@ En revanche, si la taille est paire, la médiane correspond à la moyenne arithm
 Calculons la médiane dans le cas de nos températures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;La température médiane vaut {:.2f} C&quot;.format(np.median(temperatures)))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température médiane vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -876,7 +836,7 @@ Cette valeur naturellement n’existe que pour des valeurs discrètes (comme pou
 Cependant, pour un échantillon de valeurs continues comme la température, il est possible de l’extraire en définissant d’abord un histogramme, puis en prenant la valeur du centre de la classe qui contient le plus d’élément.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;Le mode des températures vaut {:.0f} C&quot;.format(mode_temp))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le mode des températures vaut </span><span class="si">{:.0f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode_temp</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -898,7 +858,7 @@ L’écart-type caractérise la dispersion des valeurs de l’échantillon autou
 Cette caractéristique s’applique bien à l’échantillon des températures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;L&#39;écart-type vaut {:.2f} C&quot;.format(np.std(temperatures)))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;écart-type vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -913,10 +873,10 @@ On a donc un quart des données plus petites que <span class="math notranslate n
 On eput donc calculer les quantiles comme ci-dessous.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>quantiles = np.quantile(temperatures, [0.25, 0.75])
-print(&quot;Le premier quantile est à {:.2f} C&quot;.format(quantiles[0]))
-print(&quot;Le troisième quantile est à {:.2f} C&quot;.format(quantiles[1]))
-print(&quot;La distance interquantile vaut {:.2f} C&quot;.format(quantiles[1] - quantiles[0]))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le premier quantile est à </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le troisième quantile est à </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La distance interquantile vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -940,8 +900,8 @@ Ce nombre compris entre -1 et 1 définit le niveau de corrélation entre les deu
 <p>Par exemple, on peut calculer le coefficient de corrélation entre la température et l’humidité relative de la semaine 38 de 2020.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>corr = np.corrcoef(temperatures, hygrometries)[0][1]
-print(&quot;Le coefficient de corrélation entre la température et l&#39;humidité vaut {:.2f}&quot;.format(corr))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">hygrometries</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le coefficient de corrélation entre la température et l&#39;humidité vaut </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
