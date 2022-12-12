@@ -5,3 +5,4 @@ ghp-import
 pandas
 pygments == 2.6.1
 ipython!=8.7.0
+scipy
