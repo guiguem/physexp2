@@ -532,15 +532,15 @@ Le tableau ci-dessous montre une partie des données météorologiques relevée 
 </tr>
 </tbody>
 </table>
-<p>Utiliser seulement des tables de données brutes pour extraire des comportements globaux (comme l’évolution de la pression durant la journée) est souvent très difficile ; il est alors utile de trouver des représentations des données brutes plus visuelles ou bien permettant de réduire la complexité en quelques nombres-clés.</p>
+<p>Utilisé seulement des tables de données brutes pour extraire des comportements globaux (comme l’évolution de la pression durant la journée) est souvent très difficiles; il est alors utile de trouver des représentations des données brutes plus visuelles ou bien permettant de réduire la complexité en quelques nombres-clés.</p>
 <section id="representation-graphique">
 <h2>Représentation graphique<a class="headerlink" href="#representation-graphique" title="Permalink to this headline">#</a></h2>
 <p>Une première façon simple consiste à représenter des données sous forme de graphique.
 On pourra consulter la section \ref{app:matplotlib} pour des exemples de code pour créer les graphiques suivants.
 Faisons une représentation temporelle des données.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -580,16 +580,16 @@ Faisons une représentation temporelle des données.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x154df0f10&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f79352c73a0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/caracterisation_representation_2_1.png" src="../_images/caracterisation_representation_2_1.png" />
 </div>
 </div>
 <p>Ce type de représentation permet d’étudier graphiquement les similarités de variations temporelles des quantités physiques (ici la temperature et l’humidité) et comment elles évoluent dans le temps. Une autre représentation consiste à afficher simplement chaque mesures par couple (i.e. en un instant donné) comme sur la figure suivante.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hygrometries</span><span class="p">,</span><span class="n">temperatures</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Température [C]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
@@ -609,9 +609,9 @@ Faisons une représentation temporelle des données.</p>
 Pour construire un histogramme, on se donne une liste d’intervalles ou <strong>classes</strong> (en anglais, on parle souvent de <strong>bin</strong>.) couvrant toutes les valeurs mesurées et on va compter le nombre de fois que les valeurs issues de la mesure tombe dans un de ces intervalles.
 Par exemple, si l’on s’intéresse à la température, on peut créer des intervalles de largeur <span class="math notranslate nohighlight">\(2^{\circ}\mathrm{C}\)</span> et ranger chaque valeur dans ces intervalles.
 Si on représente la quantité de mesures dans chaque intervalle, on obtient la figure \ref{fig:histo_temp}.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">bins_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">)]</span>
 <span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins_list</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Température [C]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
@@ -635,13 +635,13 @@ Les représentations graphiques sont un moyen visuel de le faire.
 Cependant, il est parfois utile de définir plusieurs grandeurs permettant de caractériser la distribution des données.</p>
 <section id="mesure-de-position">
 <h3>Mesure de position<a class="headerlink" href="#mesure-de-position" title="Permalink to this headline">#</a></h3>
-<p>Une des mesures de position les plus connues est la <strong>moyenne</strong> de l’échantillon <span class="math notranslate nohighlight">\(\left\{x_i\right\}_{i\in \left\{1,n\right\}}\)</span>:</p>
+<p>Une des mesures de position les plus connues est la \textbf{moyenne} de l’échantillon <span class="math notranslate nohighlight">\(\left\{x_i\right\}_{i\in \left\{1,n\right\}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \overline{x} = \frac{1}{n}\left( x_1+x_2+...+x_n \right) = \frac{1}{n}\sum _{i=1}^n x_i.\]</div>
 <p>Par exemple, on peut calculer la moyenne des températures de la semaine 38 de 2020.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température moyenne vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température moyenne vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -655,9 +655,9 @@ Cependant, il est parfois utile de définir plusieurs grandeurs permettant de ca
 Si la taille de l’échantillon est impaire, alors la médiane est forcément égale à un des éléments de l’échantillon : par exemple, pour l’échantillon <span class="math notranslate nohighlight">\(\left[ 1, 3, 5, 7, 9 \right]\)</span>, la médiane est <span class="math notranslate nohighlight">\(5\)</span>.
 En revanche, si la taille est paire, la médiane correspond à la moyenne arithmétique de deux éléments: par exemple, pour l’échantillon <span class="math notranslate nohighlight">\(\left[ 1, 3, 5, 7 \right]\)</span>, la médiane est <span class="math notranslate nohighlight">\(\frac{1}{2}\left( 3+5\right) = 4\)</span>.
 Calculons la médiane dans le cas de nos températures.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température médiane vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La température médiane vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -672,9 +672,9 @@ Cette similarité est due à la distribution assez symétrique des données auto
 <p>Enfin, le <strong>mode</strong> correspond à la valeur qui a été obtenue le plus de fois.
 Cette valeur naturellement n’existe que pour des valeurs discrètes (comme pour un lancer de dé): par exemple, dans l’échantillon <span class="math notranslate nohighlight">\(\left\{1, 2, 1, 3, 1, 5, 2\right\}\)</span>, le mode est <span class="math notranslate nohighlight">\(1\)</span>.
 Cependant, pour un échantillon de valeurs continues comme la température, il est possible de l’extraire en définissant d’abord un histogramme, puis en prenant la valeur du centre de la classe qui contient le plus d’élément.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le mode des températures vaut </span><span class="si">{:.0f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode_temp</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le mode des températures vaut </span><span class="si">{:.0f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode_temp</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -698,9 +698,9 @@ Effectivement, il est parfois utile de la réécrire sous la forme:</p>
 <p>La racine carrée de la variance est appelée <strong>écart-type</strong> et notée souvent <span class="math notranslate nohighlight">\(\sigma\)</span>.
 L’écart-type caractérise la dispersion des valeurs de l’échantillon autour de la valeur moyenne et est fréquemment utilisé pour estimer une incertitude de mesure (nous y reviendrons dans le chapitre 2).
 Cette caractéristique s’applique bien à l’échantillon des températures.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;écart-type vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;écart-type vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -713,9 +713,9 @@ Cette caractéristique s’applique bien à l’échantillon des températures.<
 <p>On peut aussi définir l’<strong>espace interquantile</strong> qui généralise la notion de médiane : les premier et troisième quantiles <span class="math notranslate nohighlight">\(q_1\)</span> et <span class="math notranslate nohighlight">\(q_3\)</span> définissent les valeurs qui définissent respectivement les premier et troisième quarts de l’échantillon ordonné.
 On a donc un quart des données plus petites que <span class="math notranslate nohighlight">\(q_1\)</span>, la moitié entre <span class="math notranslate nohighlight">\(q_1\)</span> et <span class="math notranslate nohighlight">\(q_3\)</span> et un dernier quart plus grandes que <span class="math notranslate nohighlight">\(q_3\)</span>: on définit donc <span class="math notranslate nohighlight">\(\delta q = q_3 - q_1\)</span> la distance interquantile: il s’agit bien d’une mesure de la dispersion des données (autour de la médiane cette fois-ci).
 On eput donc calculer les quantiles comme ci-dessous.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le premier quantile est à </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le troisième quantile est à </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La distance interquantile vaut </span><span class="si">{:.2f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quantiles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">quantiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
@@ -743,9 +743,9 @@ La distance interquantile vaut 8.32 C
 \[\rho = \frac{cov(x,y)}{\sigma_x\sigma_y}.\]</div>
 <p>Ce nombre compris entre -1 et 1 définit le niveau de corrélation entre les deux grandeurs <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(y\)</span>: un échantillon est entièrement corrélé si <span class="math notranslate nohighlight">\(\rho = 1\)</span>, entièrement décorrélé si <span class="math notranslate nohighlight">\(\rho = -1\)</span> et décorrélé si <span class="math notranslate nohighlight">\(\rho = 0\)</span>.</p>
 <p>Par exemple, on peut calculer le coefficient de corrélation entre la température et l’humidité relative de la semaine 38 de 2020.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">hygrometries</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">hygrometries</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le coefficient de corrélation entre la température et l&#39;humidité vaut </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">))</span>
 </pre></div>
 </div>
