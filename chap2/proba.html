@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Probabilité &#8212; physexp2</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Loi de probabilité usuelles" href="loi-proba.html" />
+    <link rel="prev" title="Lois de probabilités et mesures expérimentales" href="chap2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">physexp2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap1/chap1.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/stats.html">
+     La place des statistiques en physique expérimentale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/population.html">
+     Population, probabilité et échantillon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/ensemble.html">
+     Définition ensembliste et propriétés des probabilités
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/caracterisation_representation.html">
+     Représentation et caractérisation des échantillons de données
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="chap2.html">
+   Lois de probabilités et mesures expérimentales
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Probabilité
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="loi-proba.html">
+     Loi de probabilité usuelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="erreur.html">
+     Notion d’erreur sur une mesure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap3/chap3.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/guiguem/physexp2/main?urlpath=tree/docs/chap2/proba.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/guiguem/physexp2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chap2/proba.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-aleatoires">
+   Variables aléatoires
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite-de-variables-discretes">
+   Probabilité de variables discrètes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite-de-variables-continues">
+   Probabilité de variables continues
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changement-de-variables-aleatoires">
+   Changement de variables aléatoires
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generation-de-loi-de-probabilite">
+   Génération de loi de probabilité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mesures-de-formes">
+   Mesures de formes
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Probabilité</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-aleatoires">
+   Variables aléatoires
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite-de-variables-discretes">
+   Probabilité de variables discrètes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilite-de-variables-continues">
+   Probabilité de variables continues
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changement-de-variables-aleatoires">
+   Changement de variables aléatoires
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generation-de-loi-de-probabilite">
+   Génération de loi de probabilité
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mesures-de-formes">
+   Mesures de formes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="probabilite">
+<h1>Probabilité<a class="headerlink" href="#probabilite" title="Permalink to this headline">#</a></h1>
+<p>Dans le chapitre précédent, nous avons défini les probabilités en termes de fréquences d’apparition d’un résultat d’une expérience aléatoire.
+Cette approche s’applique particulièrement bien aux résultats d’expérience <strong>dénombrables</strong>.
+Pour des résultats d’expérience appartenant à des ensembles <strong>indénombrables</strong>, comme le tirage aléatoire d’un nombre entre 0 et 1, il devient difficile d’obtenir une définition consistante : c’est pourquoi nous avons utilisé la notion de probabilité ensembliste.</p>
+<p>Cependant l’utilisation d’ensembles pour décrire les résultats reste assez abstrait.
+La notion de <strong>variables aléatoires</strong> permet de formaliser l’idée d’une quantité dépendant du résultat d’une expérience aléatoire.
+On peut notamment définir la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> comme étant le résultat d’un tirage de dé : à partir de cette variable, on peut définir l’évènement <span class="math notranslate nohighlight">\(A\)</span> pour lequel le résultat du dé est impair (<span class="math notranslate nohighlight">\(X \in \left\{ 1, 3, 5 \right\}\)</span>).
+Nous n’aborderons ici que des concepts basiques des variables aléatoires, utiles en physique.</p>
+<p>Finalement en sciences expérimentales, le résultat de mesures correspond à la réalisation de variables aléatoires, dont les propriétés des distributions permettent de déduire des informations sur les propriétés des probabilités sous-jacentes.</p>
+<section id="variables-aleatoires">
+<h2>Variables aléatoires<a class="headerlink" href="#variables-aleatoires" title="Permalink to this headline">#</a></h2>
+<p>On distingue:</p>
+<ul class="simple">
+<li><p>les <strong>variables aléatoires discrètes</strong>, pour lesquelles l’univers est fini ou dénombrable,</p></li>
+<li><p>les <strong>variables aléatoires continues</strong>, lorsque l’univers est indénombrable.</p></li>
+</ul>
+<p>On distinguera par la notation les variables aléatoires des réalisations de cette variable aléatoire : on notera <span class="math notranslate nohighlight">\(x\)</span> la réalisation de la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span>.
+On pourra alors s’intéresser aux évènements <span class="math notranslate nohighlight">\(X=x\)</span>, <span class="math notranslate nohighlight">\(X&lt;x\)</span>, …</p>
+</section>
+<section id="probabilite-de-variables-discretes">
+<h2>Probabilité de variables discrètes<a class="headerlink" href="#probabilite-de-variables-discretes" title="Permalink to this headline">#</a></h2>
+<p>Donnons-nous quelques examples de variables aléatoires discrètes:</p>
+<ul class="simple">
+<li><p>Le tirage d’un dé à 6 faces peut être associé à une variable aléatoire discrète dont les résultats peuvent être <span class="math notranslate nohighlight">\(\left\{1, ..., 6\right\}\)</span>.</p></li>
+<li><p>Le nombre d’oeufs pondus par une poule chaque jour est une variable aléatoire discrète dont les résultats appartiennent à <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>.</p></li>
+</ul>
+<p>Généralement, les variables aléatoires discrètes <span class="math notranslate nohighlight">\(N\)</span> sont définies sur un ensemble <span class="math notranslate nohighlight">\(\Omega = \left\{n_i\right\}_{i=1...\infty}\)</span>.
+On peut alors définir la probabilité <span class="math notranslate nohighlight">\(p\)</span> comme</p>
+<div class="math notranslate nohighlight">
+\[    p(n) = P(N=n). \]</div>
+<p>L’axiome \eqref{eq:axiome-2} donne que la somme de toutes les probabilités de chaque valeur <span class="math notranslate nohighlight">\(n_i\)</span> vaut 1:</p>
+<div class="math notranslate nohighlight">
+\[    \sum _{i=1}^{\infty} p(n_i) = 1. \]</div>
+<p>On peut ordonner les nombres dans l’ensemble <span class="math notranslate nohighlight">\(\Omega\)</span>: <span class="math notranslate nohighlight">\(n_1 &lt; n_2 &lt; n_3 &lt; ...\)</span>.
+Dans ce cas, on peut définir l’évènement <span class="math notranslate nohighlight">\(N&lt;n\)</span> pour lequel le résultat de la variable aléatoire <span class="math notranslate nohighlight">\(N\)</span> est plus petit (strictement) que <span class="math notranslate nohighlight">\(n\)</span>: sa probabilité vaut alors</p>
+<div class="math notranslate nohighlight">
+\[ F(n) = P(N&lt;n) = \sum _{n_i &lt; n} p(n_i). \]</div>
+<p>Cette probabilité <span class="math notranslate nohighlight">\(F(n)\)</span> de la variable <span class="math notranslate nohighlight">\(N\)</span> est appelée <strong>fonction de répartition</strong>.
+On peut ainsi démontrer que :</p>
+<div class="math notranslate nohighlight">
+\[  \lim _{n\rightarrow -\infty} F(n) = P(\emptyset) = 0 \]</div>
+<div class="math notranslate nohighlight">
+\[  \lim _{n\rightarrow \infty} F(n) = P(\Omega) = 1 \]</div>
+</section>
+<section id="probabilite-de-variables-continues">
+<h2>Probabilité de variables continues<a class="headerlink" href="#probabilite-de-variables-continues" title="Permalink to this headline">#</a></h2>
+<p>Deux examples de variables aléatoires continues :</p>
+<ul class="simple">
+<li><p>Une position choisie au hasard le long d’une règle de <span class="math notranslate nohighlight">\(10~\mathrm{cm}\)</span> est une variable aléatoire dont les résultats appartiennent à <span class="math notranslate nohighlight">\(\left[0, 10\right]\)</span> (exprimé en <span class="math notranslate nohighlight">\(\mathrm{cm}\)</span>)</p></li>
+<li><p>Le temps entre deux rames de métro est une variable aléatoire continue dont les résultats appartiennent à <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.</p></li>
+</ul>
+<p>Dans le cas d’une variable, la probabilité d’obtenir une valeur donnée est strictement nulle (i.e. <span class="math notranslate nohighlight">\(P(X=x) = 0\)</span>)\footnote{Cette propriété fondamentale provient de la théorie de la mesure dont laquelle la généralisation des probabilités pour les variables continues découle.}.
+C’est pourquoi que l’on définit les probabilités sur des ensembles de “taille” non nulle, par exemple l’ensemble <span class="math notranslate nohighlight">\([a,b]\)</span> ou <span class="math notranslate nohighlight">\([-\infty, a]\)</span>.
+On peut notamment définir la probabilité pour que le résultat <span class="math notranslate nohighlight">\(X\)</span> soit plus faible que <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[    P(X&lt;x) = F(x).\]</div>
+<p>Comme pour les variables aléatoires discrètes, cette fonction <span class="math notranslate nohighlight">\(F\)</span> est appelée <strong>fonction de répartition</strong> (ou <strong>fonction cumulative</strong>) et permet de définir la <strong>densité de probabilité</strong> ou <strong>pdf</strong> <span class="math notranslate nohighlight">\(f(x)\)</span> telle que:</p>
+<div class="math notranslate nohighlight">
+\[    f(x) = \frac{\mathrm{d}F(x)}{\mathrm{d}x}. \]</div>
+<p>La figure ci-dessous montre un exemple de pdf et de la fonction de répartition associée.</p>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erf</span>
+
+<span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.1415</span><span class="p">)</span><span class="o">*</span><span class="n">sig</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)))</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="p">]</span>  <span class="c1"># liste d&#39;abscisses de la figure</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="n">gaussian</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x1</span><span class="p">]</span> <span class="c1"># calcul de y1 = f(x)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># liste d&#39;abscisses de la figure</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="o">+</span><span class="n">erf</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">/</span><span class="mf">2.</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x2</span><span class="p">]</span>  <span class="c1"># calcul de y = f(x)</span>
+
+<span class="c1"># creation d&#39;un plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;pdf(x)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;F(x)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe x</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/proba_1_0.png" src="../_images/proba_1_0.png" />
+</div>
+</div>
+<p>On peut alors définir la probabilité de trouver le résultat de <span class="math notranslate nohighlight">\(X\)</span> dans un intervalle infinitésimal <span class="math notranslate nohighlight">\(\mathrm{d}x\)</span> autour de <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[    f(x)\mathrm{d}x = P(X&lt; x+\mathrm{d}x) - P(X&lt;x) = P(x&lt;X&lt;x+\mathrm{d}x)\]</div>
+<p>Pour les variables aléatoires continues, on dira souvent que “<em>la variable <span class="math notranslate nohighlight">\(X\)</span> est distribuée selon la fonction densité de probabilité <span class="math notranslate nohighlight">\(f(x)\)</span></em>”.</p>
+<p>Cette définition remplace donc celle de la probabilité que nous avons définie pour les variables discrètes \eqref{eq:proba-discrete}.
+Les propriétés que nous avons dérivées peuvent être écrites pour les variables aléatoires continues.
+Si on se donne une pdf <span class="math notranslate nohighlight">\(f(x)\)</span> définie sur <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> et <span class="math notranslate nohighlight">\(\left[a,b\right]\)</span>  un intervalle de <span class="math notranslate nohighlight">\(\mathrm{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[    P(a &lt; X &lt; b) = \int _a ^b f(x)\mathrm{d}x = F(b) - F(a), \]</div>
+<div class="math notranslate nohighlight">
+\[    P(\emptyset) = \int _a ^a f(x)\mathrm{d}x = 0, \]</div>
+<div class="math notranslate nohighlight">
+\[    P(\Omega) = \int _{-\infty} ^{\infty} f(x)\mathrm{d}x = 1. \]</div>
+</section>
+<section id="changement-de-variables-aleatoires">
+<h2>Changement de variables aléatoires<a class="headerlink" href="#changement-de-variables-aleatoires" title="Permalink to this headline">#</a></h2>
+<p>Pour une variable <span class="math notranslate nohighlight">\(X\)</span> dont la pdf <span class="math notranslate nohighlight">\(f(x)\)</span> est connue, il est possible de déterminer la pdf <span class="math notranslate nohighlight">\(g(y)\)</span> d’une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span> fonction de <span class="math notranslate nohighlight">\(X\)</span>: <span class="math notranslate nohighlight">\(Y = \phi(X)\)</span>.
+En effet, si <span class="math notranslate nohighlight">\(\phi\)</span> est une fonction réelle dérivable et bijective, on peut démontrer que:</p>
+<div class="math notranslate nohighlight" id="equation-eq-chgt-variable">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-chgt-variable" title="Permalink to this equation">#</a></span>\[
+g(y) = \frac{f(x)}{\vert \phi ' (x)\vert} = \frac{f(\phi ^{-1}(y))}{\vert \phi ' (\phi ^{-1}(y)) \vert }.
+\]</div>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>On se donne une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> suivant une loi exponentielle: <span class="math notranslate nohighlight">\(f(x) = \exp (-x)\)</span> sur <span class="math notranslate nohighlight">\(\left[0, \infty \right]\)</span>.
+Que vaut la distribution <span class="math notranslate nohighlight">\(g\)</span> de la variable <span class="math notranslate nohighlight">\(Y = \sqrt{X}\)</span>?
+En utilisant l’équation <a class="reference internal" href="#equation-eq-chgt-variable">(1)</a>, on trouve:</p>
+<div class="math notranslate nohighlight">
+\[
+g(y) = \frac{f(x)}{\vert \frac{1}{2\sqrt{x}} \vert} = 2y\exp (-y^2).
+\]</div>
+<p>La figure ci-dessous représente les pdf <span class="math notranslate nohighlight">\(f(x)\)</span> et <span class="math notranslate nohighlight">\(g(y)\)</span>.</p>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.02</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">260</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># liste d&#39;abscisses de la figure</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>      <span class="c1"># calcul de y = f(x)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">val</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">val</span><span class="o">*</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span> <span class="c1"># calcul de y = f(x)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>         <span class="c1"># creation d&#39;un plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;f(x)&quot;</span><span class="p">)</span>   <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;g(y)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x ou y&#39;</span><span class="p">)</span>          <span class="c1"># titre de l&#39;axe x</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>                <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/proba_4_0.png" src="../_images/proba_4_0.png" />
+</div>
+</div>
+<p>Si la fonction <span class="math notranslate nohighlight">\(\phi (y)\)</span> n’est pas bijective mais se comporte bien, il est généralement possible de découper l’espace de définition de <span class="math notranslate nohighlight">\(\phi\)</span> en <span class="math notranslate nohighlight">\(n\)</span> intervalles sur lesquels <span class="math notranslate nohighlight">\(\phi\)</span> est bijective.
+On définira des fonctions <span class="math notranslate nohighlight">\(\phi _i\)</span> sur ces intervalles et alors:</p>
+<div class="math notranslate nohighlight">
+\[
+g(y) = \sum _i \frac{f(x)}{\vert \phi_i ' (x)\vert} = \sum _i \frac{f(\phi ^{-1}(y))}{\vert \phi_i ' (\phi_i ^{-1}(y)) \vert }.
+\]</div>
+</section>
+<section id="generation-de-loi-de-probabilite">
+<h2>Génération de loi de probabilité<a class="headerlink" href="#generation-de-loi-de-probabilite" title="Permalink to this headline">#</a></h2>
+<p>Une application intéressante du changement de variable est la génération de loi de probabilité à partir d’autres lois plus simples à générer.
+Supposons que nous pouvons générer facilement la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> de densité de probabilité <span class="math notranslate nohighlight">\(f(x)\)</span> uniforme sur <span class="math notranslate nohighlight">\([0,1]\)</span> (i.e. <span class="math notranslate nohighlight">\(f(x)=1\)</span> sur <span class="math notranslate nohighlight">\([0,1]\)</span> et <span class="math notranslate nohighlight">\(f(x)=0\)</span> ailleurs).
+On souhaite générer une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span> suivant la loi <span class="math notranslate nohighlight">\(g(y)\)</span> fixée; il  faut donc déterminer le changement de variable <span class="math notranslate nohighlight">\(Y = \phi(X)\)</span> approprié.
+En utilisant l’équation \eqref{eq:chgt-variable} de la section \ref{sec:chgt-variable} et la définition de la pdf \eqref{eq:def-pdf}, on en déduit que:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9d61194b-c490-4fe5-b8f9-7c491c56fbc0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-9d61194b-c490-4fe5-b8f9-7c491c56fbc0" title="Permalink to this equation">#</a></span>\[\begin{equation}\label{eq:generation-loi}
+    g(y) = \frac{1}{\vert \phi ' (x) \vert } \Rightarrow \frac{\mathrm{d}G}{\mathrm{d}y}\frac{\mathrm{d}\phi}{\mathrm{d}x} = 1.
+\end{equation}\]</div>
+<p>On peut démontrer que la fonction <span class="math notranslate nohighlight">\(\phi (x) = G^{-1}(x)\)</span> est une solution de l’équation précédente.
+En effet, si <span class="math notranslate nohighlight">\(G\)</span> est une fonction strictement croissante, elle est bijective; alors:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1bf133ac-0c03-4b85-8ac0-646edff94a59">
+<span class="eqno">(3)<a class="headerlink" href="#equation-1bf133ac-0c03-4b85-8ac0-646edff94a59" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    1 = \frac{\mathrm{d}x}{\mathrm{d}x} = \frac{\mathrm{d}\phi^-1 (y)}{\mathrm{d}x} = \frac{\mathrm{d}G (y)}{\mathrm{d}y} \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}G (y)}{\mathrm{d}y} \frac{\mathrm{d}\phi(x)}{\mathrm{d}x},
+\end{equation}\]</div>
+<p>ce qui correspond à l’équation \eqref{eq:generation-loi}.</p>
+<p>Ainsi, si on dispose de mesures distribuées <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> uniformément entre <span class="math notranslate nohighlight">\([0,1]\)</span>, l’échantillon <span class="math notranslate nohighlight">\(\left\{y_i = G^{-1}(x_i)\right\}\)</span> sera distribué selon la pdf <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>On souhaite générer aléatoirement des nombres selon la distribution <span class="math notranslate nohighlight">\(f(x) = 3x^2\)</span> sur l’intervalle <span class="math notranslate nohighlight">\(\left[0,1\right]\)</span> à partir d’une loi uniforme (générée par exemple à partir de la fonction <code class="docutils literal notranslate"><span class="pre">numpy.random.rand()</span></code>).</p>
+<p>On commence par vérifier que la pdf <span class="math notranslate nohighlight">\(f\)</span> est bien normalisée:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-941bbb03-e571-433c-babf-ae72e3979eac">
+<span class="eqno">(4)<a class="headerlink" href="#equation-941bbb03-e571-433c-babf-ae72e3979eac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \int _0 ^{1} 3x^2 \mathrm{d}x = 3 \left[ \frac{1}{3}x^3 \right] _0 ^1 = 1-0 = 1.
+\end{equation}\]</div>
+<p>La fonction cumulative <span class="math notranslate nohighlight">\(F\)</span> est <span class="math notranslate nohighlight">\(F(x) = \int _0 ^x 3x'^2\mathrm{d}x' = x^3\)</span> et donc <span class="math notranslate nohighlight">\(F^{-1}(x) = x^{1/3}\)</span>.
+La figure ci-dessous montre la distribution <span class="math notranslate nohighlight">\(f(x)\)</span> générée (en orange) à partir de données distribuées uniformément (représentées en bleu); la distribution désirée <span class="math notranslate nohighlight">\(f(x)\)</span> est aussi représentée.</p>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+
+<span class="n">nevents</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">unif</span> <span class="o">=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nevents</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># liste d&#39;abscisses de la figure</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="nb">pow</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">unif</span><span class="p">]</span>                          <span class="c1"># calcul de y = f(x)</span>
+
+<span class="n">xx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mf">0.01</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">)]</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">val</span><span class="o">*</span><span class="n">val</span> <span class="o">*</span> <span class="n">nevents</span><span class="o">/</span><span class="mf">10.</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">xx</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">unif</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gen. uniforme&quot;</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gen. f(x)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;f(x) = 3x^2&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="c1"># ax.set_ylabel(&#39;f(x)&#39;) # titre de l&#39;axe y</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/proba_8_0.png" src="../_images/proba_8_0.png" />
+</div>
+</div>
+</section>
+<section id="mesures-de-formes">
+<h2>Mesures de formes<a class="headerlink" href="#mesures-de-formes" title="Permalink to this headline">#</a></h2>
+<p>De la même façon que l’on a défini, dans la section \ref{sec:carac-distrib} des quantités permettant de caractériser la distribution des données collectées durant des mesures, on peut caractériser la distribution des densités de probabilités par quelques quantités simples.
+Pour cela, on définit l’\textbf{espérance mathématique} d’une fonction <span class="math notranslate nohighlight">\(g(x)\)</span> avec <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire distribuée selon <span class="math notranslate nohighlight">\(f(x)\)</span>: on note l’espérance</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0df95bcb-2b0f-4ebd-826c-19848499de30">
+<span class="eqno">(5)<a class="headerlink" href="#equation-0df95bcb-2b0f-4ebd-826c-19848499de30" title="Permalink to this equation">#</a></span>\[\begin{equation}\label{eq:esperance}
+    \mathbb{E}[g(X)] = \int _{-infty} ^{\infty} g(x)f(x)\mathrm{d}x.
+\end{equation}\]</div>
+<p>Cette quantité correspond à la moyenne de <span class="math notranslate nohighlight">\(g(x)\)</span> pondérée par la pdf <span class="math notranslate nohighlight">\(f(x)\)</span>; c’est pourquoi on appelle parfois l’espérance la \textbf{moyenne} de <span class="math notranslate nohighlight">\(g(X)\)</span>.
+La fonction <span class="math notranslate nohighlight">\(g(x)\)</span> peut être ce que l’on veut: les fonctions polynomiales <span class="math notranslate nohighlight">\(g(x) = x^n\)</span> sont particulièrement intéressantes et leurs moments <span class="math notranslate nohighlight">\(\mathbb{E}[X^n]\)</span> sont appelés \textbf{moments d’ordre <span class="math notranslate nohighlight">\(n\)</span>}.</p>
+<p>On définit la \textbf{moyenne} de <span class="math notranslate nohighlight">\(X\)</span> (i.e. <span class="math notranslate nohighlight">\(g(x) = x\)</span>) la quantité</p>
+<div class="amsmath math notranslate nohighlight" id="equation-484ca009-9baa-43e8-958a-003148776ac7">
+<span class="eqno">(6)<a class="headerlink" href="#equation-484ca009-9baa-43e8-958a-003148776ac7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \mathbb{E}[X] = \mu _1 = \int _{-\infty} ^{\infty} x\times f(x) \mathrm{d}x.
+\end{equation}\]</div>
+<p>Cette définition s’étend aux probabilités discrètes.
+Dans ce cas, elle correspond parfaitement à la définition de la moyenne statistique définie par l’équation \eqref{eq:moyenne-stats}: si on considère <span class="math notranslate nohighlight">\(n\)</span> mesures de <span class="math notranslate nohighlight">\(X\)</span> notées <span class="math notranslate nohighlight">\(\left\{ x_i \right\}\)</span> toutes équiprobables <span class="math notranslate nohighlight">\(p(x_i) = \frac{1}{n}\)</span>, on a:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-07cf76e9-ac0a-4993-a50b-852a20c97fbc">
+<span class="eqno">(7)<a class="headerlink" href="#equation-07cf76e9-ac0a-4993-a50b-852a20c97fbc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \mu _1 = \sum _{i=0}^n x_i p(x_i) = \frac{1}{n} \sum _{i=0}^n x_i = \overline{x}.
+\end{equation}\]</div>
+<p>Cela signifie que la moyenne de mesures correspond bien à la espérance de la variable aléatoire associée.</p>
+<p>La variable <span class="math notranslate nohighlight">\(X' = X-\mu _1\)</span> est de moyenne nulle: on l’appelle donc \textbf{variable centrée}.
+On peut alors définir l’étalement de la distribution <span class="math notranslate nohighlight">\(f\)</span> en considérant l’espérance de la variable centrée au carré <span class="math notranslate nohighlight">\(\mathbb{E}[X'^2]\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1f3e63e5-e1ee-4b16-b9f6-f95ac4827763">
+<span class="eqno">(8)<a class="headerlink" href="#equation-1f3e63e5-e1ee-4b16-b9f6-f95ac4827763" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \mathbb{E}[X'^2] = \sigma ^2 = \int _{-\infty} ^{\infty} (x - \mu_1) ^2\times f(x) \mathrm{d}x = \int _{-\infty} ^{\infty} (x^2 - \mu_1^2) \times f(x) \mathrm{d}x = \mathbb{E}[X^2] - \mathbb{E}[X]^2.
+\end{equation}\]</div>
+<p>On reconnait là la forme de l’équation \eqref{eq:variance-stats}; l’\textbf{écart-type} <span class="math notranslate nohighlight">\(\sigma = \sqrt{\mathbb{E}[X'^2]}\)</span> est donc la mesure de la dispersion de <span class="math notranslate nohighlight">\(X\)</span> autour de la valeur moyenne <span class="math notranslate nohighlight">\(\mu _1\)</span>.</p>
+<p>La \textbf{médiane} de la variable <span class="math notranslate nohighlight">\(X\)</span>, notée <span class="math notranslate nohighlight">\(\mathrm{med}(X)\)</span> se définit comme:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9317dc38-831c-401f-9665-fc2361de7a9b">
+<span class="eqno">(9)<a class="headerlink" href="#equation-9317dc38-831c-401f-9665-fc2361de7a9b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \int _{-\infty} ^{\mathrm{med}(X)} f(x)\mathrm{d}x = \int _{\mathrm{med}(X)} ^{\infty} f(x)\mathrm{d}x = \frac{1}{2}.
+\end{equation}\]</div>
+<p>Le \textbf{mode} de la variable <span class="math notranslate nohighlight">\(X\)</span> est la valeur <span class="math notranslate nohighlight">\(x\)</span> qui maximise la pdf <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d140a62f-28bb-4ebd-b126-b26a88bff131">
+<span class="eqno">(10)<a class="headerlink" href="#equation-d140a62f-28bb-4ebd-b126-b26a88bff131" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \mathrm{mode}(X) = \arg _{x\in [-\infty, \infty]} f(x).
+\end{equation}\]</div>
+<p>La figure ci-dessous donne un exemple de moyenne (ligne verticale orange) et de mode (ligne verticale bleue) pour une distribution de probabilité arbitraire.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">cos</span>
+
+<span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="mf">0.2</span><span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">0.2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mf">4.</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.</span>
+
+<span class="n">xmax</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="n">fmax</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="n">xmean</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="n">integral</span> <span class="o">=</span> <span class="mf">0.</span>
+
+<span class="n">xx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mf">0.01</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1001</span><span class="p">)]</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="p">[</span> <span class="n">function</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">xx</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">yy</span><span class="p">:</span>
+    <span class="n">integral</span> <span class="o">+=</span> <span class="n">y</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xx</span><span class="p">)):</span>
+    <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">integral</span>
+    <span class="k">if</span> <span class="n">fmax</span> <span class="o">&lt;</span> <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">xmax</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">fmax</span> <span class="o">=</span> <span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">xmean</span> <span class="o">+=</span> <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">yy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;f(x)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">xmax</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">fmax</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">xmean</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;pdf f(x)&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe x</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/proba_10_0.png" src="../_images/proba_10_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chap2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="chap2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lois de probabilités et mesures expérimentales</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="loi-proba.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Loi de probabilité usuelles</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mathieu Guigue<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

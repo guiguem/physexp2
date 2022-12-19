@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Loi de probabilité usuelles &#8212; physexp2</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Notion d’erreur sur une mesure" href="erreur.html" />
+    <link rel="prev" title="Probabilité" href="proba.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">physexp2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap1/chap1.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/stats.html">
+     La place des statistiques en physique expérimentale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/population.html">
+     Population, probabilité et échantillon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/ensemble.html">
+     Définition ensembliste et propriétés des probabilités
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/caracterisation_representation.html">
+     Représentation et caractérisation des échantillons de données
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="chap2.html">
+   Lois de probabilités et mesures expérimentales
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="proba.html">
+     Probabilité
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Loi de probabilité usuelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="erreur.html">
+     Notion d’erreur sur une mesure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap3/chap3.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/guiguem/physexp2/main?urlpath=tree/docs/chap2/loi-proba.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/guiguem/physexp2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chap2/loi-proba.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lois-de-probabilite-discretes">
+   Lois de probabilité discrètes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-de-bernoulli">
+     Loi de Bernoulli
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-binomiale">
+     Loi binomiale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-de-poisson">
+     Loi de Poisson
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lois-de-probabilite-continues">
+   Lois de probabilité continues
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-uniforme">
+     Loi uniforme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-sec-loi-normale-loi-normale-ou-loi-de-gauss">
+     \label{sec:loi-normale}Loi normale ou loi de Gauss
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Loi de probabilité usuelles</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lois-de-probabilite-discretes">
+   Lois de probabilité discrètes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-de-bernoulli">
+     Loi de Bernoulli
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-binomiale">
+     Loi binomiale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-de-poisson">
+     Loi de Poisson
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lois-de-probabilite-continues">
+   Lois de probabilité continues
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loi-uniforme">
+     Loi uniforme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#label-sec-loi-normale-loi-normale-ou-loi-de-gauss">
+     \label{sec:loi-normale}Loi normale ou loi de Gauss
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="loi-de-probabilite-usuelles">
+<h1>Loi de probabilité usuelles<a class="headerlink" href="#loi-de-probabilite-usuelles" title="Permalink to this headline">#</a></h1>
+<section id="lois-de-probabilite-discretes">
+<h2>Lois de probabilité discrètes<a class="headerlink" href="#lois-de-probabilite-discretes" title="Permalink to this headline">#</a></h2>
+<section id="loi-de-bernoulli">
+<h3>Loi de Bernoulli<a class="headerlink" href="#loi-de-bernoulli" title="Permalink to this headline">#</a></h3>
+<p>Considérons un processus aléatoire avec une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> avec deux résultats possibles: succès ou échec.
+Cela correspond au tirage d’une pièce avec comme résultat pile ou face.
+Pour chaque résultat on associe une valeur 0 ou 1: pour un succès, <span class="math notranslate nohighlight">\(X=1\)</span> et pour un échec, <span class="math notranslate nohighlight">\(X=0\)</span>.
+La probabilité d’obtenir un succès vaut <span class="math notranslate nohighlight">\(p\)</span>, celle d’obtenir un échec vaut donc <span class="math notranslate nohighlight">\(1-p\)</span>.
+La loi de probabilité, aussi appelé \textbf{loi de Bernoulli} de paramètre <span class="math notranslate nohighlight">\(p\)</span>, peut alors s’écrire:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3b2ec744-890a-4f79-8164-27c2ab96c24e">
+<span class="eqno">(11)<a class="headerlink" href="#equation-3b2ec744-890a-4f79-8164-27c2ab96c24e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    P(x;p) = p^x(1-p)^{1-x}.
+\end{equation}\]</div>
+</section>
+<section id="loi-binomiale">
+<h3>Loi binomiale<a class="headerlink" href="#loi-binomiale" title="Permalink to this headline">#</a></h3>
+<p>Si on répète <span class="math notranslate nohighlight">\(n\)</span> fois une expérience de Bernoulli de façon indépendante et on compte le nombre de succès parmi ces <span class="math notranslate nohighlight">\(n\)</span> tentatives, la probabilité d’obtenir <span class="math notranslate nohighlight">\(k\)</span> succès (et donc <span class="math notranslate nohighlight">\(n-k\)</span> échecs) est donnée par la loi binomiale.
+L’ordre des succès et échecs n’important pas, le nombre de combinaisons de <span class="math notranslate nohighlight">\(k\)</span> succès parmi <span class="math notranslate nohighlight">\(n\)</span> tentatives correspond au coefficient binomial <span class="math notranslate nohighlight">\(\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</span> et la probabilité pour chaque combinaison vaut <span class="math notranslate nohighlight">\(p^k (1-p)^{n-k}\)</span>.
+La probabilité binomiale vaut donc:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e1c45e47-f7d5-45b3-a2d2-1f7388fb0cb1">
+<span class="eqno">(12)<a class="headerlink" href="#equation-e1c45e47-f7d5-45b3-a2d2-1f7388fb0cb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    P(k; n,p) = \binom{n}{k}p^k (1-p)^{n-k}.
+\end{equation}\]</div>
+<p>Le nombre moyen de succès <span class="math notranslate nohighlight">\(\bar{k}\)</span> parmi <span class="math notranslate nohighlight">\(n\)</span> lancers est donné par:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fddf752b-fc29-4c4d-abe2-1a435dcc659e">
+<span class="eqno">(13)<a class="headerlink" href="#equation-fddf752b-fc29-4c4d-abe2-1a435dcc659e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \bar{k} = \mathbb{E}(k) = \sum _{k=0}^N k\times P(k; n,p) = n\times p
+\end{equation}\]</div>
+<p>et la variance du nombre de succès vaut:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-312921e8-a36f-48f5-acab-2ec209acf031">
+<span class="eqno">(14)<a class="headerlink" href="#equation-312921e8-a36f-48f5-acab-2ec209acf031" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \sigma_k^2 = \sum _{k=0}^N (k-\bar{k})^2\times P(k; n,p) = np(1-p).
+\end{equation}\]</div>
+<p>Lorsqu’on souhaite extraire la probabilité <span class="math notranslate nohighlight">\(p\)</span> de succès à partir de <span class="math notranslate nohighlight">\(k\)</span> succès parmi <span class="math notranslate nohighlight">\(n\)</span> essais, on peut utiliser la relation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4320520b-ec2f-4f4a-b327-79b09d5e9f3f">
+<span class="eqno">(15)<a class="headerlink" href="#equation-4320520b-ec2f-4f4a-b327-79b09d5e9f3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \bar{p} = \frac{k}{n}.
+\end{equation}\]</div>
+<p>On voit donc que <span class="math notranslate nohighlight">\(\mathbb{E}(\bar{p}) = \mathbb{E}(k/n) = p\)</span> et que</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fe54bbb9-7610-40c7-a074-ddd0b1d206a3">
+<span class="eqno">(16)<a class="headerlink" href="#equation-fe54bbb9-7610-40c7-a074-ddd0b1d206a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \sigma_{p} = \frac{\sigma_k}{n} = \sqrt{\frac{p(1-p)}{n}}.
+\end{equation}\]</div>
+</section>
+<section id="loi-de-poisson">
+<h3>Loi de Poisson<a class="headerlink" href="#loi-de-poisson" title="Permalink to this headline">#</a></h3>
+<p>La loi de Poisson s’applique aux processus de comptage pour lesquels on compte le nombre de succès pendant une durée de temps fixée.
+Si on divise la durée de temps <span class="math notranslate nohighlight">\(\Delta t\)</span> en <span class="math notranslate nohighlight">\(N\)</span> morceaux et on note <span class="math notranslate nohighlight">\(p\)</span> la probabilité d’avoir un succès pendant cette période, le nombre moyen de succès est alors <span class="math notranslate nohighlight">\(Np\)</span> et est donc proportionnel à <span class="math notranslate nohighlight">\(\Delta t\)</span>.
+Cette approche est valide lorsque la probabilité de succès <span class="math notranslate nohighlight">\(p\)</span> est faible (mais avec <span class="math notranslate nohighlight">\(\lambda = Np\)</span> non nul): dans ce cas, la probabilité d’observer <span class="math notranslate nohighlight">\(k\)</span> succès pendant <span class="math notranslate nohighlight">\(N\)</span> morceaux suit une loi binomiale:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5e27da0a-62ba-4ce4-b5bf-c92a1e9c6fe5">
+<span class="eqno">(17)<a class="headerlink" href="#equation-5e27da0a-62ba-4ce4-b5bf-c92a1e9c6fe5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    P(k; n,p) = \binom{n}{k}p^k (1-p)^{n-k} = \frac{n!\lambda ^k}{k!(n-k)!n^k}\left( 1-\frac{\lambda}{n} \right) ^{n-k}.
+\end{equation}\]</div>
+<p>Or si <span class="math notranslate nohighlight">\(p\)</span> est très petit devant 1, <span class="math notranslate nohighlight">\(N\)</span> est très grand devant 1 et alors</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3bc87ced-24f5-4aee-ad43-3edd2d4144fc">
+<span class="eqno">(18)<a class="headerlink" href="#equation-3bc87ced-24f5-4aee-ad43-3edd2d4144fc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \frac{n!}{(n-k)!n^k} \approx \frac{n^k}{n^k} = 1
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9e228253-da44-4025-8389-e31d83c7dd03">
+<span class="eqno">(19)<a class="headerlink" href="#equation-9e228253-da44-4025-8389-e31d83c7dd03" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \left( 1-\frac{\lambda}{n} \right) ^{n-k} \approx \left( 1-\frac{\lambda}{n} \right) ^{n} \approx \left(\exp -\frac{\lambda}{n}\right)^n = e^{-\lambda}.
+\end{equation}\]</div>
+<p>On a donc: \label{eq:def-poisson-proba}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fbbc822a-7d41-48e9-9c21-444006cf3cd9">
+<span class="eqno">(20)<a class="headerlink" href="#equation-fbbc822a-7d41-48e9-9c21-444006cf3cd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    P(k; \lambda) = \lim _{n\rightarrow \infty; p\rightarrow 0} P(k; n,p) = \frac{e^{-\lambda}\lambda ^k}{k!}.
+\end{equation}\]</div>
+<p>La figure \ref{fig:poisson} montre plusieurs distributions de Poisson \eqref{eq:def-poisson-proba} avec plusieurs valeurs du paramètre <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">cos</span>
+
+<span class="c1"># poissonList = np.random.poisson(5,1000000)</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="mf">3.</span><span class="p">),</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Poisson(k,3)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="mf">5.</span><span class="p">),</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Poisson(k,5)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="mf">10.</span><span class="p">),</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Poisson(k,10)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="c1"># n, bins, patches = plt.hist(poissonList, bins=np.arange(-0.5, 15.5, 1.), alpha=0.75, label=&quot;Gen. poisson&quot;, density=True)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe x</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/loi-proba_1_0.png" src="../_images/loi-proba_1_0.png" />
+</div>
+</div>
+<p>On remarque que la distribution n’est pas symétrique autour de la valeur de <span class="math notranslate nohighlight">\(\lambda\)</span>, pour les valeurs de <span class="math notranslate nohighlight">\(\lambda\)</span> faibles; cependant à partir de <span class="math notranslate nohighlight">\(\lambda=10\)</span>, on peut voir que la distribution devient relativement symétrique et de forme gaussienne (voir section \ref{sec:loi-normale}).</p>
+<p>Les caractéristiques de la loi de Poisson découle de celles de la loi binomiale.
+En utilisant le fait que <span class="math notranslate nohighlight">\(\lambda = np\)</span> et que <span class="math notranslate nohighlight">\(p \ll 1\)</span>, le nombre moyen de succès <span class="math notranslate nohighlight">\(\bar{k}\)</span> est donné par:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d0aa4cd1-e4c9-4a7c-90e6-57f5244b4948">
+<span class="eqno">(21)<a class="headerlink" href="#equation-d0aa4cd1-e4c9-4a7c-90e6-57f5244b4948" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \bar{k} = \mathbb{E}(k) = \sum _{k=0}^{\infty} k\times P(k; \lambda) = \lambda
+\end{equation}\]</div>
+<p>et la variance du nombre de succès vaut:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b7f83feb-777a-4dc3-8105-99e8953574a4">
+<span class="eqno">(22)<a class="headerlink" href="#equation-b7f83feb-777a-4dc3-8105-99e8953574a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \sigma_k^2 = \sum _{k=0}^\infty (k-\bar{k})^2\times P(k; \lambda) = \lambda.
+\end{equation}\]</div>
+<p>L’écart-type d’une distribution de Poisson vaut donc <span class="math notranslate nohighlight">\(\sqrt{\sigma _k ^2} = \sqrt{\lambda}\)</span>.</p>
+</section>
+</section>
+<section id="lois-de-probabilite-continues">
+<h2>Lois de probabilité continues<a class="headerlink" href="#lois-de-probabilite-continues" title="Permalink to this headline">#</a></h2>
+<section id="loi-uniforme">
+<h3>Loi uniforme<a class="headerlink" href="#loi-uniforme" title="Permalink to this headline">#</a></h3>
+<p>La loi uniforme consiste à ce que toutes les intervalles de taille <span class="math notranslate nohighlight">\(\mathrm{d}x\)</span> sont équiprobables sur une gamme donnée.
+Plus précisément, la loi uniforme <span class="math notranslate nohighlight">\(f(x)\)</span> sur l’intervalle <span class="math notranslate nohighlight">\(\left[ a,b \right]\)</span> est définie par deux paramètres <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3c7e825-175f-421e-af28-e0419bed2405">
+<span class="eqno">(23)<a class="headerlink" href="#equation-c3c7e825-175f-421e-af28-e0419bed2405" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    f(x;a,b) = \frac{1}{b-a}
+\end{equation}\]</div>
+<p>pour <span class="math notranslate nohighlight">\(a&lt;x&lt;b\)</span> et nulle ailleurs.</p>
+<p>Sa moyenne vaut <span class="math notranslate nohighlight">\(\mu = \mathbb{E}[X] = \frac{a+b}{2}\)</span> et sa variance <span class="math notranslate nohighlight">\(\sigma ^2 = \frac{(b-a)^2}{12}\)</span>.</p>
+</section>
+<section id="label-sec-loi-normale-loi-normale-ou-loi-de-gauss">
+<h3>\label{sec:loi-normale}Loi normale ou loi de Gauss<a class="headerlink" href="#label-sec-loi-normale-loi-normale-ou-loi-de-gauss" title="Permalink to this headline">#</a></h3>
+<p>Cette loi est l’une des plus utilisées en statistique, car elle définit de nombreux processus aléatoires et est le résultat de plusieurs théorèmes majeurs comme le théorème centrale limite.
+Cette loi est définie, représentée par la figure \ref{fig:fwmh} par deux paramètres <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c80221bc-9309-443f-9d1a-143d0e345681">
+<span class="eqno">(24)<a class="headerlink" href="#equation-c80221bc-9309-443f-9d1a-143d0e345681" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    f(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
+\end{equation}\]</div>
+<p>La moyenne de cette distribution est <span class="math notranslate nohighlight">\(\mu\)</span> et sa variance est <span class="math notranslate nohighlight">\(\sigma ^2\)</span>.
+Notons que la médiane et le mode de cette distribution sont égaux à la moyenne.</p>
+<p>En sciences expérimentales, il est souvent plus simple de déterminer l’écart-type en utilisant la \textbf{largeur à mi-hauteur} (\textbf{FWHM} ou \textbf{Full Width Half Maximum}) comme fait sur la figure \ref{fig:fwmh}: elle est déterminée par la relation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ab69eb7c-0071-4ac3-b17b-cd8985343b19">
+<span class="eqno">(25)<a class="headerlink" href="#equation-ab69eb7c-0071-4ac3-b17b-cd8985343b19" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    f(\mu+\mathrm{FWHM}/2; \mu, \sigma) = \frac{1}{2} f(\mu; \mu, \sigma) \Rightarrow \mathrm{FWHM} = 2\sqrt{2\ln 2}\sigma \approx 2.35 \sigma.
+\end{equation}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erf</span>
+
+<span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.1415</span><span class="p">)</span><span class="o">*</span><span class="n">sig</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="mf">2.</span><span class="p">)))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># liste d&#39;abscisses de la figure</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="n">gaussian</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>                          <span class="c1"># calcul de y = f(x)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;pdf(x)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="mf">2.35</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">2.35</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.5</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14159</span><span class="p">)),</span> <span class="o">-</span><span class="mf">2.35</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.35</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/loi-proba_3_0.png" src="../_images/loi-proba_3_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chap2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="proba.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Probabilité</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="erreur.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Notion d’erreur sur une mesure</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mathieu Guigue<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

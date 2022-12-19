@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lois de probabilités et mesures expérimentales" href="../chap2/chap2.html" />
     <link rel="prev" title="Définition ensembliste et propriétés des probabilités" href="ensemble.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -138,6 +139,38 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap2/chap2.html">
+   Lois de probabilités et mesures expérimentales
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/proba.html">
+     Probabilité
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/loi-proba.html">
+     Loi de probabilité usuelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/erreur.html">
+     Notion d’erreur sur une mesure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chap3/chap3.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
  </li>
 </ul>
 
@@ -580,10 +613,13 @@ Faisons une représentation temporelle des données.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f79352c73a0&gt;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matplotlib is building the font cache; this may take a moment.
 </pre></div>
 </div>
-<img alt="../_images/caracterisation_representation_2_1.png" src="../_images/caracterisation_representation_2_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb024139160&gt;]
+</pre></div>
+</div>
+<img alt="../_images/caracterisation_representation_2_2.png" src="../_images/caracterisation_representation_2_2.png" />
 </div>
 </div>
 <p>Ce type de représentation permet d’étudier graphiquement les similarités de variations temporelles des quantités physiques (ici la temperature et l’humidité) et comment elles évoluent dans le temps. Une autre représentation consiste à afficher simplement chaque mesures par couple (i.e. en un instant donné) comme sur la figure suivante.</p>
@@ -608,7 +644,7 @@ Faisons une représentation temporelle des données.</p>
 <p>Enfin une dernière représentation intéressante est l’<strong>histogramme</strong>.
 Pour construire un histogramme, on se donne une liste d’intervalles ou <strong>classes</strong> (en anglais, on parle souvent de <strong>bin</strong>.) couvrant toutes les valeurs mesurées et on va compter le nombre de fois que les valeurs issues de la mesure tombe dans un de ces intervalles.
 Par exemple, si l’on s’intéresse à la température, on peut créer des intervalles de largeur <span class="math notranslate nohighlight">\(2^{\circ}\mathrm{C}\)</span> et ranger chaque valeur dans ces intervalles.
-Si on représente la quantité de mesures dans chaque intervalle, on obtient la figure \ref{fig:histo_temp}.</p>
+Si on représente la quantité de mesures dans chaque intervalle, on obtient la figure ci-dessous.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -635,7 +671,7 @@ Les représentations graphiques sont un moyen visuel de le faire.
 Cependant, il est parfois utile de définir plusieurs grandeurs permettant de caractériser la distribution des données.</p>
 <section id="mesure-de-position">
 <h3>Mesure de position<a class="headerlink" href="#mesure-de-position" title="Permalink to this headline">#</a></h3>
-<p>Une des mesures de position les plus connues est la \textbf{moyenne} de l’échantillon <span class="math notranslate nohighlight">\(\left\{x_i\right\}_{i\in \left\{1,n\right\}}\)</span>:</p>
+<p>Une des mesures de position les plus connues est la <strong>moyenne</strong> de l’échantillon <span class="math notranslate nohighlight">\(\left\{x_i\right\}_{i\in \left\{1,n\right\}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \overline{x} = \frac{1}{n}\left( x_1+x_2+...+x_n \right) = \frac{1}{n}\sum _{i=1}^n x_i.\]</div>
 <p>Par exemple, on peut calculer la moyenne des températures de la semaine 38 de 2020.</p>
@@ -796,6 +832,13 @@ En effet, la notion d’indépendance entre deux grandeurs est généralement tr
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Définition ensembliste et propriétés des probabilités</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../chap2/chap2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lois de probabilités et mesures expérimentales</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
