@@ -12,5 +12,7 @@ chapters:
     - file: chap1/caracterisation_representation
 - file: chap2/chap2
   sections:
+    - file: chap2/proba
     - file: chap2/loi-proba
+    - file: chap2/erreur
 - file: chap3/chap3
