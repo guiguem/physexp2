@@ -484,7 +484,7 @@ title="Print to PDF"
 La version 3 de Python a été mise en place en 2008 avec des releases régulières, l’une des dernières releases étant la version 3.9.0b4 en juillet 2020.
 Python est utilisé très largement par la communauté scientifique, des grandes entreprises comme Google et Amazon et dans de nombreux sites web ou logiciels comme Reddit et LibreOffice.</p>
 <p>Python se caractérise par une synthaxe épurée et lisible avec une indentation, des mots-clés spécifiques (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>…) et la possibilité de faire de la programmation objet avec plus de flexibilités que dans d’autres langages orientés objets (comme C++).</p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition de l&#39;annuaire</span>
 <span class="n">unAnnuaire</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Laurent&#39;</span><span class="p">:</span> <span class="mi">6389565</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">:</span> <span class="mi">6356785</span><span class="p">}</span>
@@ -586,21 +586,10 @@ La fonction <code class="docutils literal notranslate"><span class="pre">print()
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> peut afficher différents types de variables, et notamment des listes (voir Section <a class="reference internal" href="variables.html#content-liste"><span class="std std-ref">Listes</span></a>.</p>
 <p>Avec les nombres décimaux, il est parfois utile de formatter le nombre de décimales à afficher.
 Pour cela, il existe la méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> qui s’applique sur un string:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.</span> 
-<span class="n">b</span> <span class="o">=</span> <span class="mf">3.</span><span class="o">/</span><span class="mf">2.</span>
-<span class="n">c</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="mf">3.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;arrondi(a)=</span><span class="si">{:.1f}</span><span class="s2">, arrondi(b)= </span><span class="si">{:.2f}</span><span class="s2">, arrondi(c)=</span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arrondi(a)=2.0, arrondi(b)= 1.50, arrondi(c)=0.6667
-</pre></div>
-</div>
-</div>
-</div>
+<p>a = 2.
+b = 3./2.
+c = 2./3.
+print(“arrondi(a)={:.1f}, arrondi(b)= {:.2f}, arrondi©={:.4f}”.format(a,b,c))</p>
 <p>La méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> s’applique sur un <em>modèle de string</em> contenant des paires d’accolades; les arguments donnés à la méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> sont utilisés pour “remplacer” les paires d’accolades une par une.
 Ces paires d’accolades peuvent être vide (comme dans le tout premier exemple; à ce moment-là il n’y a pas de formattage particulier appliqué) ou bien définir le format de la valeur à imprimer.
 Une paire d’accolades <code class="docutils literal notranslate"><span class="pre">{:.1f}</span></code> va afficher seulement un chiffre après la virgule alors que <code class="docutils literal notranslate"><span class="pre">{:.4f}</span></code> va en afficher 4.</p>
