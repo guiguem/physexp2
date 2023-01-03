@@ -15,6 +15,14 @@ logo                        : logo.png  # A path to the book logo
 execute:
   execute_notebooks: force
 
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.tikz
+    - sphinx_exercise
+    - sphinxcontrib.bibtex
+  bibtex_bibfiles:
+    - references.bib
+
 # Parse and render settings
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
@@ -29,6 +37,7 @@ parse:
     - smartquotes
     - substitution
     - tasklist
+  myst_url_schemes: [mailto, http, https]
 
 # Define the name of the latex output file for PDF builds
 latex:

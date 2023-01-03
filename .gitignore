@@ -1,2 +1,4 @@
 physexp2/_build
 */_build
+*.xml
+*.iml

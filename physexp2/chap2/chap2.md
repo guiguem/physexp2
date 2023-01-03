@@ -1,3 +1,4 @@
+(content:intro-loi)=
 # Lois de probabilités et mesures expérimentales
 
 Dans ce chapitre, nous aborderons les notions élémentaires de probabilités, notamment celles de variables aléatoires.

@@ -1,4 +1,4 @@
-## La place des statistiques en physique expérimentale
+# La place des statistiques en physique expérimentale
 
 La physique consiste à dresser les lois qui régissent les processus
 naturels qui nous entourent. De telles lois sont souvent décrites grâce
@@ -14,7 +14,7 @@ théories que l’on souhaite tester avec des observations. Il peut s’agir
 de mesures de grandeurs physiques comme le poids des pommes d’une
 variété de pommiers, la quantité de courant circulant dans un fil ou
 bien le nombre d’électrons émis lors de la désintégration d’un noyau
-radioactif ou des faits comme la couleur du ciel[1].
+radioactif ou des faits comme la couleur du ciel [^stats-exp].
 
 Les statistiques et l’analyse de données sont un cadre théorique qui
 sert d’interface entre les prédictions théoriques et les mesures. Ce
@@ -22,6 +22,6 @@ sont des techniques qui visent à réduire l’ensemble des données en un
 jeu limité de caractéristiques utiles pour contraindre les modèles
 théoriques.
 
-[1] A contrario, la physique théorique utilise parfois des expériences
+[^stats-exp]: A contrario, la physique théorique utilise parfois des expériences
 de pensée qui font appel à notre intuition sur le monde afin de, par
 exemple, rejeter une théorie qui contredirait cette intuition.

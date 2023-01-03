@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: orga/orga
 - file: chap1/chap1
   sections:
     - file: chap1/stats
@@ -16,3 +17,16 @@ chapters:
     - file: chap2/loi-proba
     - file: chap2/erreur
 - file: chap3/chap3
+  sections:
+    - file: chap3/principe
+    - file: chap3/fit-sans-erreur 
+    - file: chap3/fit-avec-erreur 
+- file: appendix/outils-python
+  sections:
+    - file: appendix/python-base
+    - file: appendix/variables
+    - file: appendix/conditions
+    - file: appendix/modules
+    - file: appendix/io
+    - file: appendix/modules_utiles
+

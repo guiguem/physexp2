@@ -6,3 +6,8 @@ pandas
 pygments == 2.6.1
 ipython!=8.7.0
 scipy
+pyppeteer
+sphinxcontrib-tikz
+sphinxcontrib-bibtex
+qexpy
+sphinx_exercise
