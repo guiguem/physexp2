@@ -16,9 +16,10 @@ La représentation et l'analyse de données reposant sur l'utilisation d'outils 
 
 Ce cours a été construit à partir de nombreuses sources.
 Parmi elles, les sources suivantes seront particulièrement utiles:
-- le manuel en ligne "Data and Error Analysis", par Ryan D. Martin {cite:t}`Martin2018`
-- le livre "Analyse de données en sciences expérimentales", par Benoit Clément {cite:t}`Clement2012`
+- le manuel en ligne "Data and Error Analysis", par Ryan D. Martin {cite:p}`Martin2018`
+- le livre "Analyse de données en sciences expérimentales", par Benoit Clément {cite:p}`Clement2012`
 
 ```{bibliography}
 :style: alpha
+:filter: docname in docnames
 ```

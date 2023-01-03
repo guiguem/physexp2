@@ -328,7 +328,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/chap1/ensemble.md"
+        <a href="../_sources/chap1/ensemble.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -339,7 +339,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -547,6 +547,58 @@ Pour tout ensemble <span class="math notranslate nohighlight">\(B\)</span>, on a
 \]</div>
 <p>Cette dernière formule est utile pour “décomposer” un évènement en terme
 d’évènements plus élémentaires.</p>
+<div class="exercise admonition" id="proba-ensemblistes">
+
+<p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
+<section id="exercise-content">
+<p>On considère 4 évènements notés <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{B}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> et <span class="math notranslate nohighlight">\(\mathrm{D}\)</span> (associés à des ensembles <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> et <span class="math notranslate nohighlight">\(D\)</span>) dans un univers <span class="math notranslate nohighlight">\(\Omega\)</span> vérifiant:</p>
+<div class="math notranslate nohighlight">
+\[    P(A) = 0.3 \]</div>
+<div class="math notranslate nohighlight">
+\[  P(B\cap C) = 0.2 \]</div>
+<div class="math notranslate nohighlight">
+\[  P(C) = 0.3 \]</div>
+<div class="math notranslate nohighlight">
+\[  P(D) = 0.5 \]</div>
+<div class="math notranslate nohighlight">
+\[  P(B\cap \bar{C}) = 0.3 \]</div>
+<div class="math notranslate nohighlight">
+\[  P(D\cap \bar{C}) = 0.5 \]</div>
+<div class="math notranslate nohighlight">
+\[  P(A~\mathrm{ou}~B) = 0.65 \]</div>
+<p><span class="math notranslate nohighlight">\(\bar{C}\)</span> désigne le complémentaire de <span class="math notranslate nohighlight">\(C\)</span> dans <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<ol class="simple">
+<li><p>Que vaut <span class="math notranslate nohighlight">\(P(\bar{C})\)</span>?</p></li>
+<li><p>Que valent <span class="math notranslate nohighlight">\(P(B\vert C)\)</span> et <span class="math notranslate nohighlight">\(P(C\vert B)\)</span>?</p></li>
+<li><p>Les évènements <span class="math notranslate nohighlight">\(C\)</span> et <span class="math notranslate nohighlight">\(D\)</span> sont-ils incompatibles? Justifier.</p></li>
+</ol>
+</section>
+</div>
+<div class="solution dropdown admonition" id="chap1/ensemble-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#proba-ensemblistes"> Exercise 1</a></p>
+<section id="solution-content">
+<ol>
+<li><p><span class="math notranslate nohighlight">\(P(\bar{C}) = 1 - P(C) = 1-0.3 = 0.7\)</span></p></li>
+<li><p>Il faut d’abord calculer <span class="math notranslate nohighlight">\(P(B)\)</span>.
+Comme <span class="math notranslate nohighlight">\(C+\bar{C} = \Omega\)</span> et donc <span class="math notranslate nohighlight">\(B\cap (C\cup \bar{C}) = B\)</span>, <span class="math notranslate nohighlight">\(P(B\cap C) + P(B\cap \bar{C}) = P(B) = 0.2+0.3 = 0.5\)</span>.
+Par définition,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7eb209f2-8830-4094-8ec3-6f5567771f70">
+<span class="eqno">(5)<a class="headerlink" href="#equation-7eb209f2-8830-4094-8ec3-6f5567771f70" title="Permalink to this equation">#</a></span>\[\begin{equation}
+        P(B\vert C) = \frac{P(B\cap C)}{P(C)} = \frac{0.2}{0.3} = \frac{2}{3}.
+    \end{equation}\]</div>
+<p>De façon similaire,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fcd4fc02-0070-483a-9914-2a6969b4edae">
+<span class="eqno">(6)<a class="headerlink" href="#equation-fcd4fc02-0070-483a-9914-2a6969b4edae" title="Permalink to this equation">#</a></span>\[\begin{equation}
+        P(C\vert B) = \frac{P(C\cap B)}{P(B)} = \frac{0.2}{0.5} = 0.4.
+    \end{equation}\]</div>
+</li>
+<li><p>Deux évènements sont incompatibles si l’intersection de leurs ensembles est nulle.
+Comme <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> et <span class="math notranslate nohighlight">\(\bar{\mathcal{C}}\)</span> sont incompatibles et <span class="math notranslate nohighlight">\(D = D\cap (C\cup \bar{C}) = (D\cap C)\cup (D\cap \bar{C}) \)</span>, <span class="math notranslate nohighlight">\(P(D\cap C) = P(D) -  P(D\cap \bar{C}) = 0.5 - 0.5 = 0\)</span>.
+<span class="math notranslate nohighlight">\(\mathcal{C}\)</span> et <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> sont donc incompatibles.</p></li>
+</ol>
+</section>
+</div>
 </section>
 <section id="probabilite-conditionnelle-et-theoreme-de-bayes">
 <h2>Probabilité conditionnelle et théorème de Bayes<a class="headerlink" href="#probabilite-conditionnelle-et-theoreme-de-bayes" title="Permalink to this headline">#</a></h2>
@@ -563,7 +615,7 @@ restreint donc à un sous-ensemble <span class="math notranslate nohighlight">\(
 <span class="math notranslate nohighlight">\(P(A\vert B)\)</span> comme étant la probabilité de l’évènement <span class="math notranslate nohighlight">\(A\)</span> sachant que
 l’évènement <span class="math notranslate nohighlight">\(B\)</span> est vrai et on la définit comme:</p>
 <div class="math notranslate nohighlight" id="equation-def-conditionnelle">
-<span class="eqno">(5)<a class="headerlink" href="#equation-def-conditionnelle" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-def-conditionnelle" title="Permalink to this equation">#</a></span>\[
     P(A\vert B) = \frac{P(A\cap B)}{P(B)}.
 \]</div>
 <p>Remarquons ici que cette
@@ -580,19 +632,19 @@ propriétés <a class="reference internal" href="#equation-axiome-1">(1)</a>, <a
     P(A_1 \cup A_2 \vert B) = P(A_1 \vert B) + P(A_2 \vert B)\mathrm{\,si\,} A_1\cap A_2 = \emptyset.
 \]</div>
 <p>La probabilité conditionnelle est donc une probabilité définie sur un
-univers restreint <span class="math notranslate nohighlight">\(\Omega ' = B\)</span>. On peut déduire de l’équation <a class="reference internal" href="#equation-def-conditionnelle">(5)</a> que:</p>
+univers restreint <span class="math notranslate nohighlight">\(\Omega ' = B\)</span>. On peut déduire de l’équation <a class="reference internal" href="#equation-def-conditionnelle">(7)</a> que:</p>
 <div class="math notranslate nohighlight" id="equation-intersection">
-<span class="eqno">(6)<a class="headerlink" href="#equation-intersection" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-intersection" title="Permalink to this equation">#</a></span>\[
     P(A\cap B ) =  P(A\vert B)\times P(B).
 \]</div>
 <p>Dans le cas où
 <span class="math notranslate nohighlight">\(\left\{B_i\right\}_{i=1...N}\)</span> forme un système complet d’évènements, on
 en déduit grace à l’équation <a class="reference internal" href="#equation-decomposition-system">(4)</a> que:</p>
 <div class="math notranslate nohighlight" id="equation-decompositionbis">
-<span class="eqno">(7)<a class="headerlink" href="#equation-decompositionbis" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(9)<a class="headerlink" href="#equation-decompositionbis" title="Permalink to this equation">#</a></span>\[
     P(A) = \sum _{i=1}^N P(A \cap B_i) = \sum _{i=1}^N P(A\vert B_i)P(B_i).
 \]</div>
-<p>Puisque <span class="math notranslate nohighlight">\(A\cap B = B\cap A\)</span>, on peut déduire de l’équation <a class="reference internal" href="#equation-intersection">(6)</a>:</p>
+<p>Puisque <span class="math notranslate nohighlight">\(A\cap B = B\cap A\)</span>, on peut déduire de l’équation <a class="reference internal" href="#equation-intersection">(8)</a>:</p>
 <div class="math notranslate nohighlight">
 \[
     P(A\cap B) = P(A\vert B)P(B) = P(B\cap A) = P(B\vert A) P(A).
@@ -605,7 +657,7 @@ en déduit grace à l’équation <a class="reference internal" href="#equation-
 <p>Cette relation permet de
 relier les probabilités conditionnelles de deux évènements <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span>.
 Si on dispose d’un système complet d’évènements
-<span class="math notranslate nohighlight">\(\left\{B_i\right\}_{i=1...N}\)</span>, on peut utiliser la relation <a class="reference internal" href="#equation-decompositionbis">(7)</a>
+<span class="math notranslate nohighlight">\(\left\{B_i\right\}_{i=1...N}\)</span>, on peut utiliser la relation <a class="reference internal" href="#equation-decompositionbis">(9)</a>
 pour écrire la probabilité conditionnelle d’un des évènements <span class="math notranslate nohighlight">\(B_i\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -616,7 +668,7 @@ P(B_i\vert A) = \frac{P(A\vert B_i)P(B_i)}{\sum _{i=1}^N P(A\vert B_i)P(B_i)}.
 <h2>Évènements indépendants<a class="headerlink" href="#evenements-independants" title="Permalink to this headline">#</a></h2>
 <p>L’indépendance entre deux évènements est définie par:</p>
 <div class="math notranslate nohighlight" id="equation-independence">
-<span class="eqno">(8)<a class="headerlink" href="#equation-independence" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-independence" title="Permalink to this equation">#</a></span>\[
 P(A\cap B) = P(A)\times P(B).
 \]</div>
 <p>Cela se traduit aussi par le fait que la
@@ -628,6 +680,66 @@ après avoir déjà obtenu un 6 lors d’un lancer <span class="math notranslate
 <span class="math notranslate nohighlight">\(P(B=6\vert A=6) = P(B = 6) = \frac{1}{6}\)</span>. En revanche, la probabilité
 d’obtenir deux 6 simultanément vaut
 <span class="math notranslate nohighlight">\(P(A=6\cup B=6) = P(B=6\vert A = 6)\times P(A=6) = P(B=6)\times P(A=6) = \frac{1}{6}\times \frac{1}{6} = \frac{1}{36}\)</span>.</p>
+<div class="exercise admonition" id="tireur">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
+<section id="exercise-content">
+<ol class="simple">
+<li><p>Un tireur de fléchettes touche sa cible 1 fois sur 2.
+Combien de fois doit-il tirer pour avoir une probabilité minimale de 99~% de toucher la cible au moins une fois?</p></li>
+<li><p>Vérifier le calcul théorique avec une simulation numérique: on pourra simuler par exemple pleins de lancers successifs de fléchettes avec comme résultat un succès ou un échec et de voir si dans 99~% des cas, il y a un succès parmi des sous-listes avec la taille choisie.
+Justifier le nombre de simulations choisi.</p></li>
+</ol>
+</section>
+</div>
+<div class="solution dropdown admonition" id="solution-tireur">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#tireur"> Exercise 2</a></p>
+<section id="solution-content">
+<ol>
+<li><p>La probabilité de ne jamais toucher la cible vaut une fois vaut <span class="math notranslate nohighlight">\(p=0.5\)</span> (une fois sur deux).
+Si on prend <span class="math notranslate nohighlight">\(n\)</span> le nombre de lancers nécessaires, la probabilité de ne pas toucher la cible après <span class="math notranslate nohighlight">\(n\)</span> lancers vaut <span class="math notranslate nohighlight">\(p^n\)</span>; alors la probabilité de toucher une fois la cible après <span class="math notranslate nohighlight">\(n\)</span> lancers vaut <span class="math notranslate nohighlight">\(1-p^n\)</span>.</p>
+<p>Or on veut que cette probabilité soit plus grande que 0.99, alors</p>
+<div class="math notranslate nohighlight">
+\[  1-p^n &gt; 0.99 \]</div>
+<div class="math notranslate nohighlight">
+\[  \Rightarrow p^n &lt; 0.01 \]</div>
+<div class="math notranslate nohighlight">
+\[  \Rightarrow n\log(p) &lt; \log(0.01) = -2 \]</div>
+<div class="math notranslate nohighlight">
+\[  \Rightarrow n &gt; \frac{-2}{\log(0.5)} = 6.64 \]</div>
+</li>
+<li><p>On crée une fonction <code class="docutils literal notranslate"><span class="pre">touche_cible</span></code> qui va retourner vrai si la cible est touché au moins une fois pour <code class="docutils literal notranslate"><span class="pre">n</span></code> lancers; puis l’utiliser pour compter le nombre de succès en 10000 lancers.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">touche_cible</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># n lancers, retourne vrai si touché la cible au moins une fois</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">val</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">nombre_succes</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">nombre_essais</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nombre_essais</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">touche_cible</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+        <span class="c1"># compte le nombre de succès</span>
+        <span class="n">nombre_succes</span> <span class="o">=</span> <span class="n">nombre_succes</span><span class="o">+</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Proba: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre_succes</span><span class="o">/</span><span class="n">nombre_essais</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Proba theorique: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">7</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proba: 0.992
+Proba theorique: 0.992
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="disjoints"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

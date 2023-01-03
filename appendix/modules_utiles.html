@@ -657,7 +657,7 @@ vitesse = 2.98 +/- 0.03 [m⋅s^-1]
 </div>
 </div>
 </div>
-<p>La variable <code class="docutils literal notranslate"><span class="pre">v</span></code> a plusieurs attributs utiles, comme le calcul de la moyenne <code class="docutils literal notranslate"><span class="pre">mean</span></code> ou de l’erreur sur la moyenne <code class="docutils literal notranslate"><span class="pre">error_on_mean</span></code> comme défini par l’équation <a class="reference internal" href="../chap2/erreur.html#equation-erreur-moyenne">(43)</a>.
+<p>La variable <code class="docutils literal notranslate"><span class="pre">v</span></code> a plusieurs attributs utiles, comme le calcul de la moyenne <code class="docutils literal notranslate"><span class="pre">mean</span></code> ou de l’erreur sur la moyenne <code class="docutils literal notranslate"><span class="pre">error_on_mean</span></code> comme défini par l’équation <a class="reference internal" href="../chap2/erreur.html#equation-erreur-moyenne">(54)</a>.
 L’affichage de la variable par <code class="docutils literal notranslate"><span class="pre">print</span></code> montre la valeur moyenne de cette série de mesures ainsi que l’erreur sur cette moyenne.</p>
 <p>On peut utiliser cet outil pour faire des calculs de propagation d’erreurs (voir la Section <a class="reference internal" href="../chap2/erreur.html#content-propagation-erreurs"><span class="std std-ref">Propagation des erreurs</span></a>).
 Par exemple, si on mesure deux masses <span class="math notranslate nohighlight">\(m_1\)</span> et <span class="math notranslate nohighlight">\(m_2\)</span> à plusieurs reprises, on peut en déduire l’erreur sur la somme de ces deux masses <span class="math notranslate nohighlight">\(M = m1+m_2\)</span>:</p>
@@ -687,9 +687,9 @@ Masse totale = 7.233 +/- 0.258 [kg]
 </div>
 </div>
 </div>
-<p>L’erreur sur la quantité <span class="math notranslate nohighlight">\(M\)</span> est alors calculée sans corrélation entre les mesures, c’est-à-dire avec l’équation <a class="reference internal" href="../chap2/erreur.html#equation-propagation-erreur-non-correlee">(46)</a>.</p>
+<p>L’erreur sur la quantité <span class="math notranslate nohighlight">\(M\)</span> est alors calculée sans corrélation entre les mesures, c’est-à-dire avec l’équation <a class="reference internal" href="../chap2/erreur.html#equation-propagation-erreur-non-correlee">(57)</a>.</p>
 <p>Cependant, il se peut que les mesures soient corrélées entre elles, ce qui a l’air d’être le cas dans les deux jeux de données <code class="docutils literal notranslate"><span class="pre">m1</span></code> et <code class="docutils literal notranslate"><span class="pre">m2</span></code>.
-Il est alors nécessaire de rajouter les corrélations dans le calcul; une fois fait, le module va utiliser l’équation <a class="reference internal" href="../chap2/erreur.html#equation-propagation-erreur-correlee">(45)</a> pour recalculer l’erreur.</p>
+Il est alors nécessaire de rajouter les corrélations dans le calcul; une fois fait, le module va utiliser l’équation <a class="reference internal" href="../chap2/erreur.html#equation-propagation-erreur-correlee">(56)</a> pour recalculer l’erreur.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qexpy</span><span class="o">.</span><span class="n">set_correlation</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">)</span> <span class="c1"># explicitation des correlations</span>
@@ -724,7 +724,7 @@ Dans ce cas, QExPy permet de faire cela aussi:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Masse totale = 7.234 +/- 0.359 [kg]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Masse totale = 7.232 +/- 0.359 [kg]
 </pre></div>
 </div>
 </div>
@@ -815,7 +815,7 @@ Correlation Matrix:
 [[ 1.    -0.999]
  [-0.999  1.   ]]
 
-chi2/ndof = 1.61/3
+chi2/ndof = 1.52/3
 
 --------------- End Fit Results -----------------
 </pre></div>

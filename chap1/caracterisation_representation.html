@@ -683,7 +683,7 @@ Faisons une représentation temporelle des données.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f6c9a57baf0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff7a61d1ac0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/caracterisation_representation_2_1.png" src="../_images/caracterisation_representation_2_1.png" />
@@ -739,8 +739,10 @@ Cependant, il est parfois utile de définir plusieurs grandeurs permettant de ca
 <section id="mesure-de-position">
 <h3>Mesure de position<a class="headerlink" href="#mesure-de-position" title="Permalink to this headline">#</a></h3>
 <p>Une des mesures de position les plus connues est la <strong>moyenne</strong> de l’échantillon <span class="math notranslate nohighlight">\(\left\{x_i\right\}_{i\in \left\{1,n\right\}}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ \overline{x} = \frac{1}{n}\left( x_1+x_2+...+x_n \right) = \frac{1}{n}\sum _{i=1}^n x_i.\]</div>
+<div class="math notranslate nohighlight" id="equation-def-moyenne">
+<span class="eqno">(11)<a class="headerlink" href="#equation-def-moyenne" title="Permalink to this equation">#</a></span>\[ 
+\overline{x} = \frac{1}{n}\left( x_1+x_2+...+x_n \right) = \frac{1}{n}\sum _{i=1}^n x_i.
+\]</div>
 <p>Par exemple, on peut calculer la moyenne des températures de la semaine 38 de 2020.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -793,7 +795,7 @@ Cependant, pour un échantillon de valeurs continues comme la température, il e
 <p>Comme les mesures de position permettent de réduire la distribution en une quantité numérique, les mesures de dispersions permettent de caractériser l’étalement des données autour d’une valeur particulière : généralement on considère l’étalement autour de la valeur moyenne.</p>
 <p>La <strong>variance</strong> de l’échantillon autour de sa moyenne est définie par:</p>
 <div class="math notranslate nohighlight" id="equation-def-variance-stats">
-<span class="eqno">(9)<a class="headerlink" href="#equation-def-variance-stats" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(12)<a class="headerlink" href="#equation-def-variance-stats" title="Permalink to this equation">#</a></span>\[
 var(x) = \sigma ^2 = \frac{1}{n}\sum _i (x_i - \overline{x})^2.
 \]</div>
 <p>La variance est la moyenne des écarts à la moyenne.
@@ -865,6 +867,215 @@ La distance interquantile vaut 8.32 C
 <p>Un point important à noter est qu’avoir un coefficient de corrélation nul ne signifie pas que les deux grandeurs sont indépendantes, comme sur la figure suivante.
 <img alt="Alt" src="../_images/correlation-example.png" />
 En effet, la notion d’indépendance entre deux grandeurs est généralement trop complexe pour être apparente avec une réduction à un seul nombre.</p>
+<div class="exercise admonition" id="stats-meteo">
+
+<p class="admonition-title"><span class="caption-number">Exercise 3 </span></p>
+<section id="exercise-content">
+<p>Nous allons caractériser la distribution de mesures de température et de pression avec des grandeurs statistiques comme la moyenne <span class="math notranslate nohighlight">\(\mu\)</span>, la variance <span class="math notranslate nohighlight">\(\sigma ^2\)</span>, l’asymmétrie <span class="math notranslate nohighlight">\(S\)</span> (<em>skew</em> en anglais) et l’applatissement <span class="math notranslate nohighlight">\(K\)</span> (<em>kurtosis</em> en anglais):</p>
+<div class="math notranslate nohighlight">
+\[ S = \frac{1}{N}\sum _{i=0} ^N \left(\frac{x_i - \mu}{\sigma}\right)^3 \]</div>
+<div class="math notranslate nohighlight" id="equation-def-skew">
+<span class="eqno">(13)<a class="headerlink" href="#equation-def-skew" title="Permalink to this equation">#</a></span>\[ = \frac{\frac{1}{N}\sum _{i=0} ^N \left(x_i\right)^3 - 3\mu\sigma^2 - \mu^3 }{\sigma ^3} \]</div>
+<div class="math notranslate nohighlight" id="equation-def-kurtosis">
+<span class="eqno">(14)<a class="headerlink" href="#equation-def-kurtosis" title="Permalink to this equation">#</a></span>\[ K = \frac{1}{N}\sum _{i=0} ^N \left(\frac{x_i - \mu}{\sigma}\right)^4 \]</div>
+<p>Les données se trouvent dans le fichier “meteo.csv” utilisé plus haut.</p>
+<ol class="simple">
+<li><p>Lire les données en utilisant \pyv{pandas} et extraire les données de température et de pression.
+Représenter les données de pression sous la forme d’un histogramme.</p></li>
+<li><p>En utilisant les équations <a class="reference internal" href="#equation-def-moyenne">(11)</a> et <a class="reference internal" href="#equation-def-variance-stats">(12)</a>, déterminer la valeur de la moyenne et de la variance pour la pression.</p></li>
+<li><p>Calculer l’asymmétrie <span class="math notranslate nohighlight">\(S\)</span> <a class="reference internal" href="#equation-def-skew">(13)</a> et l’applatissement <span class="math notranslate nohighlight">\(K\)</span> <a class="reference internal" href="#equation-def-kurtosis">(14)</a> de la pression.
+<strong>Note:</strong> on pourra utiliser les deux expressions données pour <span class="math notranslate nohighlight">\(S\)</span> et comparer les résultats.</p></li>
+<li><p>Calculer la covariance et le coefficient de corrélation entre la pression et la température.
+Est ce que la valeur de la corrélation vous semble pertinente?
+<strong>Note:</strong> Vous pouvez tracer les valeurs de pression et de température sur un graphique pour conclure.</p></li>
+</ol>
+</section>
+</div>
+<div class="solution dropdown admonition" id="chap1/caracterisation_representation-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#stats-meteo"> Exercise 3</a></p>
+<section id="solution-content">
+<ol>
+<li><p>On récupère les données sur le même lien avant de faire le graphique.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib </span>
+
+<span class="c1"># lecture du fichier par pandas</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://github.com/guiguem/physexp2/releases/download/v1/meteo.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span>  <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Extraction des valeurs de températeurs, d&#39;hygrométrie et de pression (on utilise `pd.to_numeric` pour convertir en valeurs numériques)</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">hygrometrie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">pression</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pression</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pression&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Pression [hPa]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>On calcule la moyenne et la variance</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">moy_pression</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pression</span><span class="p">:</span>
+    <span class="n">moy_pression</span> <span class="o">=</span> <span class="n">moy_pression</span> <span class="o">+</span> <span class="n">p</span>
+<span class="n">moy_pression</span> <span class="o">=</span> <span class="n">moy_pression</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">moy_pression</span><span class="p">))</span>
+
+<span class="n">var_pression</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pression</span><span class="p">:</span>
+    <span class="n">var_pression</span> <span class="o">=</span> <span class="n">var_pression</span> <span class="o">+</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">var_pression</span> <span class="o">=</span> <span class="n">var_pression</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)</span> <span class="o">-</span> <span class="n">moy_pression</span> <span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variance=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var_pression</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Std=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_pression</span><span class="p">)))</span>
+</pre></div>
+</div>
+</li>
+<li><p>On calcule le skew et le kurtosis</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">skew_pression</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">skew2_pression</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pression</span><span class="p">:</span>
+    <span class="n">skew_pression</span> <span class="o">=</span> <span class="n">skew_pression</span> <span class="o">+</span> <span class="p">((</span><span class="n">p</span><span class="o">-</span><span class="n">moy_pression</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_pression</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">skew2_pression</span> <span class="o">=</span> <span class="n">skew2_pression</span> <span class="o">+</span> <span class="n">p</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">skew_pression</span> <span class="o">=</span> <span class="n">skew_pression</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)</span>
+<span class="n">skew2_pression</span> <span class="o">=</span> <span class="p">(</span><span class="n">skew2_pression</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">moy_pression</span> <span class="o">*</span> <span class="n">var_pression</span> <span class="o">-</span> <span class="n">moy_pression</span> <span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">var_pression</span> <span class="o">**</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skewness=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew_pression</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skewness_2=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">skew2_pression</span><span class="p">))</span>
+
+<span class="n">kurt_pression</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pression</span><span class="p">:</span>
+    <span class="n">kurt_pression</span> <span class="o">=</span> <span class="n">kurt_pression</span> <span class="o">+</span> <span class="p">((</span><span class="n">p</span><span class="o">-</span><span class="n">moy_pression</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_pression</span><span class="p">))</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">kurt_pression</span> <span class="o">=</span> <span class="n">kurt_pression</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kurtosis=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kurt_pression</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>On commence par calculer la moyenne et la variance de la temperature avant de calculer la covariance et la corrélation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcul de la moyenne et de la variance</span>
+<span class="n">moy_temperature</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temperature</span><span class="p">:</span>
+    <span class="n">moy_temperature</span> <span class="o">=</span> <span class="n">moy_temperature</span> <span class="o">+</span> <span class="n">t</span>
+<span class="n">moy_temperature</span> <span class="o">=</span> <span class="n">moy_temperature</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+
+<span class="n">var_temperature</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temperature</span><span class="p">:</span>
+    <span class="n">var_temperature</span> <span class="o">=</span> <span class="n">var_temperature</span> <span class="o">+</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">var_temperature</span> <span class="o">=</span> <span class="n">var_temperature</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span> <span class="o">-</span> <span class="n">moy_temperature</span> <span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Calcul de la covariance et de la correlation</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)):</span>
+    <span class="n">cov</span> <span class="o">=</span> <span class="n">cov</span> <span class="o">+</span> <span class="p">(</span><span class="n">temperature</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">moy_temperature</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">pression</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">moy_pression</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">cov</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">cov</span> <span class="o">/</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var_temperature</span><span class="o">*</span><span class="n">var_pression</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cov</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corrélation=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pression</span><span class="p">,</span><span class="n">temperature</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Température [C]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Pression [hPa]&quot;</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne=1018.57
+Variance=14.27
+Std=3.78
+Skewness=-0.19
+Skewness_2=-0.19
+Kurtosis=1.87
+Covariance=-6.33
+Corrélation=-0.32
+</pre></div>
+</div>
+<img alt="../_images/caracterisation_representation_21_1.png" src="../_images/caracterisation_representation_21_1.png" />
+<img alt="../_images/caracterisation_representation_21_2.png" src="../_images/caracterisation_representation_21_2.png" />
+</div>
+</div>
+<div class="exercise admonition" id="stats-meteo-bin">
+
+<p class="admonition-title"><span class="caption-number">Exercise 4 </span></p>
+<section id="exercise-content">
+<p>Maintenant nous allons essayer de calculer la moyenne et la variance de l’échantillon en utilisant les données représentées par un histogramme.
+Notamment on peut calculer la moyenne de l’échantillon par la relation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-62c8c7b4-b365-49c1-9596-192ec9dd6a74">
+<span class="eqno">(15)<a class="headerlink" href="#equation-62c8c7b4-b365-49c1-9596-192ec9dd6a74" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    m = \sum _{i=0}^k f_i \frac{I_i + I_{i+1}}{2},
+\end{equation}\]</div>
+<p>avec <span class="math notranslate nohighlight">\(I_i\)</span> la bordure du bin <span class="math notranslate nohighlight">\(i\)</span> (<span class="math notranslate nohighlight">\(I_i\)</span> est la borne inférieure du bin <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(I_{i+1}\)</span> la borne supérieure du bin i) et <span class="math notranslate nohighlight">\(f_i\)</span> la fréquence du bin <span class="math notranslate nohighlight">\(i\)</span>.
+On prend <span class="math notranslate nohighlight">\(\frac{I_i + I_{i+1}}{2}\)</span> qui correspond au centre du bin <span class="math notranslate nohighlight">\(i\)</span>.
+De manière similaire, la variance se calcule grâce à la relation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c92f9c43-75ec-4e92-bf2e-ee6e23383fee">
+<span class="eqno">(16)<a class="headerlink" href="#equation-c92f9c43-75ec-4e92-bf2e-ee6e23383fee" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    v = \sum _{i=0}^k f_i \left ( \frac{I_i + I_{i+1}}{2} - m\right) ^2.
+\end{equation}\]</div>
+<p>Lorsqu’on trace un histogramme avec ```matplotlib par exemple en utilisant:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pression</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pression&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">n</span></code> est le contenu de chaque bin (sous forme de liste) et <code class="docutils literal notranslate"><span class="pre">ax</span></code> est une liste contenant les bordures de chaque bin (de taille <span class="math notranslate nohighlight">\(M+1\)</span> avec <span class="math notranslate nohighlight">\(M\)</span> le nombre de bins de l’histogramme).</p>
+<ol class="simple">
+<li><p>Créer une fonction python qui calcule la moyenne et la variance pour des données binnées.
+Cette fonction prendra en paramètre d’entrée le nombre de bins de l’histogramme pour ce calcul.</p></li>
+<li><p>Tracer l’écart entre la moyenne et la variance calculées avec la fonction et la moyenne et variance calculées dans les questions précédentes, en fonction du nombre de bins.
+Utiliser le graphique obtenu pour en déduire une valeur optimale du nombre de bins.</p></li>
+</ol>
+</section>
+</div>
+<div class="solution dropdown admonition" id="chap1/caracterisation_representation-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#stats-meteo-bin"> Exercise 4</a></p>
+<section id="solution-content">
+<ol>
+<li><p>On crée la fonction avec <code class="docutils literal notranslate"><span class="pre">nbins</span></code> le paramètre qui donne le nombre de bins à utiliser pour le calcul de la moyenne.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stats_bin</span><span class="p">(</span><span class="n">nbins</span><span class="p">):</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pression</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pression&quot;</span><span class="p">)</span>
+    <span class="n">moy_h</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pression</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)):</span>
+        <span class="n">moy_h</span> <span class="o">=</span> <span class="n">moy_h</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
+    <span class="n">v_h</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)):</span>
+        <span class="n">v_h</span> <span class="o">=</span> <span class="n">v_h</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="o">*</span><span class="p">((</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span> <span class="o">-</span> <span class="n">moy_h</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">moy_h</span><span class="p">,</span> <span class="n">v_h</span>
+</pre></div>
+</div>
+</li>
+<li><p>On créer une liste avec la moyenne et les écart-types et on fait un graphique.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_n</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)]</span>
+<span class="n">list_ecart_moy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">list_ecart_var</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_n</span><span class="p">:</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">stats_bin</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">list_ecart_moy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">moy_pression</span><span class="p">)</span>
+    <span class="n">list_ecart_var</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="o">-</span><span class="n">var_pression</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span><span class="c1"># creation d&#39;un plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">list_n</span><span class="p">,</span><span class="n">list_ecart_moy</span><span class="p">,</span><span class="s2">&quot;--o&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;moyenne&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">list_n</span><span class="p">,</span><span class="n">list_ecart_var</span><span class="p">,</span><span class="s2">&quot;--o&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;variance&quot;</span><span class="p">)</span>
+<span class="n">leg</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>A partir du graphique obtenu, on peut voir qu’au delà de 150 bins, il ne semble pas y avoir des sauts trop brusques de la moyenne ou de la variance.
+Cependant ce nombre de bins est très proche du nombre de points de données (192), ce qui rend la réduction du volume de données moins intéressante.</p>
+</li>
+</ol>
+</section>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/caracterisation_representation_24_0.png" src="../_images/caracterisation_representation_24_0.png" />
+</div>
+</div>
 </section>
 </section>
 

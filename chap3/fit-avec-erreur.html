@@ -521,7 +521,7 @@ Considérons un jeu de données <span class="math notranslate nohighlight">\(\{x
 On définit la fonction de vraisemblance <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> des données sachant un modèle comme étant la probabilité d’obtenir toutes les données <span class="math notranslate nohighlight">\(x_i\)</span>.
 Si <span class="math notranslate nohighlight">\(p(x_i;\vec{\theta})\)</span> est la probabilité d’obtenir la mesure <span class="math notranslate nohighlight">\(x_i\)</span> avec le jeu de paramètres <span class="math notranslate nohighlight">\(\vec{\theta}\)</span>, la vraisemblance s’écrira donc:</p>
 <div class="math notranslate nohighlight" id="equation-vraisemblance">
-<span class="eqno">(55)<a class="headerlink" href="#equation-vraisemblance" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(70)<a class="headerlink" href="#equation-vraisemblance" title="Permalink to this equation">#</a></span>\[
   \mathcal{L}(\vec{\theta}) = \prod _i p(x_i;\vec{\theta}).
 \]</div>
 <p>On suppose toujours que les mesures sont indépendantes.
@@ -529,7 +529,7 @@ Si les données sont placées dans un histogramme, les <span class="math notrans
 Le nombre de coups attendus <span class="math notranslate nohighlight">\(\lambda\)</span> peut lui même suivre un autre modèle et dépendre d’autres paramètres.</p>
 <p>Si les données sont des couples ou points <span class="math notranslate nohighlight">\(\left(x_i, y_i\right)\)</span> avec des erreurs <span class="math notranslate nohighlight">\(\sigma _i\)</span> sur les <span class="math notranslate nohighlight">\(y_i\)</span> et que l’on souhaite tester une relation entre <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> (comme par exemple une dépendance linéaire <span class="math notranslate nohighlight">\(Y=aX+b\)</span>), les points de données sont dispersés <em>normalement</em> (selon une loi gaussienne) autour de la prédiction du modèle et la vraisemblance peut s’écrire comme:</p>
 <div class="math notranslate nohighlight" id="equation-likelihood-gaussien">
-<span class="eqno">(56)<a class="headerlink" href="#equation-likelihood-gaussien" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(71)<a class="headerlink" href="#equation-likelihood-gaussien" title="Permalink to this equation">#</a></span>\[
   \mathcal{L}(\vec{\theta}) = \prod _i \frac{1}{\sqrt{2\pi}\sigma _i}\exp \left( -\frac{\left(y_i - f(x_i;\vec{\theta})\right)^2}{2\sigma _i^2} \right),
 \]</div>
 <p>avec <span class="math notranslate nohighlight">\(\theta\)</span> les paramètres du modèle à tester.
@@ -537,23 +537,126 @@ Dans ce cas, le nombre de paramètres <span class="math notranslate nohighlight"
 <!-- % Notons que cela ne veut pas dire que c'est les paramètres les plus vraisemblables pour ce modèle puisque $\mathcal{L}$ ne contient pas la vraisemblance de ces paramètres a priori, c'est-à-dire avant l'obtention de ces mesures\footnote{Pour cela, il faudrait donc aussi prendre en compte la probabilité de ces paramètres avant les mesures et les intégrer à la vraisemblance. -->
 <!-- % On peut utiliser le théorème de Bayes.}. -->
 <p>Ici on vient de calculer les paramètres qui rendent les données obtenues les plus probables pour un modèle donné.</p>
-<p>On peut noter ici que puisque les probabilités <span class="math notranslate nohighlight">\(p(x_i;\vec{\theta})\)</span> de l’équation <a class="reference internal" href="#equation-vraisemblance">(55)</a> sont plus petites que 1, la fonction de vraisemblance est plus petite que 1.
+<p>On peut noter ici que puisque les probabilités <span class="math notranslate nohighlight">\(p(x_i;\vec{\theta})\)</span> de l’équation <a class="reference internal" href="#equation-vraisemblance">(70)</a> sont plus petites que 1, la fonction de vraisemblance est plus petite que 1.
 Notamment, plus le nombre de points de données augmente, plus la vraisemblance est faible.</p>
-<p>Dans le cas où on considère un modèle gaussien comme dans l’équation <a class="reference internal" href="#equation-likelihood-gaussien">(56)</a>, on peut utiliser la fonction <span class="math notranslate nohighlight">\(\ln\)</span> pour simplifier le problème:</p>
+<p>Dans le cas où on considère un modèle gaussien comme dans l’équation <a class="reference internal" href="#equation-likelihood-gaussien">(71)</a>, on peut utiliser la fonction <span class="math notranslate nohighlight">\(\ln\)</span> pour simplifier le problème:</p>
 <div class="math notranslate nohighlight" id="equation-def-chi2">
-<span class="eqno">(57)<a class="headerlink" href="#equation-def-chi2" title="Permalink to this equation">#</a></span>\[ 
+<span class="eqno">(72)<a class="headerlink" href="#equation-def-chi2" title="Permalink to this equation">#</a></span>\[ 
   \chi ^2 = -2\ln \mathcal{L}(\vec{\theta}) = cste + \sum _i\frac{\left(y_i - f(x_i;\vec{\theta})\right)^2}{\sigma _i^2}.
 \]</div>
 <p>Le terme <span class="math notranslate nohighlight">\(cste\)</span> est bien une constante ne dépendant que des erreurs des points de données <span class="math notranslate nohighlight">\(\sigma _i\)</span>.
 Le <span class="math notranslate nohighlight">\(\chi^2\)</span>, aussi appelé <strong>moindre carrés</strong>, est la somme des écarts quadratiques entre le modèle et les données, pondérés par le carré inverse des incertitudes.
-Maximiser la vraisemblance <a class="reference internal" href="#equation-likelihood-gaussien">(56)</a> revient à minimiser le <span class="math notranslate nohighlight">\(\chi ^2\)</span> <a class="reference internal" href="#equation-def-chi2">(57)</a>.</p>
+Maximiser la vraisemblance <a class="reference internal" href="#equation-likelihood-gaussien">(71)</a> revient à minimiser le <span class="math notranslate nohighlight">\(\chi ^2\)</span> <a class="reference internal" href="#equation-def-chi2">(72)</a>.</p>
 <p>Notons que cela peut s’étendre aussi aux cas des distributions poissonniennes pour des données binnées puisque la distribution de Poisson tend vers une distribution gaussienne quand le nombre d’évènements attendu est “grand”; en pratique, pour <span class="math notranslate nohighlight">\(\lambda \geq 25\)</span>.</p>
+<div class="exercise admonition" id="test-chi2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
+<section id="exercise-content">
+<p>On réalise une trentaine de mesures d’une même grandeur.
+On obtient les résultats rangés dans la liste suivante:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">valeurs</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">9.19</span><span class="p">,</span> <span class="mf">11.30</span><span class="p">,</span> <span class="mf">4.21</span><span class="p">,</span> <span class="mf">7.88</span><span class="p">,</span> <span class="mf">7.60</span><span class="p">,</span> <span class="mf">11.87</span><span class="p">,</span> <span class="mf">10.53</span><span class="p">,</span> <span class="mf">12.32</span><span class="p">,</span> <span class="mf">10.64</span><span class="p">,</span> <span class="mf">7.21</span><span class="p">,</span> 
+            <span class="mf">7.73</span><span class="p">,</span> <span class="mf">12.02</span><span class="p">,</span> <span class="mf">12.93</span><span class="p">,</span> <span class="mf">10.05</span><span class="p">,</span> <span class="mf">13.15</span><span class="p">,</span> <span class="mf">9.55</span><span class="p">,</span> <span class="mf">10.81</span><span class="p">,</span> <span class="mf">12.51</span><span class="p">,</span> <span class="mf">7.44</span><span class="p">,</span> <span class="mf">11.52</span><span class="p">,</span> 
+            <span class="mf">11.55</span><span class="p">,</span> <span class="mf">9.38</span><span class="p">,</span> <span class="mf">6.70</span><span class="p">,</span> <span class="mf">11.00</span><span class="p">,</span> <span class="mf">13.48</span><span class="p">,</span> <span class="mf">8.18</span><span class="p">,</span> <span class="mf">7.43</span><span class="p">,</span> <span class="mf">11.37</span><span class="p">,</span> <span class="mf">13.09</span><span class="p">,</span> <span class="mf">9.21</span> <span class="p">]</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Ranger les valeurs dans un histogramme avec 5 bins. La région globale de l’histogramme est entre 2.8 et 15.15.</p></li>
+<li><p>Calculer la vraisemblance des données en prenant comme modèle une loi normale d’écart-type 4 et centrée en 10.
+On pourra calculer le logarithme de la vraisemblance par commodité.</p></li>
+<li><p>Calculer le logarithme de la vraisemblance des données en prenant comme modèle une loi normale d’écart-type 2.4 et centrée en 10.
+Comparer avec la valeur obtenue dans la question précédente.
+Quelle modèle vous semble plus correct?</p></li>
+<li><p>Tracer le logarithme de la vraisemblance en fonction de l’écart-type de la loi normale: on gardera la moyenne de la loi normale fixé à 10.
+Estimer la valeur optimale de l’écart-type de la loi normale.</p></li>
+<li><p>Estimer la moyenne et l’écart-type de la population à partir de cet échantillon.
+Confirmer votre estimation de la question précédente.</p></li>
+</ol>
+</section>
+</div>
+<div class="solution dropdown admonition" id="chap3/fit-avec-erreur-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#test-chi2"> Exercise 9</a></p>
+<section id="solution-content">
+<ol>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">valeurs</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">9.19</span><span class="p">,</span> <span class="mf">11.30</span><span class="p">,</span> <span class="mf">4.21</span><span class="p">,</span> <span class="mf">7.88</span><span class="p">,</span> <span class="mf">7.60</span><span class="p">,</span> <span class="mf">11.87</span><span class="p">,</span> <span class="mf">10.53</span><span class="p">,</span> <span class="mf">12.32</span><span class="p">,</span> <span class="mf">10.64</span><span class="p">,</span> <span class="mf">7.21</span><span class="p">,</span> 
+        <span class="mf">7.73</span><span class="p">,</span> <span class="mf">12.02</span><span class="p">,</span> <span class="mf">12.93</span><span class="p">,</span> <span class="mf">10.05</span><span class="p">,</span> <span class="mf">13.15</span><span class="p">,</span> <span class="mf">9.55</span><span class="p">,</span> <span class="mf">10.81</span><span class="p">,</span> <span class="mf">12.51</span><span class="p">,</span> <span class="mf">7.44</span><span class="p">,</span> <span class="mf">11.52</span><span class="p">,</span> 
+        <span class="mf">11.55</span><span class="p">,</span> <span class="mf">9.38</span><span class="p">,</span> <span class="mf">6.70</span><span class="p">,</span> <span class="mf">11.00</span><span class="p">,</span> <span class="mf">13.48</span><span class="p">,</span> <span class="mf">8.18</span><span class="p">,</span> <span class="mf">7.43</span><span class="p">,</span> <span class="mf">11.37</span><span class="p">,</span> <span class="mf">13.09</span><span class="p">,</span> <span class="mf">9.21</span> <span class="p">]</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">valeurs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">5.27</span><span class="p">,</span> <span class="mf">7.74</span><span class="p">,</span> <span class="mf">10.21</span><span class="p">,</span> <span class="mf">12.68</span><span class="p">,</span> <span class="mf">15.15</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">log</span>
+<span class="k">def</span> <span class="nf">normale</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">moy</span><span class="p">,</span> <span class="n">std</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14159</span><span class="p">)</span><span class="o">/</span><span class="n">std</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">moy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">std</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">lnL</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">valeur</span> <span class="ow">in</span> <span class="n">valeurs</span><span class="p">:</span>
+    <span class="n">lnL</span> <span class="o">=</span> <span class="n">lnL</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="n">normale</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lnL(10,4)=&quot;</span><span class="p">,</span> <span class="n">lnL</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lnL</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">valeur</span> <span class="ow">in</span> <span class="n">valeurs</span><span class="p">:</span>
+    <span class="n">lnL</span> <span class="o">=</span> <span class="n">lnL</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="n">normale</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lnL(10,2.4)=&quot;</span><span class="p">,</span> <span class="n">lnL</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La vraisemblance a augmenté avec cette nouvelle valeur d’écart-type; ce nouveau modèle semble plus correct.</p>
+</li>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logL</span><span class="p">(</span><span class="n">moy</span><span class="p">,</span> <span class="n">std</span><span class="p">):</span>
+    <span class="n">lnL</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">valeur</span> <span class="ow">in</span> <span class="n">valeurs</span><span class="p">:</span>
+        <span class="n">lnL</span> <span class="o">=</span> <span class="n">lnL</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="n">normale</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span> <span class="n">moy</span><span class="p">,</span> <span class="n">std</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">lnL</span>
+
+<span class="n">v_std</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="o">+</span> <span class="mf">3.</span><span class="o">*</span><span class="n">i</span><span class="o">/</span><span class="mi">20</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
+<span class="n">v_logL</span> <span class="o">=</span> <span class="p">[</span><span class="n">logL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">v_std</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_std</span><span class="p">,</span> <span class="n">v_logL</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Ecart-type loi normale&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Log-vraisemblance&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La valeur qui semble maximiser la vraisemblance est autour de 2.4.</p>
+</li>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">valeurs</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">6.967</span><span class="p">,</span> <span class="mf">9.582</span><span class="p">,</span> <span class="mf">14.881</span><span class="p">,</span> <span class="mf">8.981</span><span class="p">,</span> <span class="mf">4.385</span><span class="p">,</span> <span class="mf">9.424</span><span class="p">,</span> <span class="mf">14.381</span><span class="p">,</span> <span class="mf">7.896</span><span class="p">,</span> <span class="mf">10.867</span><span class="p">,</span> <span class="mf">9.242</span><span class="p">,</span>
+        <span class="mf">8.430</span><span class="p">,</span> <span class="mf">9.194</span><span class="p">,</span> <span class="mf">9.417</span><span class="p">,</span> <span class="mf">9.869</span><span class="p">,</span> <span class="mf">12.418</span><span class="p">,</span> <span class="mf">11.383</span><span class="p">,</span> <span class="mf">10.119</span><span class="p">,</span> <span class="mf">13.318</span><span class="p">,</span> <span class="mf">11.134</span><span class="p">,</span> <span class="mf">8.748</span><span class="p">,</span>
+        <span class="mf">12.624</span><span class="p">,</span> <span class="mf">13.815</span><span class="p">,</span> <span class="mf">12.745</span><span class="p">,</span> <span class="mf">7.874</span><span class="p">,</span> <span class="mf">10.923</span><span class="p">,</span> <span class="mf">8.243</span><span class="p">,</span> <span class="mf">8.596</span><span class="p">,</span> <span class="mf">6.824</span><span class="p">,</span> <span class="mf">12.765</span><span class="p">,</span> <span class="mf">10.988</span> <span class="p">]</span>
+
+<span class="n">moyenne</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">valeurs</span><span class="p">)</span>
+<span class="n">stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">valeurs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne = </span><span class="si">{0:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">moyenne</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ecart-type = </span><span class="si">{0:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stdev</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>La valeur de l’écart-type trouvée ici est très proche de la valeur estimée dans la question précédente.</p>
+</li>
+</ol>
+</section>
+</div>
+<div class="cell tag_hide-output tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lnL(10,4)= -74.03191478477355
+lnL(10,2.4)= -67.37370718290495
+Moyenne = 10.201
+Ecart-type = 2.402
+</pre></div>
+</div>
+<img alt="../_images/fit-avec-erreur_1_1.png" src="../_images/fit-avec-erreur_1_1.png" />
+<img alt="../_images/fit-avec-erreur_1_2.png" src="../_images/fit-avec-erreur_1_2.png" />
+</div>
+</div>
 <section id="extraction-des-meilleurs-parametres">
 <h2>Extraction des meilleurs paramètres<a class="headerlink" href="#extraction-des-meilleurs-parametres" title="Permalink to this headline">#</a></h2>
 <p>Trouver les meilleurs paramètres d’un modèle selon les données collectées revient à maximiser la vraisemblance ou bien minimiser le <span class="math notranslate nohighlight">\(\chi ^2\)</span>.
-Cela peut se faire numériquement, par exemple, avec le module \pyv{scipy.optimize} ou bien analytiquement: en généralisant pour des paramètres <span class="math notranslate nohighlight">\(\vec{\theta}\)</span>, le système d’équations à résoudre est\footnote{Pour que ces paramètres minimisent bien le <span class="math notranslate nohighlight">\(\chi^2\)</span>, il faut aussi vérifier que <span class="math notranslate nohighlight">\(\left.\frac{\partial^2 \chi ^2}{\partial \vec{\theta}^2}\right\vert_{\vec{\theta}=\hat{\vec{\theta}}} &gt; 0\)</span>.}:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9fcc75be-c23b-42f5-9773-f136d33d8ea3">
-<span class="eqno">(58)<a class="headerlink" href="#equation-9fcc75be-c23b-42f5-9773-f136d33d8ea3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+Cela peut se faire numériquement, par exemple, avec le module <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> ou bien analytiquement: en généralisant pour des paramètres <span class="math notranslate nohighlight">\(\vec{\theta}\)</span>, le système d’équations à résoudre est\footnote{Pour que ces paramètres minimisent bien le <span class="math notranslate nohighlight">\(\chi^2\)</span>, il faut aussi vérifier que <span class="math notranslate nohighlight">\(\left.\frac{\partial^2 \chi ^2}{\partial \vec{\theta}^2}\right\vert_{\vec{\theta}=\hat{\vec{\theta}}} &gt; 0\)</span>.}:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3a4d2efa-e555-4849-b86e-d4f99e07947c">
+<span class="eqno">(73)<a class="headerlink" href="#equation-3a4d2efa-e555-4849-b86e-d4f99e07947c" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \left.\frac{\partial \chi ^2}{\partial \vec{\theta}}\right\vert_{\vec{\theta}=\hat{\vec{\theta}}} = 0.
 \end{equation}\]</div>
 <!-- % Pour certains modèles, il est possible de trouver une expression analytique des meilleurs paramètres utilisant les valeurs des données. -->
@@ -578,23 +681,23 @@ Cela peut se faire numériquement, par exemple, avec le module \pyv{scipy.optimi
 \end{gather*}\]</div>
 <p>La solution est alors:</p>
 <div class="math notranslate nohighlight" id="equation-solana-lineaire">
-<span class="eqno">(59)<a class="headerlink" href="#equation-solana-lineaire" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(74)<a class="headerlink" href="#equation-solana-lineaire" title="Permalink to this equation">#</a></span>\[
   \hat{a} = \frac{AE-DC}{BE-C^2} \, \mathrm{et} \, \hat{b} = \frac{DB-AC}{BE-C^2}.
 \]</div>
 <p>Dans le cas où <span class="math notranslate nohighlight">\(f(x) = ax\)</span>, l’expression du meilleur paramètre <span class="math notranslate nohighlight">\(\hat{a}\)</span> se simplifie comme:</p>
 <div class="math notranslate nohighlight" id="equation-linearfit-analytical">
-<span class="eqno">(60)<a class="headerlink" href="#equation-linearfit-analytical" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(75)<a class="headerlink" href="#equation-linearfit-analytical" title="Permalink to this equation">#</a></span>\[
   \hat{a} = \frac{A}{B}.
 \]</div>
 <div class="admonition-exemple-ajustement-lineaire-simple-suite admonition" id="admon-linearfit-2">
 <p class="admonition-title">Exemple: Ajustement linéaire simple – suite</p>
-<p>En reprenant les données de l’exemple \ref{ex:ajustement-lineaire-simple} ainsi que des erreurs associées, on peut calculer les valeurs optimales paramètres de pente et d’intersection à l’origine en utilisant</p>
+<p>En reprenant les données dans la table <a class="reference internal" href="fit-sans-erreur.html#tab-linear-data"><span class="std std-ref">Jeu de données linéaires</span></a> ainsi que des erreurs associées, on peut calculer les valeurs optimales paramètres de pente et d’intersection à l’origine en utilisant</p>
 <ul class="simple">
-<li><p>une minimisation de <span class="math notranslate nohighlight">\(\chi ^2\)</span> donné par l’équation <a class="reference internal" href="#equation-def-chi2">(57)</a>,</p></li>
-<li><p>les relations analytiques <a class="reference internal" href="#equation-solana-lineaire">(59)</a>.</p></li>
+<li><p>une minimisation de <span class="math notranslate nohighlight">\(\chi ^2\)</span> donné par l’équation <a class="reference internal" href="#equation-def-chi2">(72)</a>,</p></li>
+<li><p>les relations analytiques <a class="reference internal" href="#equation-solana-lineaire">(74)</a>.</p></li>
 </ul>
 <p>On peut voir que les résultats trouvés par les trois méthodes sont proches (ce qui est rassurant).
-En revanche, les paramètres sont différents que ceux trouvés par la méthode sans erreur de l’exemple \ref{ex:ajustement-lineaire-simple}.
+En revanche, les paramètres sont différents que ceux trouvés par la méthode sans erreur du premier exemple .
 Cela est du au fait que les points de données n’ont pas la même erreur, et donc le même poids.</p>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -648,7 +751,7 @@ Cela est du au fait que les points de données n’ont pas la même erreur, et d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fit-avec-erreur_1_0.png" src="../_images/fit-avec-erreur_1_0.png" />
+<img alt="../_images/fit-avec-erreur_3_0.png" src="../_images/fit-avec-erreur_3_0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultats:
 Curve fit: a = 0.27; b = 0.97
 QExPy: a = 0.27; b = 0.97
@@ -663,10 +766,10 @@ Analytique: a = 0.27; b = 0.97
 <h2>Extraction de l’erreur sur un paramètre<a class="headerlink" href="#extraction-de-lerreur-sur-un-parametre" title="Permalink to this headline">#</a></h2>
 <p>L’erreur sur un paramètre est défini en terme de probabilité d’obtenir la vraie valeur à partir des données mesurées: il faut intégrer la fonction de vraisemblance sur l’intervalle de confiance définie par la valeur moyenne <span class="math notranslate nohighlight">\(\theta\)</span> et l’erreur <span class="math notranslate nohighlight">\(\sigma_{\theta}\)</span> sur les paramètres <span class="math notranslate nohighlight">\(\left[\theta-\sigma_{\theta},\theta+\sigma_{\theta}\right]\)</span>.
 En général, c’est un travail très complexe car la fonction de vraisemblance peut contenir des densité de probabilité complexe à écrire et intégrer; de plus, le nombre de dimensions à intégrer est égal au nombre de paramètres du modèle, rendant le calcul impraticable lorsque le nombre de paramètres est très grand.</p>
-<p>Cependant, pour des modèles simples comme des modèles linéaires avec des distributions gaussiennes des données, il est possible de calculer les erreurs sur les paramètres en utilisant le <span class="math notranslate nohighlight">\(\chi ^2\)</span> <a class="reference internal" href="#equation-def-chi2">(57)</a>.
+<p>Cependant, pour des modèles simples comme des modèles linéaires avec des distributions gaussiennes des données, il est possible de calculer les erreurs sur les paramètres en utilisant le <span class="math notranslate nohighlight">\(\chi ^2\)</span> <a class="reference internal" href="#equation-def-chi2">(72)</a>.
 Dans le cas simple d’un ajustement linéaire <span class="math notranslate nohighlight">\(y=ax+b\)</span>, les erreurs sur les paramètres <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> sont définis par:</p>
 <div class="math notranslate nohighlight" id="equation-err-a">
-<span class="eqno">(61)<a class="headerlink" href="#equation-err-a" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(76)<a class="headerlink" href="#equation-err-a" title="Permalink to this equation">#</a></span>\[
 \Delta a \,\mathrm{tel\,que\,}\, \chi^{2}(a+\Delta a, \hat{b})=\chi^{2}(a-\Delta a, \hat{b})=\chi_{\min }^{2}-2 \ln (1-\alpha),
 \]</div>
 <div class="math notranslate nohighlight">
@@ -676,11 +779,11 @@ Dans le cas simple d’un ajustement linéaire <span class="math notranslate noh
 <p>avec <span class="math notranslate nohighlight">\(\alpha\)</span> la probabilité souhaitée.
 Ces erreurs valent:</p>
 <div class="math notranslate nohighlight" id="equation-error-linearfit-a">
-<span class="eqno">(62)<a class="headerlink" href="#equation-error-linearfit-a" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(77)<a class="headerlink" href="#equation-error-linearfit-a" title="Permalink to this equation">#</a></span>\[
     \Delta a=\frac{\sqrt{-2 \ln (1-\alpha)}}{\sqrt{B}}=\frac{\sqrt{-2 \ln (1-\alpha)}}{\sqrt{\sum \frac{x_{1}^{2}}{\left(\Delta y_{1}\right)^{2}}}},
 \]</div>
 <div class="math notranslate nohighlight" id="equation-error-linearfit-b">
-<span class="eqno">(63)<a class="headerlink" href="#equation-error-linearfit-b" title="Permalink to this equation">#</a></span>\[ 
+<span class="eqno">(78)<a class="headerlink" href="#equation-error-linearfit-b" title="Permalink to this equation">#</a></span>\[ 
     \Delta b=\frac{\sqrt{-2 \ln (1-\alpha)}}{\sqrt{E}}=\frac{\sqrt{-2 \ln (1-\alpha)}}{\sqrt{\sum \frac{1}{\left(\Delta y_{i}\right)^{2}}}}.
 \]</div>
 <p>Le terme <span class="math notranslate nohighlight">\(\sqrt{-2 \ln (1-\alpha)}\)</span> vaut:</p>
@@ -697,7 +800,7 @@ Ces erreurs valent:</p>
 % \todo[inline]{Ajouter le calcul des erreurs sur les paramètres d'ajustement} -->
 <div class="admonition-exemple-ajustement-lineaire-simple-suite-et-fin admonition">
 <p class="admonition-title">Exemple: Ajustement linéaire simple – suite et fin</p>
-<p>En reprenant les données dans la table <a class="reference internal" href="fit-sans-erreur.html#tab-linear-data"><span class="std std-ref">Jeu de données linéaires</span></a>, on peut calculer les erreurs en utilisant les relations <a class="reference internal" href="#equation-error-linearfit-a">(62)</a> et <a class="reference internal" href="#equation-error-linearfit-b">(63)</a>.</p>
+<p>En reprenant les données dans la table <a class="reference internal" href="fit-sans-erreur.html#tab-linear-data"><span class="std std-ref">Jeu de données linéaires</span></a>, on peut calculer les erreurs en utilisant les relations <a class="reference internal" href="#equation-error-linearfit-a">(77)</a> et <a class="reference internal" href="#equation-error-linearfit-b">(78)</a>.</p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -731,22 +834,22 @@ Erreur sur b: 0.15
 </div>
 </div>
 <p>L’erreur sur <span class="math notranslate nohighlight">\(a\)</span> correspond à un intervalle à 68.3 % autour de la meilleure valeur de <span class="math notranslate nohighlight">\(a\)</span> (ici, 0.27).
-De par sa définition <a class="reference internal" href="#equation-err-a">(61)</a>, cette erreur prend en compte la corrélation avec le coefficient <span class="math notranslate nohighlight">\(b\)</span>.
+De par sa définition <a class="reference internal" href="#equation-err-a">(76)</a>, cette erreur prend en compte la corrélation avec le coefficient <span class="math notranslate nohighlight">\(b\)</span>.
 Certains algorithmes comme QExPy donnent une valeur d’erreur sur les paramètres ajustés qui ne prend pas en compte les corrélations entre les paramètres, mais donnent la valeur de corrélation avec l’erreur.
 Il est donc important de toujours comparer le résultat et notamment les erreurs données par un algorithme ou une librairie au résultat donné par la méthode analytique afin de vérifier que les conventions sont identiques.</p>
 </section>
 <section id="ajustement-dun-histogramme">
 <span id="content-chi2-histo"></span><h2>Ajustement d’un histogramme<a class="headerlink" href="#ajustement-dun-histogramme" title="Permalink to this headline">#</a></h2>
 <p>Lorsque les données suivant une certaine loi de probabilité <span class="math notranslate nohighlight">\(f(x;\vec{\theta})\)</span> sont rangées dans un histogramme, il est possible d’estimer les paramètres de cette densité de probabilité.
-Pour cela on construit la fonction de vraisemblance <a class="reference internal" href="#equation-vraisemblance">(55)</a> en supposant que le contenu de chaque classe <span class="math notranslate nohighlight">\(N_i\)</span> est distribué selon une loi poissonienne autour de la valeur vraie <span class="math notranslate nohighlight">\(f(x_i;\vec{\theta})\times \delta x\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> représente le centre de la classe et <span class="math notranslate nohighlight">\(\delta x\)</span> la largeur de la classe: on a alors</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca89ea45-c463-4417-aa58-54d4c5faff92">
-<span class="eqno">(64)<a class="headerlink" href="#equation-ca89ea45-c463-4417-aa58-54d4c5faff92" title="Permalink to this equation">#</a></span>\[\begin{equation}
+Pour cela on construit la fonction de vraisemblance <a class="reference internal" href="#equation-vraisemblance">(70)</a> en supposant que le contenu de chaque classe <span class="math notranslate nohighlight">\(N_i\)</span> est distribué selon une loi poissonienne autour de la valeur vraie <span class="math notranslate nohighlight">\(f(x_i;\vec{\theta})\times \delta x\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> représente le centre de la classe et <span class="math notranslate nohighlight">\(\delta x\)</span> la largeur de la classe: on a alors</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b0601b41-be70-4099-83d5-7c5714642f25">
+<span class="eqno">(79)<a class="headerlink" href="#equation-b0601b41-be70-4099-83d5-7c5714642f25" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \mathcal{L}(\vec{\theta}) = \prod _i \frac{e^{-f(x_i;\vec{\theta}) \delta x}\left(f(x_i;\vec{\theta}) \delta x\right)^{N_i}}{N_i !}.
 \end{equation}\]</div>
 <p>Dans le cas où le nombre de coups dans chaque classe est grand (<span class="math notranslate nohighlight">\(N_i&gt;25\)</span>), on peut faire l’approximation de la densité de Poisson par une loi normale d’écart type <span class="math notranslate nohighlight">\(\sigma _i = \sqrt{N_i}\)</span>.
 La maximisation de la fonction de vraisemblance est alors la minimisation du <span class="math notranslate nohighlight">\(\chi ^2\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a13235ce-894c-4d8c-9006-00b4d45792b9">
-<span class="eqno">(65)<a class="headerlink" href="#equation-a13235ce-894c-4d8c-9006-00b4d45792b9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e7c6736-fbc5-4498-af39-7d2162ad5653">
+<span class="eqno">(80)<a class="headerlink" href="#equation-3e7c6736-fbc5-4498-af39-7d2162ad5653" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \chi ^2 = \sum _i\frac{\left(N_i - f(x_i;\vec{\theta})\delta x\right)^2}{N_i}.
 \end{equation}\]</div>
 <hr class="footnotes docutils" />

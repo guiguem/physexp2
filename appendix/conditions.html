@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Importation et utilisation de modules" href="modules.html" />
@@ -663,14 +665,14 @@ Element 9 a pour valeur: 1.0
 <p>On remarque que cette fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code> donnera une liste de la taille donnée par l’argument commencant toujours à 0.</p>
 <div class="exercise admonition" id="for-2-lists">
 
-<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
 <section id="exercise-content">
 <p>Utiliser une boucle for qui va créer deux listes, une contenant tous nombres entiers entre 1 et 10 et  l’autre ces mêmes nombres entiers au carré.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="appendix/conditions-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#for-2-lists"> Exercise 2</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#for-2-lists"> Exercise 11</a></p>
 <section id="solution-content">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">squares</span><span class="o">=</span><span class="p">[]</span>
@@ -703,14 +705,14 @@ Jacques 6356795
 </div>
 <div class="exercise admonition" id="transport-liste">
 
-<p class="admonition-title"><span class="caption-number">Exercise 3 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
 <section id="exercise-content">
 <p>On se donne un dictionaire contenant le nombre de kilomètres parcourus pour certains moyens de transport <code class="docutils literal notranslate"><span class="pre">{&quot;pied&quot;:</span> <span class="pre">200,</span> <span class="pre">&quot;vélo&quot;:</span> <span class="pre">50,</span> <span class="pre">&quot;voiture&quot;:310}</span></code>; on souhaite afficher les kilomètres pour les moyens de transport dans la liste\ <code class="docutils literal notranslate"><span class="pre">[&quot;voiture&quot;,</span> <span class="pre">&quot;velo&quot;,</span> <span class="pre">&quot;train&quot;,</span> <span class="pre">&quot;avion&quot;]</span></code> et un message “Pas de kilomètres en {moyen de transport}” lorsqu’il n’y a pas de valeur pour ce moyen de transport dans le dictionaire.</p>
 </section>
 </div>
 <div class="solution dropdown admonition" id="appendix/conditions-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#transport-liste"> Exercise 3</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#transport-liste"> Exercise 12</a></p>
 <section id="solution-content">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transport_km</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;pied&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;velo&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;voiture&quot;</span><span class="p">:</span><span class="mi">310</span><span class="p">}</span>
 <span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;voiture&quot;</span><span class="p">,</span> <span class="s2">&quot;velo&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;avion&quot;</span><span class="p">]</span>
@@ -769,12 +771,12 @@ Element 9 a pour valeur: 1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.937
-0.848
-0.784
-0.773
-0.210
-Valeur 6 au dessus de 0.1: 0.4233124775622703
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.370
+0.308
+0.426
+0.842
+0.658
+Valeur 6 au dessus de 0.1: 0.03726229900673772
 </pre></div>
 </div>
 </div>
@@ -890,6 +892,73 @@ Enlever un à  3
 Enlever un à  2
 Enlever un à  1
 Valeur finale: 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="factoriel">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<section id="exercise-content">
+<p>Calculer le factoriel de 13 à l’aide d’une fonction récursive (voir la section “Fonctions” du polycopié).</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="appendix/conditions-solution-5">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#factoriel"> Exercise 13</a></p>
+<section id="solution-content">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factoriel</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factoriel</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;factoriel(13):&quot;</span><span class="p">,</span> <span class="n">factoriel</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>factoriel(13): 6227020800
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="prime-numbers">
+
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<section id="exercise-content">
+<p>Créer une fonction qui vérifie si un nombre <span class="math notranslate nohighlight">\(N\)</span> est premier ou non et utiliser cette fonction pour calculer les 10 premiers nombres premiers.
+Pour cela, on peut regarder le reste de la division euclidienne de <span class="math notranslate nohighlight">\(N\)</span> par tous les nombres entre 2 et <span class="math notranslate nohighlight">\(\sqrt{N}\)</span>.
+Si le reste est nul, alors ce n’est pas un nombre premier.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="appendix/conditions-solution-7">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#prime-numbers"> Exercise 14</a></p>
+<section id="solution-content">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="k">def</span> <span class="nf">premier</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">max_n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="c1"># conversion de sqrt en nombre entier</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># test des nombres jusqu&#39;à int(sqrt(n))</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># reste division euclidienne == 0?</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;13 est premier?&quot;</span><span class="p">,</span> <span class="n">premier</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;169 est premier?&quot;</span><span class="p">,</span> <span class="n">premier</span><span class="p">(</span><span class="mi">169</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;997 est premier?&quot;</span><span class="p">,</span> <span class="n">premier</span><span class="p">(</span><span class="mi">997</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 est premier? True
+169 est premier? False
+997 est premier? True
 </pre></div>
 </div>
 </div>

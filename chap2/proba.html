@@ -535,7 +535,7 @@ On pourra alors s’intéresser aux évènements <span class="math notranslate n
 <p>Généralement, les variables aléatoires discrètes <span class="math notranslate nohighlight">\(N\)</span> sont définies sur un ensemble <span class="math notranslate nohighlight">\(\Omega = \left\{n_i\right\}_{i=1...\infty}\)</span>.
 On peut alors définir la probabilité <span class="math notranslate nohighlight">\(p\)</span> comme</p>
 <div class="math notranslate nohighlight" id="equation-proba-discrete">
-<span class="eqno">(10)<a class="headerlink" href="#equation-proba-discrete" title="Permalink to this equation">#</a></span>\[    
+<span class="eqno">(17)<a class="headerlink" href="#equation-proba-discrete" title="Permalink to this equation">#</a></span>\[    
 p(n) = P(N=n). 
 \]</div>
 <p>L’axiome \eqref{eq:axiome-2} donne que la somme de toutes les probabilités de chaque valeur <span class="math notranslate nohighlight">\(n_i\)</span> vaut 1:</p>
@@ -566,7 +566,7 @@ On peut notamment définir la probabilité pour que le résultat <span class="ma
 \[    P(X&lt;x) = F(x).\]</div>
 <p>Comme pour les variables aléatoires discrètes, cette fonction <span class="math notranslate nohighlight">\(F\)</span> est appelée <strong>fonction de répartition</strong> (ou <strong>fonction cumulative</strong>) et permet de définir la <strong>densité de probabilité</strong> ou <strong>pdf</strong> <span class="math notranslate nohighlight">\(f(x)\)</span> telle que:</p>
 <div class="math notranslate nohighlight" id="equation-def-pdf">
-<span class="eqno">(11)<a class="headerlink" href="#equation-def-pdf" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(18)<a class="headerlink" href="#equation-def-pdf" title="Permalink to this equation">#</a></span>\[
 f(x) = \frac{\mathrm{d}F(x)}{\mathrm{d}x}.
 \]</div>
 <p>La figure ci-dessous montre un exemple de pdf et de la fonction de répartition associée.</p>
@@ -601,7 +601,7 @@ f(x) = \frac{\mathrm{d}F(x)}{\mathrm{d}x}.
 <div class="math notranslate nohighlight">
 \[    f(x)\mathrm{d}x = P(X&lt; x+\mathrm{d}x) - P(X&lt;x) = P(x&lt;X&lt;x+\mathrm{d}x)\]</div>
 <p>Pour les variables aléatoires continues, on dira souvent que “<em>la variable <span class="math notranslate nohighlight">\(X\)</span> est distribuée selon la fonction densité de probabilité <span class="math notranslate nohighlight">\(f(x)\)</span></em>”.</p>
-<p>Cette définition remplace donc celle de la probabilité que nous avons définie pour les variables discrètes <a class="reference internal" href="#equation-proba-discrete">(10)</a>.
+<p>Cette définition remplace donc celle de la probabilité que nous avons définie pour les variables discrètes <a class="reference internal" href="#equation-proba-discrete">(17)</a>.
 Les propriétés que nous avons dérivées peuvent être écrites pour les variables aléatoires continues.
 Si on se donne une pdf <span class="math notranslate nohighlight">\(f(x)\)</span> définie sur <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> et <span class="math notranslate nohighlight">\(\left[a,b\right]\)</span>  un intervalle de <span class="math notranslate nohighlight">\(\mathrm{R}\)</span>,</p>
 <div class="math notranslate nohighlight">
@@ -616,14 +616,14 @@ Si on se donne une pdf <span class="math notranslate nohighlight">\(f(x)\)</span
 <p>Pour une variable <span class="math notranslate nohighlight">\(X\)</span> dont la pdf <span class="math notranslate nohighlight">\(f(x)\)</span> est connue, il est possible de déterminer la pdf <span class="math notranslate nohighlight">\(g(y)\)</span> d’une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span> fonction de <span class="math notranslate nohighlight">\(X\)</span>: <span class="math notranslate nohighlight">\(Y = \phi(X)\)</span>.
 En effet, si <span class="math notranslate nohighlight">\(\phi\)</span> est une fonction réelle dérivable et bijective, on peut démontrer que:</p>
 <div class="math notranslate nohighlight" id="equation-chgt-variable">
-<span class="eqno">(12)<a class="headerlink" href="#equation-chgt-variable" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(19)<a class="headerlink" href="#equation-chgt-variable" title="Permalink to this equation">#</a></span>\[
 g(y) = \frac{f(x)}{\vert \phi ' (x)\vert} = \frac{f(\phi ^{-1}(y))}{\vert \phi ' (\phi ^{-1}(y)) \vert }.
 \]</div>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>On se donne une variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> suivant une loi exponentielle: <span class="math notranslate nohighlight">\(f(x) = \exp (-x)\)</span> sur <span class="math notranslate nohighlight">\(\left[0, \infty \right]\)</span>.
 Que vaut la distribution <span class="math notranslate nohighlight">\(g\)</span> de la variable <span class="math notranslate nohighlight">\(Y = \sqrt{X}\)</span>?</p>
-<p>En utilisant l’équation <a class="reference internal" href="#equation-chgt-variable">(12)</a>, on trouve:</p>
+<p>En utilisant l’équation <a class="reference internal" href="#equation-chgt-variable">(19)</a>, on trouve:</p>
 <div class="math notranslate nohighlight">
 \[
 g(y) = \frac{f(x)}{\vert \frac{1}{2\sqrt{x}} \vert} = 2y\exp (-y^2).
@@ -658,31 +658,92 @@ On définira des fonctions <span class="math notranslate nohighlight">\(\phi _i\
 \[
 g(y) = \sum _i \frac{f(x)}{\vert \phi_i ' (x)\vert} = \sum _i \frac{f(\phi ^{-1}(y))}{\vert \phi_i ' (\phi_i ^{-1}(y)) \vert }.
 \]</div>
+<div class="exercise admonition" id="proba-cos">
+
+<p class="admonition-title"><span class="caption-number">Exercise 5 </span></p>
+<section id="exercise-content">
+<p>En utilisant une distribution de nombres aléatoires distribués uniformément, on veut produire une distribution de loi sinusoidale:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4c2b8e22-51b9-4f94-9170-0aa1411a8699">
+<span class="eqno">(20)<a class="headerlink" href="#equation-4c2b8e22-51b9-4f94-9170-0aa1411a8699" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    f(x) = \frac{1}{2}\sin(x).
+\end{equation}\]</div>
+<p>On choisira un intervalle compris entre 0 et <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<ol class="simple">
+<li><p>Vérifier que sur cet intervalle <span class="math notranslate nohighlight">\(f\)</span> est normalisée à 1.</p></li>
+<li><p>Calculer la fonction cumulative de <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+<li><p>Démontrer que l’inverse de <span class="math notranslate nohighlight">\(F\)</span> est <span class="math notranslate nohighlight">\(F^{-1}(x) = \cos ^{-1}(1-2x)\)</span>. Donner l’intervalle de définition de cette fonction.</p></li>
+<li><p>Avec Python, tester la fonction <span class="math notranslate nohighlight">\(F\)</span> pour générer des évènements selon la distribution <span class="math notranslate nohighlight">\(f\)</span> avec des nombres aléatoires distribués uniformément.</p></li>
+</ol>
+</section>
+</div>
+<div class="solution dropdown admonition" id="chap2/proba-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#proba-cos"> Exercise 5</a></p>
+<section id="solution-content">
+<ol>
+<li><p>On calcule
+$<span class="math notranslate nohighlight">\( 
+\int _0 ^{\pi} f(x)\mathrm{d}x = \frac{1}{2} \int _0 ^{\pi} \sin(x)\mathrm{d}x = \frac{1}{2} \left[ -\cos(\pi) + \cos(0) \right] = 1
+\)</span>$</p></li>
+<li><p>Le calcul est direct:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-230e2df6-2ed0-4886-be2b-c89b6a15326a">
+<span class="eqno">(21)<a class="headerlink" href="#equation-230e2df6-2ed0-4886-be2b-c89b6a15326a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+        F(x) = \int _0 ^x \frac{1}{2}\sin (x')\mathrm{d}x' = \left[ -\frac{1}{2}\cos (x') \right]_0 ^x = \frac{1}{2}-\frac{1}{2}\cos(x).
+    \end{equation}\]</div>
+</li>
+<li><p>On calcule <span class="math notranslate nohighlight">\(F(F^{-1}(x)) = F(F^{-1}(x)) = 1\)</span>.
+La fonction <span class="math notranslate nohighlight">\(F\)</span> est définie pour <span class="math notranslate nohighlight">\(x\in \left[-1, 1\right]\)</span>.</p></li>
+<li><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">acos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="n">nevents</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">unif</span> <span class="o">=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nevents</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># liste d&#39;abscisses de la figure</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">acos</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">unif</span><span class="p">]</span>                          <span class="c1"># calcul de y = f(x)</span>
+
+<span class="n">xx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mf">0.01</span><span class="o">*</span><span class="mf">3.14159</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">)]</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">xx</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gen. f(x)&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;f(x) = sin(x)/2&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</div>
+<div class="cell tag_hide-output tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/proba_6_0.png" src="../_images/proba_6_0.png" />
+</div>
+</div>
 </section>
 <section id="generation-de-loi-de-probabilite">
 <h2>Génération de loi de probabilité<a class="headerlink" href="#generation-de-loi-de-probabilite" title="Permalink to this headline">#</a></h2>
 <p>Une application intéressante du changement de variable est la génération de loi de probabilité à partir d’autres lois plus simples à générer.
 Supposons que nous pouvons générer facilement la variable aléatoire <span class="math notranslate nohighlight">\(X\)</span> de densité de probabilité <span class="math notranslate nohighlight">\(f(x)\)</span> uniforme sur <span class="math notranslate nohighlight">\([0,1]\)</span> (i.e. <span class="math notranslate nohighlight">\(f(x)=1\)</span> sur <span class="math notranslate nohighlight">\([0,1]\)</span> et <span class="math notranslate nohighlight">\(f(x)=0\)</span> ailleurs).
 On souhaite générer une variable aléatoire <span class="math notranslate nohighlight">\(Y\)</span> suivant la loi <span class="math notranslate nohighlight">\(g(y)\)</span> fixée; il  faut donc déterminer le changement de variable <span class="math notranslate nohighlight">\(Y = \phi(X)\)</span> approprié.
-En utilisant l’équation <a class="reference internal" href="#equation-chgt-variable">(12)</a> de la section <a class="reference external" href="#changement-de-variables-al%C3%A9atoires">Changement de variables aléatoires</a> et la définition de la pdf <a class="reference internal" href="#equation-def-pdf">(11)</a>, on en déduit que:</p>
+En utilisant l’équation <a class="reference internal" href="#equation-chgt-variable">(19)</a> de la section <a class="reference external" href="#changement-de-variables-al%C3%A9atoires">Changement de variables aléatoires</a> et la définition de la pdf <a class="reference internal" href="#equation-def-pdf">(18)</a>, on en déduit que:</p>
 <div class="math notranslate nohighlight" id="equation-generation-loi">
-<span class="eqno">(13)<a class="headerlink" href="#equation-generation-loi" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(22)<a class="headerlink" href="#equation-generation-loi" title="Permalink to this equation">#</a></span>\[
     g(y) = \frac{1}{\vert \phi ' (x) \vert } \Rightarrow \frac{\mathrm{d}G}{\mathrm{d}y}\frac{\mathrm{d}\phi}{\mathrm{d}x} = 1.
 \]</div>
 <p>On peut démontrer que la fonction <span class="math notranslate nohighlight">\(\phi (x) = G^{-1}(x)\)</span> est une solution de l’équation précédente.
 En effet, si <span class="math notranslate nohighlight">\(G\)</span> est une fonction strictement croissante, elle est bijective; alors:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-49423e92-b4b4-4895-8453-8f241cea970d">
-<span class="eqno">(14)<a class="headerlink" href="#equation-49423e92-b4b4-4895-8453-8f241cea970d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bdffb767-0c17-408a-af9b-46b05b53a279">
+<span class="eqno">(23)<a class="headerlink" href="#equation-bdffb767-0c17-408a-af9b-46b05b53a279" title="Permalink to this equation">#</a></span>\[\begin{equation}
     1 = \frac{\mathrm{d}x}{\mathrm{d}x} = \frac{\mathrm{d}\phi^{-1} (y)}{\mathrm{d}x} = \frac{\mathrm{d}G (y)}{\mathrm{d}y} \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}G (y)}{\mathrm{d}y} \frac{\mathrm{d}\phi(x)}{\mathrm{d}x},
 \end{equation}\]</div>
-<p>ce qui correspond à l’équation <a class="reference internal" href="#equation-generation-loi">(13)</a>.</p>
+<p>ce qui correspond à l’équation <a class="reference internal" href="#equation-generation-loi">(22)</a>.</p>
 <p>Ainsi, si on dispose de mesures distribuées <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> uniformément entre <span class="math notranslate nohighlight">\([0,1]\)</span>, l’échantillon <span class="math notranslate nohighlight">\(\left\{y_i = G^{-1}(x_i)\right\}\)</span> sera distribué selon la pdf <span class="math notranslate nohighlight">\(g\)</span>.</p>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
 <p>On souhaite générer aléatoirement des nombres selon la distribution <span class="math notranslate nohighlight">\(f(x) = 3x^2\)</span> sur l’intervalle <span class="math notranslate nohighlight">\(\left[0,1\right]\)</span> à partir d’une loi uniforme (générée par exemple à partir de la fonction <code class="docutils literal notranslate"><span class="pre">numpy.random.rand()</span></code>).</p>
 <p>On commence par vérifier que la pdf <span class="math notranslate nohighlight">\(f\)</span> est bien normalisée:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a7c7bb7-0697-4503-920f-e6a4a2e544a6">
-<span class="eqno">(15)<a class="headerlink" href="#equation-8a7c7bb7-0697-4503-920f-e6a4a2e544a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c53fc5e9-7463-4ff4-bc4d-bad4368db419">
+<span class="eqno">(24)<a class="headerlink" href="#equation-c53fc5e9-7463-4ff4-bc4d-bad4368db419" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \int _0 ^{1} 3x^2 \mathrm{d}x = 3 \left[ \frac{1}{3}x^3 \right] _0 ^1 = 1-0 = 1.
 \end{equation}\]</div>
 <p>La fonction cumulative <span class="math notranslate nohighlight">\(F\)</span> est <span class="math notranslate nohighlight">\(F(x) = \int _0 ^x 3x'^2\mathrm{d}x' = x^3\)</span> et donc <span class="math notranslate nohighlight">\(F^{-1}(x) = x^{1/3}\)</span>.
@@ -711,7 +772,7 @@ La figure ci-dessous montre la distribution <span class="math notranslate nohigh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/proba_8_0.png" src="../_images/proba_8_0.png" />
+<img alt="../_images/proba_9_0.png" src="../_images/proba_9_0.png" />
 </div>
 </div>
 </section>
@@ -720,38 +781,38 @@ La figure ci-dessous montre la distribution <span class="math notranslate nohigh
 <p>De la même façon que l’on a défini, dans la section <a class="reference internal" href="../chap1/caracterisation_representation.html#content-chap1-moyenne-ecart-types"><span class="std std-ref">Moyenne et écart-types</span></a> des quantités permettant de caractériser la distribution des données collectées durant des mesures, on peut caractériser la distribution des densités de probabilités par quelques quantités simples.
 Pour cela, on définit l’<strong>espérance mathématique</strong> d’une fonction <span class="math notranslate nohighlight">\(g(x)\)</span> avec <span class="math notranslate nohighlight">\(X\)</span> une variable aléatoire distribuée selon <span class="math notranslate nohighlight">\(f(x)\)</span>: on note l’espérance</p>
 <div class="math notranslate nohighlight" id="equation-esperance">
-<span class="eqno">(16)<a class="headerlink" href="#equation-esperance" title="Permalink to this equation">#</a></span>\[ 
+<span class="eqno">(25)<a class="headerlink" href="#equation-esperance" title="Permalink to this equation">#</a></span>\[ 
     \mathbb{E}[g(X)] = \int _{-\infty} ^{\infty} g(x)f(x)\mathrm{d}x.
 \]</div>
 <p>Cette quantité correspond à la moyenne de <span class="math notranslate nohighlight">\(g(x)\)</span> pondérée par la pdf <span class="math notranslate nohighlight">\(f(x)\)</span>; c’est pourquoi on appelle parfois l’espérance la <strong>moyenne</strong> de <span class="math notranslate nohighlight">\(g(X)\)</span>.
 La fonction <span class="math notranslate nohighlight">\(g(x)\)</span> peut être ce que l’on veut: les fonctions polynomiales <span class="math notranslate nohighlight">\(g(x) = x^n\)</span> sont particulièrement intéressantes et leurs moments <span class="math notranslate nohighlight">\(\mathbb{E}[X^n]\)</span> sont appelés <strong>moments d’ordre <span class="math notranslate nohighlight">\(n\)</span></strong>.</p>
 <p>On définit la <strong>moyenne</strong> de <span class="math notranslate nohighlight">\(X\)</span> (i.e. <span class="math notranslate nohighlight">\(g(x) = x\)</span>) la quantité</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0f2347e-cc25-4335-87d7-aff0a2390299">
-<span class="eqno">(17)<a class="headerlink" href="#equation-d0f2347e-cc25-4335-87d7-aff0a2390299" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-135961de-2f57-4826-8550-dfbdbbc1b947">
+<span class="eqno">(26)<a class="headerlink" href="#equation-135961de-2f57-4826-8550-dfbdbbc1b947" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathbb{E}[X] = \mu _1 = \int _{-\infty} ^{\infty} x\times f(x) \mathrm{d}x.
 \end{equation}\]</div>
 <p>Cette définition s’étend aux probabilités discrètes.
 Dans ce cas, elle correspond parfaitement à la définition de la moyenne statistique définie par l’équation \eqref{eq:moyenne-stats}: si on considère <span class="math notranslate nohighlight">\(n\)</span> mesures de <span class="math notranslate nohighlight">\(X\)</span> notées <span class="math notranslate nohighlight">\(\left\{ x_i \right\}\)</span> toutes équiprobables <span class="math notranslate nohighlight">\(p(x_i) = \frac{1}{n}\)</span>, on a:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03109966-87a0-4ef7-918a-1699b42a95e2">
-<span class="eqno">(18)<a class="headerlink" href="#equation-03109966-87a0-4ef7-918a-1699b42a95e2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b75073fb-5fa7-44c0-ac1b-a29cecf09da5">
+<span class="eqno">(27)<a class="headerlink" href="#equation-b75073fb-5fa7-44c0-ac1b-a29cecf09da5" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mu _1 = \sum _{i=0}^n x_i p(x_i) = \frac{1}{n} \sum _{i=0}^n x_i = \overline{x}.
 \end{equation}\]</div>
 <p>Cela signifie que la moyenne de mesures correspond bien à la espérance de la variable aléatoire associée.</p>
 <p>La variable <span class="math notranslate nohighlight">\(X' = X-\mu _1\)</span> est de moyenne nulle: on l’appelle donc <strong>variable centrée</strong>.
 On peut alors définir l’étalement de la distribution <span class="math notranslate nohighlight">\(f\)</span> en considérant l’espérance de la variable centrée au carré <span class="math notranslate nohighlight">\(\mathbb{E}[X'^2]\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-579e5aa9-61ae-4b61-895a-e07ff029b9c0">
-<span class="eqno">(19)<a class="headerlink" href="#equation-579e5aa9-61ae-4b61-895a-e07ff029b9c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0461bd2a-1176-4771-bd00-0d3a45b08b5e">
+<span class="eqno">(28)<a class="headerlink" href="#equation-0461bd2a-1176-4771-bd00-0d3a45b08b5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathbb{E}[X'^2] = \sigma ^2 = \int _{-\infty} ^{\infty} (x - \mu_1) ^2\times f(x) \mathrm{d}x = \int _{-\infty} ^{\infty} (x^2 - \mu_1^2) \times f(x) \mathrm{d}x = \mathbb{E}[X^2] - \mathbb{E}[X]^2.
 \end{equation}\]</div>
 <p>On reconnait là la forme de l’équation \eqref{eq:variance-stats}; l’<strong>écart-type</strong> <span class="math notranslate nohighlight">\(\sigma = \sqrt{\mathbb{E}[X'^2]}\)</span> est donc la mesure de la dispersion de <span class="math notranslate nohighlight">\(X\)</span> autour de la valeur moyenne <span class="math notranslate nohighlight">\(\mu _1\)</span>.</p>
 <p>La <strong>médiane</strong> de la variable <span class="math notranslate nohighlight">\(X\)</span>, notée <span class="math notranslate nohighlight">\(\mathrm{med}(X)\)</span> se définit comme:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb7910cf-ba93-4aab-bb55-cc6f9824c862">
-<span class="eqno">(20)<a class="headerlink" href="#equation-fb7910cf-ba93-4aab-bb55-cc6f9824c862" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-01ed0921-d0d2-4c55-bf82-9bfbdb60c252">
+<span class="eqno">(29)<a class="headerlink" href="#equation-01ed0921-d0d2-4c55-bf82-9bfbdb60c252" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \int _{-\infty} ^{\mathrm{med}(X)} f(x)\mathrm{d}x = \int _{\mathrm{med}(X)} ^{\infty} f(x)\mathrm{d}x = \frac{1}{2}.
 \end{equation}\]</div>
 <p>Le <strong>mode</strong> de la variable <span class="math notranslate nohighlight">\(X\)</span> est la valeur <span class="math notranslate nohighlight">\(x\)</span> qui maximise la pdf <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a57f4d88-a680-4941-a7a7-a22f10c483b2">
-<span class="eqno">(21)<a class="headerlink" href="#equation-a57f4d88-a680-4941-a7a7-a22f10c483b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-db7fd0fd-959c-4a8b-8495-ec7a8a15ab69">
+<span class="eqno">(30)<a class="headerlink" href="#equation-db7fd0fd-959c-4a8b-8495-ec7a8a15ab69" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathrm{mode}(X) = \arg _{x\in [-\infty, \infty]} f(x).
 \end{equation}\]</div>
 <p>La figure ci-dessous donne un exemple de moyenne (ligne verticale orange) et de mode (ligne verticale bleue) pour une distribution de probabilité arbitraire.</p>
@@ -799,7 +860,7 @@ On peut alors définir l’étalement de la distribution <span class="math notra
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/proba_10_0.png" src="../_images/proba_10_0.png" />
+<img alt="../_images/proba_11_0.png" src="../_images/proba_11_0.png" />
 </div>
 </div>
 <hr class="footnotes docutils" />
