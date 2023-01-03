@@ -16,6 +16,8 @@ execute:
   execute_notebooks: force
 
 sphinx:
+  # config:
+  #   hide_solutions: True
   extra_extensions:
     - sphinxcontrib.tikz
     - sphinx_exercise
