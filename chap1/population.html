@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -108,6 +109,11 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orga/orga.html">
+   Informations générales
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="chap1.html">
    Concepts de statistiques en physique expérimentale
@@ -167,10 +173,74 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap3/chap3.html">
-   Concepts de statistiques en physique expérimentale
+   Ajustement de modèles sur des données
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/principe.html">
+     Principe de l’ajustement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-sans-erreur.html">
+     Ajustement avec des données sans erreurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-avec-erreur.html">
+     Ajustement avec des données avec erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendix/outils-python.html">
+   Aide avec python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/python-base.html">
+     Les bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/variables.html">
+     Types de variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/conditions.html">
+     Conditionalité, répétition et fonctions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules.html">
+     Importation et utilisation de modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/io.html">
+     Lecture et écriture de fichiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules_utiles.html">
+     Modules utiles
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -376,12 +446,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="population-probabilite-et-echantillon">
+  <section class="tex2jax_ignore mathjax_ignore" id="population-probabilite-et-echantillon">
 <h1>Population, probabilité et échantillon<a class="headerlink" href="#population-probabilite-et-echantillon" title="Permalink to this headline">#</a></h1>
 <section id="experience-aleatoire">
 <h2>Expérience aléatoire<a class="headerlink" href="#experience-aleatoire" title="Permalink to this headline">#</a></h2>
 <p>On définit une <strong>expérience aléatoire</strong> comme un processus qui va donner
-des résultats imprévisibles à l’avance [2]. Il est important de remarquer
+des résultats imprévisibles à l’avance <a class="footnote-reference brackets" href="#imprevisible" id="id1">1</a>. Il est important de remarquer
 que dans le cadre des sciences expérimentales une expérience ne définit
 donc pas uniquement le phénomène physique que l’on étudie, mais aussi le
 matériel utilisé et la façon dont les données sont “reçues” par
@@ -389,7 +459,7 @@ l’expérimentateur puisque les instruments de mesures sont aussi à
 l’origine de fluctuations statistiques ou d’erreurs de mesure.</p>
 </section>
 <section id="univers-et-evenements">
-<h2>Univers et évènements<a class="headerlink" href="#univers-et-evenements" title="Permalink to this headline">#</a></h2>
+<span id="content-univers"></span><h2>Univers et évènements<a class="headerlink" href="#univers-et-evenements" title="Permalink to this headline">#</a></h2>
 <p>L’ensemble des résultats possibles d’une expérience est appelé <strong>univers
 des possibles</strong>. Cet ensemble dépend bien de l’expérience, mais aussi de
 la façon de lire les “résultats”. Donnons ici quelques exemples
@@ -404,7 +474,7 @@ nous prenions la valeur du dessus multipliée par 2, l’ensemble des
 possibles serait différent i.e. l’ensemble des entiers naturels
 pairs de 2 à 12.</p></li>
 <li><p>Nous avons à notre disposition une pièce avec une tranche infiniment
-fine[3]: on la lance et on regarde la face du dessus. Les résultats
+fine<a class="footnote-reference brackets" href="#tranche" id="id2">2</a>: on la lance et on regarde la face du dessus. Les résultats
 possibles sont “pile” ou “face”. Si en revanche la tranche n’est pas
 infiniment fine, les résultats possibles sont “pile”, “face” ou
 “tranche”.</p></li>
@@ -454,7 +524,9 @@ vont pas être obtenues avec la même fréquence. On appelle
 <strong>probabilité</strong> d’une valeur <span class="math notranslate nohighlight">\(x\)</span> ou d’un ensemble de valeurs de
 l’univers des possibles la fréquence d’apparition de ces valeurs</p>
 <div class="math notranslate nohighlight">
-\[p(x) = \lim _{N\rightarrow \infty} \frac{n(x)}{N},\]</div>
+\[
+p(x) = \lim _{N\rightarrow \infty} \frac{n(x)}{N},
+\]</div>
 <p>avec <span class="math notranslate nohighlight">\(n(x)\)</span> le
 nombre d’occurrence de <span class="math notranslate nohighlight">\(x\)</span> et <span class="math notranslate nohighlight">\(N\)</span> le nombre de répétitions de
 l’expérience. Cette définition dite “fréquentiste” est très utile en
@@ -479,9 +551,16 @@ recours à des méthodes plus complexes basées sur des simulations
 disponibles à un moment donné pour en déduire la probabilité d’un
 évènement futur : ces méthodes sont donc utiles notamment dans le cas où
 la reproduction des mesures est difficile.</p>
-<p>[2] Les expériences qui donnent toujours le même résultat sont a priori
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="imprevisible"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Les expériences qui donnent toujours le même résultat sont a priori
 bien peu intéressantes.</p>
-<p>[3] Une pièce infiniment fine ne tombera jamais sur la tranche.</p>
+</dd>
+<dt class="label" id="tranche"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Une pièce infiniment fine ne tombera jamais sur la tranche.</p>
+</dd>
+</dl>
 </section>
 </section>
 

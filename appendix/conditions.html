@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Conditionalité, répétition et fonctions &#8212; physexp2</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Importation et utilisation de modules" href="modules.html" />
+    <link rel="prev" title="Types de variables" href="variables.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">physexp2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orga/orga.html">
+   Informations générales
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap1/chap1.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/stats.html">
+     La place des statistiques en physique expérimentale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/population.html">
+     Population, probabilité et échantillon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/ensemble.html">
+     Définition ensembliste et propriétés des probabilités
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/caracterisation_representation.html">
+     Représentation et caractérisation des échantillons de données
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap2/chap2.html">
+   Lois de probabilités et mesures expérimentales
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/proba.html">
+     Probabilité
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/loi-proba.html">
+     Loi de probabilité usuelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/erreur.html">
+     Notion d’erreur sur une mesure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap3/chap3.html">
+   Ajustement de modèles sur des données
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/principe.html">
+     Principe de l’ajustement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-sans-erreur.html">
+     Ajustement avec des données sans erreurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-avec-erreur.html">
+     Ajustement avec des données avec erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="outils-python.html">
+   Aide avec python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="python-base.html">
+     Les bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="variables.html">
+     Types de variables
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Conditionalité, répétition et fonctions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules.html">
+     Importation et utilisation de modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="io.html">
+     Lecture et écriture de fichiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules_utiles.html">
+     Modules utiles
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/guiguem/physexp2/main?urlpath=tree/docs/appendix/conditions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/guiguem/physexp2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/appendix/conditions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scopes">
+   Scopes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mots-cles-definissant-des-scopes">
+   Mots-clés définissant des scopes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-elif-else">
+   If/Elif/Else
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boucle-for">
+   Boucle for
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boucle-while">
+   Boucle while
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonctions">
+   Fonctions
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Conditionalité, répétition et fonctions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scopes">
+   Scopes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mots-cles-definissant-des-scopes">
+   Mots-clés définissant des scopes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-elif-else">
+   If/Elif/Else
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boucle-for">
+   Boucle for
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boucle-while">
+   Boucle while
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fonctions">
+   Fonctions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="conditionalite-repetition-et-fonctions">
+<h1>Conditionalité, répétition et fonctions<a class="headerlink" href="#conditionalite-repetition-et-fonctions" title="Permalink to this headline">#</a></h1>
+<p>Les programmes que l’on peut écrire avec seulement l’assignation de valeurs sont assez simples.
+Afin de pouvoir créer des programmes plus complexes, il est nécessaire de pouvoir demander au programme de faire des choses selon la valeur de certaines variables ou bien de répéter des opérations.
+Pour cela certains mots-clés permettant de définir ce type de comportement existent en Python.</p>
+<section id="scopes">
+<h2>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline">#</a></h2>
+<p>On peut définir des zones du code qui ne sont exécutées que sous certaines conditions (que nous verrons plus loin).
+Ces zones sont appelées périmètres (“scope” en anglais) et sont définies par:</p>
+<ul class="simple">
+<li><p>la présence d’un double-point “:” dans la ligne avant cette zone, et</p></li>
+<li><p>une indentation de la zone du code.</p></li>
+</ul>
+<p>L’exemple ci-dessous montre les principaux éléments définissant un scope.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">mot</span><span class="o">-</span><span class="n">clé</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">):</span>
+    <span class="c1"># debut du perimetre</span>
+    <span class="o">&lt;</span><span class="n">opérations</span><span class="o">&gt;</span>
+    <span class="c1"># fin du perimetre</span>
+</pre></div>
+</div>
+<p>Un point important est que les variables définies à l’intérieur d’un scope ne sont valables que dans ce scope et n’existent plus en dehors de ce scope.
+De la sorte, les variables définies directement dans le scope principal sont dites <em>gloables</em> et donc accessibles dans tous les scopes contenus dans le scope principal.
+Enfin, les scopes peuvent être insérés les uns dans les autres.</p>
+<p>(content:motsclés)=</p>
+</section>
+<section id="mots-cles-definissant-des-scopes">
+<h2>Mots-clés définissant des scopes<a class="headerlink" href="#mots-cles-definissant-des-scopes" title="Permalink to this headline">#</a></h2>
+<p>Voici quelques uns des mots-clés définissant des scopes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if/elif/else</span></code>: ces trois mots-clés permettent de définir des tests et de faire des opérations spécifiques selon les résultats de ces opérations (voir Section <a class="reference internal" href="#content-ifelifelse"><span class="std std-ref">If/Elif/Else</span></a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code>: il permet de créer des scopes répétés un nombre de fois défini par une condition (voir Section <a class="reference internal" href="#content-for"><span class="std std-ref">Boucle for</span></a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code>: il permet de créer des scopes répétés tant que la condition est vraie (voir Section <a class="reference internal" href="#content-while"><span class="std std-ref">Boucle while</span></a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span></code>: il permet de définir des fonctions (voir Section <a class="reference internal" href="#content-fonction"><span class="std std-ref">Fonctions</span></a>).</p></li>
+</ul>
+</section>
+<section id="if-elif-else">
+<span id="content-ifelifelse"></span><h2>If/Elif/Else<a class="headerlink" href="#if-elif-else" title="Permalink to this headline">#</a></h2>
+<p>Un des scopes les plus utiles en Python est le <code class="docutils literal notranslate"><span class="pre">if</span></code>.
+Le code à l’intérieur du scope n’est exécuté que si la valeur de la condition est <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#définir 3 variables:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span> <span class="c1">#True</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b est plus grand que a&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">:</span> <span class="c1">#False</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c est plus petit que a&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span> <span class="o">==</span> <span class="n">c</span><span class="p">:</span> <span class="c1">#True</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2a est egal a c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b est plus grand que a
+2a est egal a c
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans cet exemple on compare les valeurs de plusieurs variables avec les opérateurs de comparaison ou bien celui d’égalité (<code class="docutils literal notranslate"><span class="pre">==</span></code>) et on imprime une phrase selon le résultat de la comparaison.
+Il est bien sur possible de comparer d’autres variables comme des strings, utiliser le mot-clé <code class="docutils literal notranslate"><span class="pre">elif</span></code> pour faire des tests au cas ou le premier <code class="docutils literal notranslate"><span class="pre">if</span></code> soit faux ou bien d’avoir des conditions plus complexes grâce aux mots-clés <code class="docutils literal notranslate"><span class="pre">and</span></code> et <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">couleur</span> <span class="o">=</span> <span class="s2">&quot;marron&quot;</span>
+<span class="n">taille</span> <span class="o">=</span> <span class="s2">&quot;petit&quot;</span>
+<span class="c1"># qui suis-je?</span>
+<span class="k">if</span> <span class="n">couleur</span> <span class="o">==</span> <span class="s2">&quot;vert&quot;</span> <span class="ow">and</span> <span class="n">taille</span> <span class="o">==</span> <span class="s2">&quot;grand&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Geant vert...&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">couleur</span> <span class="o">==</span> <span class="s2">&quot;marron&quot;</span> <span class="ow">and</span> <span class="n">taille</span> <span class="o">==</span> <span class="s2">&quot;petit&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Un marron!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&#39;est une colle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Un marron!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans le cas de dictionaires, il est parfois utile de vérifier qu’une clé est présente dans un dictionnaire avant de faire quelque chose avec.
+Pour cela on peut tester si une clé est présente dans la liste des clés du dictionaire en utilisant le mot-clé <code class="docutils literal notranslate"><span class="pre">in</span></code> et la méthode <code class="docutils literal notranslate"><span class="pre">keys()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionaire</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;chat&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;chien&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="k">if</span> <span class="s2">&quot;chat&quot;</span> <span class="ow">in</span> <span class="n">dictionaire</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le nombre de chat que j&#39;ai est&quot;</span><span class="p">,</span> <span class="n">dictionaire</span><span class="p">[</span><span class="s2">&quot;chat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le nombre de chat que j&#39;ai est 1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="boucle-for">
+<span id="content-for"></span><h2>Boucle for<a class="headerlink" href="#boucle-for" title="Permalink to this headline">#</a></h2>
+<p>Le besoin de répéter des opérations a engendré le concept de <em>boucle</em>.
+La plus célèbre est la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> qui répète les opérations contenues dans le scope.
+Le type de répétition le plus exploité est la répétition sur les éléments d’une liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radii</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">radii</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r =&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r = 0.9
+r = 1.0
+r = 0.95
+r = 1.1
+r = 1.2
+r = 1.0
+r = 0.8
+r = 0.85
+r = 1.05
+r = 1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans cette exemple, pour chaque élément noté <code class="docutils literal notranslate"><span class="pre">r</span></code> de la liste <code class="docutils literal notranslate"><span class="pre">radii</span></code>, on va afficher la valeur de <code class="docutils literal notranslate"><span class="pre">r</span></code>.
+Pour cela la condition <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">in</span> <span class="pre">radii</span></code> créé bien une variable <code class="docutils literal notranslate"><span class="pre">r</span></code> qui existe dans le scope et disparait en dehors.
+A chaque fois que le contenu du scope est exécuté une fois, une nouvelle valeur de <code class="docutils literal notranslate"><span class="pre">r</span></code> est assignée en suivant l’ordre dans la liste <code class="docutils literal notranslate"><span class="pre">radii</span></code> et le contenu du scope est répété avec cette nouvelle valeur.</p>
+<p>Parfois on n’a pas de liste à utiliser comme condition; c’est pourquoi on va utiliser la fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code> qui va remplacer la liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radii</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="c1">#l&#39;index de la variable va avoir les valeurs 0..9</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element&quot;</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;a pour valeur:&quot;</span><span class="p">,</span> <span class="n">radii</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Element 0 a pour valeur: 0.9
+Element 1 a pour valeur: 1.0
+Element 2 a pour valeur: 0.95
+Element 3 a pour valeur: 1.1
+Element 4 a pour valeur: 1.2
+Element 5 a pour valeur: 1.0
+Element 6 a pour valeur: 0.8
+Element 7 a pour valeur: 0.85
+Element 8 a pour valeur: 1.05
+Element 9 a pour valeur: 1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>On remarque que cette fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code> donnera une liste de la taille donnée par l’argument commencant toujours à 0.</p>
+<div class="exercise admonition" id="for-2-lists">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
+<section id="exercise-content">
+<p>Utiliser une boucle for qui va créer deux listes, une contenant tous nombres entiers entre 1 et 10 et  l’autre ces mêmes nombres entiers au carré.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="appendix/conditions-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#for-2-lists"> Exercise 2</a></p>
+<section id="solution-content">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">squares</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">x</span><span class="o">=</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># il faut decaler de 1 puisque index commence a 0</span>
+  <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;les nombres sont:&quot;</span><span class="p">,</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;les carres sont:&quot;</span><span class="p">,</span><span class="n">squares</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+<p>Dans le cas de dictionnaires, on peut utiliser la méthode <code class="docutils literal notranslate"><span class="pre">items()</span></code> pour accéder recursivement à tous les éléments d’un dictionnaire.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annuaire</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Laurent&#39;</span><span class="p">:</span> <span class="mi">6389565</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">:</span> <span class="mi">6356785</span><span class="p">,</span> <span class="s1">&#39;Jacques&#39;</span><span class="p">:</span> <span class="mi">6356795</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">annuaire</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Laurent 6389565
+Paul 6356785
+Jacques 6356795
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="transport-liste">
+
+<p class="admonition-title"><span class="caption-number">Exercise 3 </span></p>
+<section id="exercise-content">
+<p>On se donne un dictionaire contenant le nombre de kilomètres parcourus pour certains moyens de transport <code class="docutils literal notranslate"><span class="pre">{&quot;pied&quot;:</span> <span class="pre">200,</span> <span class="pre">&quot;vélo&quot;:</span> <span class="pre">50,</span> <span class="pre">&quot;voiture&quot;:310}</span></code>; on souhaite afficher les kilomètres pour les moyens de transport dans la liste\ <code class="docutils literal notranslate"><span class="pre">[&quot;voiture&quot;,</span> <span class="pre">&quot;velo&quot;,</span> <span class="pre">&quot;train&quot;,</span> <span class="pre">&quot;avion&quot;]</span></code> et un message “Pas de kilomètres en {moyen de transport}” lorsqu’il n’y a pas de valeur pour ce moyen de transport dans le dictionaire.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="appendix/conditions-solution-3">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#transport-liste"> Exercise 3</a></p>
+<section id="solution-content">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transport_km</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;pied&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;velo&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;voiture&quot;</span><span class="p">:</span><span class="mi">310</span><span class="p">}</span>
+<span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;voiture&quot;</span><span class="p">,</span> <span class="s2">&quot;velo&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;avion&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">moyen</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">moyen</span> <span class="ow">in</span> <span class="n">transport_km</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">moyen</span><span class="p">,</span><span class="n">transport_km</span><span class="p">[</span><span class="n">moyen</span><span class="p">],</span><span class="s2">&quot;km&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pas de kilomètres en&quot;</span><span class="p">,</span><span class="n">moyen</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+</section>
+<section id="boucle-while">
+<span id="content-while"></span><h2>Boucle while<a class="headerlink" href="#boucle-while" title="Permalink to this headline">#</a></h2>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> reprend l’idée de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>, sauf que la condition de répétition n’est pas forcément la lecture récursive des élements d’une liste.
+La boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> répète les opérations définies dans son scope tant que la condition est vraie.
+Par exemple, on peut créer une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> à partir d’une boucle <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radii</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">radii</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Element&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot;a pour valeur:&quot;</span><span class="p">,</span> <span class="n">radii</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Element 0 a pour valeur: 0.9
+Element 1 a pour valeur: 1.0
+Element 2 a pour valeur: 0.95
+Element 3 a pour valeur: 1.1
+Element 4 a pour valeur: 1.2
+Element 5 a pour valeur: 1.0
+Element 6 a pour valeur: 0.8
+Element 7 a pour valeur: 0.85
+Element 8 a pour valeur: 1.05
+Element 9 a pour valeur: 1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>La boucle <code class="docutils literal notranslate"><span class="pre">while</span></code> est très intéressante pour des conditions plus complexes, c’est-à-dire lorsqu’il faut répéter les opérations tant qu’une ou plusieurs conditions ne sont pas remplies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">valeur</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">valeur</span> <span class="o">&gt;</span> <span class="mf">0.1</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">valeur</span><span class="p">)</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="n">valeur</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeur&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;au dessus de 0.1:&quot;</span><span class="p">,</span> <span class="n">valeur</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.194
+0.315
+0.953
+0.543
+0.417
+Valeur 6 au dessus de 0.1: 0.676967035042485
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, la condition est composée de plusieurs tests: la boucle continue d’être exécutée tant que l’incrément <code class="docutils literal notranslate"><span class="pre">i</span></code> est plus petit que 2 ou bien tant que, pour les tirages suivants (entre le troisième et le cinquième) la valeur tirée au hasard est plus grande que 0.1; au delà, pour <code class="docutils literal notranslate"><span class="pre">i&gt;=6</span></code>, la boucle doit s’arrêter.</p>
+</section>
+<section id="fonctions">
+<span id="content-fonction"></span><h2>Fonctions<a class="headerlink" href="#fonctions" title="Permalink to this headline">#</a></h2>
+<p>Jusqu’à présent nous avons vu quelques fonctions: <code class="docutils literal notranslate"><span class="pre">range()</span></code>, <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">len()</span></code>, <code class="docutils literal notranslate"><span class="pre">format()</span></code>…
+Les fonctions peuvent prendre des arguments en entrée (ce n’est pas toujours le cas), effectuer des opérations à partir de ces arguments (la plupart du temps) et donner en sortie d’autres variables (ce n’est pas toujours le cas non plus…).
+L’intérêt des fonctions est double: une fois définies, on peut les utiliser autant de fois que nécessaire en évitant ainsi de réécrire plusieurs fois le même code et de rendre le code plus lisible.</p>
+<p>Les fonctions se définissent en utilisant le mot-clé <code class="docutils literal notranslate"><span class="pre">def</span></code> suivi du nom de la fonction et de ses arguments entre parenthèses.
+Ensuite les opérations que doit faire fonction sont définies dans un scope.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">affine</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">affine(a)</span></code> définie ci-dessus prend en entrée une variable (notée <code class="docutils literal notranslate"><span class="pre">a</span></code>).
+Elle calcule au sein de son scope <code class="docutils literal notranslate"><span class="pre">2*a+1</span></code> et retourne cette valeur grâce au mot-clé <code class="docutils literal notranslate"><span class="pre">return</span></code>.
+Elle pourrait cependant en retourner plusieurs valeurs en utilisant des virgules comme séparateurs <a class="footnote-reference brackets" href="#tuple" id="id1">1</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculator</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span><span class="mi">4</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span><span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeurs calculées avec 4:&quot;</span><span class="p">,</span><span class="n">calculator</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valeurs calculées avec 4: (9, 20)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Même si le scope de la fonction <code class="docutils literal notranslate"><span class="pre">affine()</span></code> est extrêmement simple, les fonctions que l’on peut définir peuvent être aussi compliquées que l’on souhaite.
+Elles peuvent contenir des boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>, des <code class="docutils literal notranslate"><span class="pre">if</span></code> ou encore d’autres fonctions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Saluer</span><span class="p">(</span><span class="n">un_nom</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Salut&quot;</span><span class="p">,</span><span class="n">un_nom</span><span class="p">,</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">SaluerToutLeMonde</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span> <span class="c1"># boucle for sur les noms</span>
+        <span class="n">Saluer</span><span class="p">(</span><span class="n">nom</span><span class="p">)</span>
+
+<span class="c1"># Tester la fonction</span>
+<span class="n">liste_noms</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Audrey&quot;</span><span class="p">,</span> <span class="s2">&quot;Arthur&quot;</span><span class="p">,</span> <span class="s2">&quot;Emile&quot;</span><span class="p">,</span> <span class="s2">&quot;Baptiste&quot;</span><span class="p">]</span>
+<span class="n">SaluerToutLeMonde</span><span class="p">(</span><span class="n">liste_noms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Salut Audrey !
+Salut Arthur !
+Salut Emile !
+Salut Baptiste !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, nous avons défini deux fonctions: la première prend en entrée le nom d’une personne et sert à afficher le “salut” avec le nom donné en entrée.
+La deuxième fonction <code class="docutils literal notranslate"><span class="pre">SaluerToutLeMonde()</span></code> prend en entrée une liste de noms et salue tout les noms de cette liste.
+On peut voir que dans les deux cas, ces fonctions ne retournent pas de valeur.</p>
+<p>Un point important est que toutes les variables définies au sein d’un scope n’existent qu’au sein du scope.
+Notamment cela permet d’utiliser une fonction à l’intérieur de son propre scope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EnleverUn</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># a est trop grand, on doit lui enlever un et recommencer</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enlever un à &quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">EnleverUn</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># a est strictement plus petit que 1</span>
+        <span class="k">return</span> <span class="n">a</span>
+
+<span class="c1"># Tester la fonction sur le nombre 4</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">EnleverUn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeur finale:&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enlever un à  4
+Enlever un à  3
+Enlever un à  2
+Enlever un à  1
+Valeur finale: 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus on définit une fonction <code class="docutils literal notranslate"><span class="pre">EnleverUn()</span></code> qui retire 1 à la valeur d’entrée si celle-ci est plus grande que 1.
+Elle recommence ce processus jusqu’à ce que la valeur d’entrée soit inférieur à 1.
+Cette fonction peut être dite <em>récursive</em> puisqu’elle s’appelle elle-même à l’intérieur de son scope.
+Les fonctions récursives sont très intéressantes, mais elles doivent contenir un moyen de briser la récursivité: dans l’exemple ci-dessus, il s’agit du <code class="docutils literal notranslate"><span class="pre">else</span></code> qui permet de retourner la valeur <code class="docutils literal notranslate"><span class="pre">a</span></code> et non <code class="docutils literal notranslate"><span class="pre">EnlverUn(a)</span></code>.</p>
+<p>On peut voir que cette séquence d’action utilisant des fonctions récursives est équivalente à une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> ou <code class="docutils literal notranslate"><span class="pre">while</span></code> comme donné ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enlever un à &quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valeur finale:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enlever un à  4
+Enlever un à  3
+Enlever un à  2
+Enlever un à  1
+Valeur finale: 0
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="tuple"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>En réalité, Python rassemble les deux valeurs dans un <em>tuple</em> et retourne ce tuple. Cependant la flexibilité de Python dans son syle d’écriture permet de faire comme si la fonction retournait deux valeurs.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="variables.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Types de variables</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="modules.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Importation et utilisation de modules</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mathieu Guigue<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

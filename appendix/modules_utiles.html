@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Modules utiles &#8212; physexp2</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lecture et écriture de fichiers" href="io.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">physexp2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orga/orga.html">
+   Informations générales
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap1/chap1.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/stats.html">
+     La place des statistiques en physique expérimentale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/population.html">
+     Population, probabilité et échantillon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/ensemble.html">
+     Définition ensembliste et propriétés des probabilités
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/caracterisation_representation.html">
+     Représentation et caractérisation des échantillons de données
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap2/chap2.html">
+   Lois de probabilités et mesures expérimentales
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/proba.html">
+     Probabilité
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/loi-proba.html">
+     Loi de probabilité usuelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/erreur.html">
+     Notion d’erreur sur une mesure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap3/chap3.html">
+   Ajustement de modèles sur des données
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/principe.html">
+     Principe de l’ajustement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-sans-erreur.html">
+     Ajustement avec des données sans erreurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-avec-erreur.html">
+     Ajustement avec des données avec erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="outils-python.html">
+   Aide avec python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="python-base.html">
+     Les bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="variables.html">
+     Types de variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="conditions.html">
+     Conditionalité, répétition et fonctions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules.html">
+     Importation et utilisation de modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="io.html">
+     Lecture et écriture de fichiers
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Modules utiles
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/guiguem/physexp2/main?urlpath=tree/docs/appendix/modules_utiles.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/guiguem/physexp2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/appendix/modules_utiles.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy">
+   Numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   Matplotlib
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tracer-une-courbe">
+     Tracer une courbe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tracer-un-histogramme">
+     Tracer un histogramme
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy">
+   Scipy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qexpy">
+   QExPy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-de-donnees-et-propagation-des-erreurs">
+     Définition de données et propagation des erreurs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figures-avec-barres-derreur-et-ajustements">
+     Figures avec barres d’erreur et ajustements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Modules utiles</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy">
+   Numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   Matplotlib
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tracer-une-courbe">
+     Tracer une courbe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tracer-un-histogramme">
+     Tracer un histogramme
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy">
+   Scipy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qexpy">
+   QExPy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition-de-donnees-et-propagation-des-erreurs">
+     Définition de données et propagation des erreurs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#figures-avec-barres-derreur-et-ajustements">
+     Figures avec barres d’erreur et ajustements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="modules-utiles">
+<h1>Modules utiles<a class="headerlink" href="#modules-utiles" title="Permalink to this headline">#</a></h1>
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://numpy.org/doc/stable/">Numpy</a> est un module dédié au traitement des données, notamment la gestion de listes et tableaux.
+Il est notamment plus rapide que des remplissages de listes avec des boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>.
+Il fournit aussi des fonctionalités utiles comme la création de listes de variables aléatoires <code class="docutils literal notranslate"><span class="pre">nump.random</span></code> ou de fonctions usuelles comme <code class="docutils literal notranslate"><span class="pre">sin</span></code> ou <code class="docutils literal notranslate"><span class="pre">cos</span></code>.</p>
+</section>
+<section id="matplotlib">
+<span id="content-matplotlib"></span><h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a> est un module simple permettant de créer des figures, de les afficher et de les sauvegarder.
+Ce module propose de nombreuses façons de faire des figures, il est donc utile de regarder la documentation.</p>
+<section id="tracer-une-courbe">
+<h3>Tracer une courbe<a class="headerlink" href="#tracer-une-courbe" title="Permalink to this headline">#</a></h3>
+<p>L’exemple ci-dessous permet de produire la figure ci-dessous représentant un sinus et un cosinus entre 0 et 20.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># definition de la fonction</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># liste d&#39;abscisses de la figure</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                           <span class="c1"># calcul de y = f(x)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x</span> <span class="p">]</span>   <span class="c1"># calcul de y = cos(x)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># creation d&#39;un plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s2">&quot;--o&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;sin(x)&quot;</span><span class="p">)</span> <span class="c1"># plot de y1 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s2">&quot;-x&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;cos(x)&quot;</span><span class="p">)</span>  <span class="c1"># plot de y2 vs x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Variable x&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sinus(x) et cosinus(x)&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe y</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;mafigure.pdf&quot;</span><span class="p">)</span> <span class="c1"># sauvegarder la figure</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/modules_utiles_1_0.png" src="../_images/modules_utiles_1_0.png" />
+</div>
+</div>
+<p>Les figures sont produites grâce à des points qu’il faut calculer d’abord.
+Ces points sont placés dans deux listes: une pour les points d’abscisses et une pour les points d’ordonnées.
+Bien évidemment la taille de chacune des listes doit être identique; si ce n’est pas le cas, Python produira une erreur.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> créé et donne en sortie la figure (l’image totale, si on veut) ainsi que ses axes.
+On peut alors utiliser ces objets et les méthodes associées:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ax.set_xlabel(&quot;titre</span> <span class="pre">x&quot;)</span></code> et <code class="docutils literal notranslate"><span class="pre">ax.set_ylabel(&quot;titre</span> <span class="pre">y&quot;)</span></code> pour changer les titres des axes,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code> pour afficher la légende,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax.plot(...)</span></code> pour créer la figure,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fig.show()</span></code> pour afficher la figure à l’écran,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fig.savefig(&quot;nom.format&quot;)</span></code> pour sauver la figure.</p></li>
+</ul>
+</section>
+<section id="tracer-un-histogramme">
+<h3>Tracer un histogramme<a class="headerlink" href="#tracer-un-histogramme" title="Permalink to this headline">#</a></h3>
+<p>Dans l’exemple suivant, un histogramme contenant des données générés à partir d’une loi de probabilité normale est créé.
+On affiche sur cette figure la densité de probabilité associée.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="n">N_points</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">n_bins</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="c1"># Generer une distribution normale</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N_points</span><span class="p">)</span>
+<span class="c1"># Définir la courbe d&#39;une distribution normale</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Tracé de l&#39;histogramme</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;données&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;probabilité&quot;</span><span class="p">)</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;exemple_hist.pdf&quot;</span><span class="p">)</span> <span class="c1"># sauvegarder la figure</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/modules_utiles_3_0.png" src="../_images/modules_utiles_3_0.png" />
+</div>
+</div>
+<p>Le nombre de bins d’un histogramme peut etre donné comme argument de la function <code class="docutils literal notranslate"><span class="pre">hist()</span></code>; si aucun nombre est donné, matplotlib choisira le nombre de bins.
+Ici, on utilise le paramètre <code class="docutils literal notranslate"><span class="pre">density</span></code> qui permet de normaliser l’histogramme tel que son intégrale vaut 1.</p>
+</section>
+</section>
+<section id="scipy">
+<h2>Scipy<a class="headerlink" href="#scipy" title="Permalink to this headline">#</a></h2>
+<p>La librairie <a class="reference external" href="https://www.scipy.org/">Scipy</a> contient des algorithms utiles pour les sciences en général.
+Parmi ceux-ci, nous allons utiliser souvent les algorithmes d’optimisation venant du module <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>: plus d’informations sur la <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">page de documentation</a> du module.</p>
+</section>
+<section id="qexpy">
+<span id="content-qexpy"></span><h2>QExPy<a class="headerlink" href="#qexpy" title="Permalink to this headline">#</a></h2>
+<p>Un module intéressant pour la physique expérimentale est <a class="reference external" href="https://qexpy.readthedocs.io/en/latest/intro.html">QExPy</a> (pour “Queen’s Experimental Physics”).
+Ce module pour Python 3 recueille de nombreux outils permettant, entre autres, de faire facilement et rapidement des analyses de données et des propagations de données.
+Au cours des différents exercices et travaux pratiques, nous allons voir plusieurs des fonctionalités de ce module; nous résumons ici ceux d’intérêt.</p>
+<section id="definition-de-donnees-et-propagation-des-erreurs">
+<h3>Définition de données et propagation des erreurs<a class="headerlink" href="#definition-de-donnees-et-propagation-des-erreurs" title="Permalink to this headline">#</a></h3>
+<p>Le point de départ pour les analyses de données est un ensemble de mesures expérimentales: QExPy définit ce type d’objet grâce à la function <code class="docutils literal notranslate"><span class="pre">Measurement</span></code>.
+Dans l’exemple suivant, on se donne une série de 6 mesures de vitesses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qexpy</span>
+<span class="n">liste_donnees</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.87</span><span class="p">,</span> <span class="mf">3.02</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">Measurement</span><span class="p">(</span><span class="n">liste_donnees</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;m/s&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;vitesse&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moyenne: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erreur sur la moyenne: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">error_on_mean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Déviation standard: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">std</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moyenne: 2.983333333333333
+Erreur sur la moyenne: 0.0345124776147861
+Déviation standard: 0.08453795991545258
+vitesse = 2.98 +/- 0.03 [m⋅s^-1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">v</span></code> a plusieurs attributs utiles, comme le calcul de la moyenne <code class="docutils literal notranslate"><span class="pre">mean</span></code> ou de l’erreur sur la moyenne <code class="docutils literal notranslate"><span class="pre">error_on_mean</span></code> comme défini par l’équation <a class="reference internal" href="../chap2/erreur.html#equation-erreur-moyenne">(43)</a>.
+L’affichage de la variable par <code class="docutils literal notranslate"><span class="pre">print</span></code> montre la valeur moyenne de cette série de mesures ainsi que l’erreur sur cette moyenne.</p>
+<p>On peut utiliser cet outil pour faire des calculs de propagation d’erreurs (voir la Section <a class="reference internal" href="../chap2/erreur.html#content-propagation-erreurs"><span class="std std-ref">Propagation des erreurs</span></a>).
+Par exemple, si on mesure deux masses <span class="math notranslate nohighlight">\(m_1\)</span> et <span class="math notranslate nohighlight">\(m_2\)</span> à plusieurs reprises, on peut en déduire l’erreur sur la somme de ces deux masses <span class="math notranslate nohighlight">\(M = m1+m_2\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qexpy</span>
+<span class="n">liste_m1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.2</span><span class="p">,</span> <span class="mf">5.6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">]</span>
+<span class="n">liste_m2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">]</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">Measurement</span><span class="p">(</span><span class="n">liste_m1</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;kg&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;m1&quot;</span><span class="p">)</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">Measurement</span><span class="p">(</span><span class="n">liste_m2</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;kg&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;m2&quot;</span><span class="p">)</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span>
+<span class="n">M</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Masse totale&quot;</span>
+
+<span class="n">qexpy</span><span class="o">.</span><span class="n">set_sig_figs_for_error</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># definir le nombre de chiffres significatifs</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m1 = 5.583 +/- 0.166 [kg]
+m2 = 1.650 +/- 0.198 [kg]
+Masse totale = 7.233 +/- 0.258 [kg]
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’erreur sur la quantité <span class="math notranslate nohighlight">\(M\)</span> est alors calculée sans corrélation entre les mesures, c’est-à-dire avec l’équation <a class="reference internal" href="../chap2/erreur.html#equation-propagation-erreur-non-correlee">(46)</a>.</p>
+<p>Cependant, il se peut que les mesures soient corrélées entre elles, ce qui a l’air d’être le cas dans les deux jeux de données <code class="docutils literal notranslate"><span class="pre">m1</span></code> et <code class="docutils literal notranslate"><span class="pre">m2</span></code>.
+Il est alors nécessaire de rajouter les corrélations dans le calcul; une fois fait, le module va utiliser l’équation <a class="reference internal" href="../chap2/erreur.html#equation-propagation-erreur-correlee">(45)</a> pour recalculer l’erreur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qexpy</span><span class="o">.</span><span class="n">set_correlation</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">)</span> <span class="c1"># explicitation des correlations</span>
+<span class="n">M</span><span class="o">.</span><span class="n">recalculate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">cor</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">get_correlation</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">)</span> <span class="c1"># Calcul explicite de la correlation</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">get_covariance</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">)</span> <span class="c1"># Calcul explicite de la covariance</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">Correlation: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">cor</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Masse totale = 7.233 +/- 0.359 [kg]
+Covariance: 0.18699999999999994
+Correlation: 0.9477419589951331
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut voir que les données sont presque entièrement corrélées et que la nouvelle erreur est plus grande que celle sans corrélation.</p>
+<p>Une autre méthode pour calculer les erreurs propagées consiste à utiliser une simulation Monte Carlo.
+Cette méthode consiste à générer un grand nombre de valeurs de <span class="math notranslate nohighlight">\(m_1\)</span> et <span class="math notranslate nohighlight">\(m_2\)</span> en supposant qu’elles sont distribuées selon des lois normales dont la moyenne et l’écart type sont calculés comme précédemment; on calcule ensuite <span class="math notranslate nohighlight">\(M = m_1+m_2\)</span> pour chaques valeurs générées
+Dans ce cas, QExPy permet de faire cela aussi:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">recalculate</span><span class="p">()</span>
+<span class="n">qexpy</span><span class="o">.</span><span class="n">set_error_method</span><span class="p">(</span><span class="n">qexpy</span><span class="o">.</span><span class="n">ErrorMethod</span><span class="o">.</span><span class="n">MONTE_CARLO</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="c1"># permet d&#39;afficher un histogramme des échantillons du Monte Carlo</span>
+<span class="c1"># M.mc.show_histogram() </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Masse totale = 7.235 +/- 0.358 [kg]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il est possible de récupérer les valeurs du Monte Carlo en utilisant <code class="docutils literal notranslate"><span class="pre">M.mc.samples()</span></code>; la figure ci-dessous montre la distribution des valeurs de <span class="math notranslate nohighlight">\(M\)</span> issues du Monte Carlo.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">mc</span><span class="o">.</span><span class="n">samples</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Monte Carlo&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="c1"># titre de l&#39;axe x</span>
+<span class="n">leg</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>   <span class="c1"># creation de la légende</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/modules_utiles_13_0.png" src="../_images/modules_utiles_13_0.png" />
+</div>
+</div>
+</section>
+<section id="figures-avec-barres-derreur-et-ajustements">
+<span id="content-qexpyfigure"></span><h3>Figures avec barres d’erreur et ajustements<a class="headerlink" href="#figures-avec-barres-derreur-et-ajustements" title="Permalink to this headline">#</a></h3>
+<p>QExPy vise à augmenter les fonctionalités d’affichage de figures notamment en permettant la définition de barres d’erreur sur des mesures.
+On peut en effet définir des jeux de données correspondant à des mesures simultanées des quantités <span class="math notranslate nohighlight">\(X\)</span> et <span class="math notranslate nohighlight">\(Y\)</span> et que l’on arrive à extraire une erreur sur chaque valeur de <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qexpy</span>
+<span class="kn">import</span> <span class="nn">qexpy.plotting</span> <span class="k">as</span> <span class="nn">qplt</span>
+
+<span class="n">liste_t</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.2</span><span class="p">,</span> <span class="mf">5.6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">]</span> <span class="c1"># liste des x</span>
+<span class="n">liste_erreur_t</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span> <span class="c1"># liste des erreurs sur x</span>
+<span class="n">liste_d</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">]</span> <span class="c1"># liste des y</span>
+<span class="n">liste_erreur_d</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span> <span class="c1"># liste des erreurs sur y</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">MeasurementArray</span><span class="p">(</span><span class="n">liste_t</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">liste_erreur_t</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">MeasurementArray</span><span class="p">(</span><span class="n">liste_d</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">liste_erreur_d</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+
+<span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Distance vs temps&quot;</span><span class="p">)</span> <span class="c1"># tracé de y vs x</span>
+<span class="n">qplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/modules_utiles_15_0.png" src="../_images/modules_utiles_15_0.png" />
+</div>
+</div>
+<p>QExPy se comporte de façon très similaire à Matplotlib et permet de produire des graphes comme sur la figure ci-dessus.</p>
+<p>QExPy propose quelques ajustements de données simples:</p>
+<ul class="simple">
+<li><p>modèle linéaire <span class="math notranslate nohighlight">\(y=ax+b\)</span>,</p></li>
+<li><p>modèle quadratique <span class="math notranslate nohighlight">\(y=ax^2+bx+c\)</span>,</p></li>
+<li><p>modèle polynomial d’ordre <span class="math notranslate nohighlight">\(n\)</span>,</p></li>
+<li><p>modèle gaussien,</p></li>
+<li><p>modèle exponentiel <span class="math notranslate nohighlight">\(y=ae^{-bx}\)</span>.</p></li>
+</ul>
+<p>Ces ajustements peuvent donc être fait à la méthode <code class="docutils literal notranslate"><span class="pre">fit</span></code>: cette méthode va alors appliquer l’ajustement sur le dernier jeu de données ajouté à la figure, comme montré sur la figure ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qexpy</span>
+<span class="kn">import</span> <span class="nn">qexpy.plotting</span> <span class="k">as</span> <span class="nn">qplt</span>
+
+<span class="n">liste_t</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.2</span><span class="p">,</span> <span class="mf">5.6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">]</span> <span class="c1"># liste des x</span>
+<span class="n">liste_d</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">]</span> <span class="c1"># liste des y</span>
+<span class="n">liste_erreur_d</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span> <span class="c1"># liste des erreurs sur y</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">MeasurementArray</span><span class="p">(</span><span class="n">liste_t</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">MeasurementArray</span><span class="p">(</span><span class="n">liste_d</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">liste_erreur_d</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+
+<span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Distance vs temps&quot;</span><span class="p">)</span> <span class="c1"># tracé de y vs x</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="n">qplt</span><span class="o">.</span><span class="n">get_plot</span><span class="p">()</span>
+<span class="n">resultats</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">qexpy</span><span class="o">.</span><span class="n">FitModel</span><span class="o">.</span><span class="n">LINEAR</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Afichage des résultats:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">resultats</span><span class="p">)</span>
+<span class="n">figure</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages/qexpy/data/utils.py:183: UserWarning: Fail to generate a physical correlation matrix for the values provided, using uncorrelated samples instead. Please check that the covariance or correlation factors assigned to the measurements are physical.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Afichage des résultats:
+ ----------------- Fit Results -------------------
+Fit of Distance vs temps to linear
+
+Result Parameter List: 
+slope = 0.912 +/- 0.223,
+intercept = -3.49 +/- 1.20
+
+Correlation Matrix: 
+[[ 1.    -0.999]
+ [-0.999  1.   ]]
+
+chi2/ndof = 1.49/3
+
+--------------- End Fit Results -----------------
+</pre></div>
+</div>
+<img alt="../_images/modules_utiles_17_2.png" src="../_images/modules_utiles_17_2.png" />
+</div>
+</div>
+<p>La figure montre le résultat de l’ajustement fait par QExPy.
+La zone bleue correspond à la zone de confiance du modèle obtenu après l’ajustement, en faisant varier la pente et l’ordonnée à l’origine d’une quantité égale à leur erreur.</p>
+<p>Il est possible de définir soi-même la fonction à utiliser comme modèle de l’ajustement et d’utiliser QExPy pour procéder à l’ajustement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qexpy</span>
+<span class="kn">import</span> <span class="nn">qexpy.plotting</span> <span class="k">as</span> <span class="nn">qplt</span>
+
+<span class="c1"># fonction sinus du fit avec les noms des paramètres</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">masse</span><span class="p">,</span> <span class="n">longueur</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">masse</span> <span class="o">*</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">longueur</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">xdata</span><span class="o">=</span><span class="p">[</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">0.33</span><span class="p">,</span><span class="mf">0.66</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">1.32</span><span class="p">,</span><span class="mf">1.65</span><span class="p">,</span><span class="mf">1.98</span><span class="p">,</span><span class="mf">2.31</span><span class="p">,</span><span class="mf">2.64</span><span class="p">,</span><span class="mf">2.97</span><span class="p">,</span><span class="mf">3.31</span><span class="p">,</span>
+           <span class="mf">3.64</span><span class="p">,</span><span class="mf">3.97</span><span class="p">,</span><span class="mf">4.30</span><span class="p">,</span><span class="mf">4.63</span><span class="p">,</span><span class="mf">4.96</span><span class="p">,</span><span class="mf">5.29</span><span class="p">,</span><span class="mf">5.62</span><span class="p">,</span><span class="mf">5.95</span><span class="p">,</span><span class="mf">6.28</span><span class="p">]</span>
+<span class="n">ydata</span><span class="o">=</span><span class="p">[</span><span class="mf">0.09</span><span class="p">,</span><span class="mf">0.41</span><span class="p">,</span><span class="mf">1.53</span><span class="p">,</span><span class="mf">2.23</span><span class="p">,</span><span class="mf">3.76</span><span class="p">,</span><span class="mf">2.50</span><span class="p">,</span><span class="mf">3.89</span><span class="p">,</span><span class="mf">5.33</span><span class="p">,</span><span class="mf">5.39</span><span class="p">,</span><span class="mf">4.05</span><span class="p">,</span><span class="mf">5.08</span><span class="p">,</span>
+           <span class="mf">5.84</span><span class="p">,</span><span class="mf">4.59</span><span class="p">,</span><span class="mf">4.50</span><span class="p">,</span><span class="mf">3.48</span><span class="p">,</span><span class="mf">3.57</span><span class="p">,</span><span class="mf">2.20</span><span class="p">,</span><span class="mf">1.95</span><span class="p">,</span><span class="mf">0.39</span><span class="p">,</span><span class="o">-</span><span class="mf">0.18</span><span class="p">]</span>
+<span class="c1"># definition des listes de mesures</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">MeasurementArray</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">qexpy</span><span class="o">.</span><span class="n">MeasurementArray</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Oscillogramme&quot;</span><span class="p">)</span> <span class="c1"># tracé de y vs x</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="n">qplt</span><span class="o">.</span><span class="n">get_plot</span><span class="p">()</span>
+<span class="n">resultats</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">parguess</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+            <span class="n">parunits</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;kg&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Afichage des résultats:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">resultats</span><span class="p">)</span>
+<span class="n">figure</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Afichage des résultats:
+ ----------------- Fit Results -------------------
+Fit of Oscillogramme to custom
+
+Result Parameter List: 
+masse = 5.096 +/- 0.186 [kg],
+longueur = 0.50047 +/- 0.00875 [m]
+
+Correlation Matrix: 
+[[1.    0.238]
+ [0.238 1.   ]]
+
+chi2/ndof = 0.00/17
+
+--------------- End Fit Results -----------------
+</pre></div>
+</div>
+<img alt="../_images/modules_utiles_19_1.png" src="../_images/modules_utiles_19_1.png" />
+</div>
+</div>
+<p>La figure montre le résultat de l’ajustement du modèle <span class="math notranslate nohighlight">\(y = \mathrm{masse} \times \sin(\mathrm{longueur} \times x)\)</span> avec <span class="math notranslate nohighlight">\(\mathrm{masse}\)</span> et <span class="math notranslate nohighlight">\(\mathrm{longueur}\)</span> les deux paramètres libres du modèle.
+Remarquons ici que, si aucun nom de paramètres est donné lors de l’ajustement, QExPy nommera le nom des paramètres en utilisant le nom des variables de la fonction <code class="docutils literal notranslate"><span class="pre">func</span></code> (ici, <code class="docutils literal notranslate"><span class="pre">masse</span></code> et <code class="docutils literal notranslate"><span class="pre">longueur</span></code>).</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="io.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture et écriture de fichiers</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mathieu Guigue<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

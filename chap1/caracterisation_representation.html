@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -108,6 +109,11 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orga/orga.html">
+   Informations générales
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="chap1.html">
    Concepts de statistiques en physique expérimentale
@@ -167,10 +173,74 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap3/chap3.html">
-   Concepts de statistiques en physique expérimentale
+   Ajustement de modèles sur des données
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/principe.html">
+     Principe de l’ajustement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-sans-erreur.html">
+     Ajustement avec des données sans erreurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-avec-erreur.html">
+     Ajustement avec des données avec erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendix/outils-python.html">
+   Aide avec python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/python-base.html">
+     Les bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/variables.html">
+     Types de variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/conditions.html">
+     Conditionalité, répétition et fonctions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules.html">
+     Importation et utilisation de modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/io.html">
+     Lecture et écriture de fichiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules_utiles.html">
+     Modules utiles
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -613,13 +683,10 @@ Faisons une représentation temporelle des données.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matplotlib is building the font cache; this may take a moment.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fca95ec8ac0&gt;]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb024139160&gt;]
-</pre></div>
-</div>
-<img alt="../_images/caracterisation_representation_2_2.png" src="../_images/caracterisation_representation_2_2.png" />
+<img alt="../_images/caracterisation_representation_2_1.png" src="../_images/caracterisation_representation_2_1.png" />
 </div>
 </div>
 <p>Ce type de représentation permet d’étudier graphiquement les similarités de variations temporelles des quantités physiques (ici la temperature et l’humidité) et comment elles évoluent dans le temps. Une autre représentation consiste à afficher simplement chaque mesures par couple (i.e. en un instant donné) comme sur la figure suivante.</p>
@@ -665,7 +732,7 @@ Notons que chaque classe est alors définie par une borne supérieure et inféri
 Cela permet d’estimer les propriétés de localisation et de dispersion des mesures ou bien évaluer le caractère aléatoire des données.</p>
 </section>
 <section id="moyenne-et-ecart-types">
-<h2>Moyenne et écart-types<a class="headerlink" href="#moyenne-et-ecart-types" title="Permalink to this headline">#</a></h2>
+<span id="content-chap1-moyenne-ecart-types"></span><h2>Moyenne et écart-types<a class="headerlink" href="#moyenne-et-ecart-types" title="Permalink to this headline">#</a></h2>
 <p>Les statistiques consistent à inférer les propriétés des probabilités sous-jacentes aux mesures physiques à partir de celles-ci.
 Les représentations graphiques sont un moyen visuel de le faire.
 Cependant, il est parfois utile de définir plusieurs grandeurs permettant de caractériser la distribution des données.</p>
@@ -725,8 +792,10 @@ Cependant, pour un échantillon de valeurs continues comme la température, il e
 <h3>Mesure de dispersion<a class="headerlink" href="#mesure-de-dispersion" title="Permalink to this headline">#</a></h3>
 <p>Comme les mesures de position permettent de réduire la distribution en une quantité numérique, les mesures de dispersions permettent de caractériser l’étalement des données autour d’une valeur particulière : généralement on considère l’étalement autour de la valeur moyenne.</p>
 <p>La <strong>variance</strong> de l’échantillon autour de sa moyenne est définie par:</p>
-<div class="math notranslate nohighlight">
-\[var(x) = \sigma ^2 = \frac{1}{n}\sum _i (x_i - \overline{x})^2.\]</div>
+<div class="math notranslate nohighlight" id="equation-def-variance-stats">
+<span class="eqno">(9)<a class="headerlink" href="#equation-def-variance-stats" title="Permalink to this equation">#</a></span>\[
+var(x) = \sigma ^2 = \frac{1}{n}\sum _i (x_i - \overline{x})^2.
+\]</div>
 <p>La variance est la moyenne des écarts à la moyenne.
 Effectivement, il est parfois utile de la réécrire sous la forme:</p>
 <div class="math notranslate nohighlight">

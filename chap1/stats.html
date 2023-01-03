@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -106,6 +107,11 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orga/orga.html">
+   Informations générales
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="chap1.html">
    Concepts de statistiques en physique expérimentale
@@ -165,10 +171,74 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap3/chap3.html">
-   Concepts de statistiques en physique expérimentale
+   Ajustement de modèles sur des données
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/principe.html">
+     Principe de l’ajustement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-sans-erreur.html">
+     Ajustement avec des données sans erreurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-avec-erreur.html">
+     Ajustement avec des données avec erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendix/outils-python.html">
+   Aide avec python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/python-base.html">
+     Les bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/variables.html">
+     Types de variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/conditions.html">
+     Conditionalité, répétition et fonctions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules.html">
+     Importation et utilisation de modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/io.html">
+     Lecture et écriture de fichiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules_utiles.html">
+     Modules utiles
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -317,7 +387,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="la-place-des-statistiques-en-physique-experimentale">
+  <section class="tex2jax_ignore mathjax_ignore" id="la-place-des-statistiques-en-physique-experimentale">
 <h1>La place des statistiques en physique expérimentale<a class="headerlink" href="#la-place-des-statistiques-en-physique-experimentale" title="Permalink to this headline">#</a></h1>
 <p>La physique consiste à dresser les lois qui régissent les processus
 naturels qui nous entourent. De telles lois sont souvent décrites grâce
@@ -332,15 +402,20 @@ théories que l’on souhaite tester avec des observations. Il peut s’agir
 de mesures de grandeurs physiques comme le poids des pommes d’une
 variété de pommiers, la quantité de courant circulant dans un fil ou
 bien le nombre d’électrons émis lors de la désintégration d’un noyau
-radioactif ou des faits comme la couleur du ciel[1].</p>
+radioactif ou des faits comme la couleur du ciel <a class="footnote-reference brackets" href="#stats-exp" id="id1">1</a>.</p>
 <p>Les statistiques et l’analyse de données sont un cadre théorique qui
 sert d’interface entre les prédictions théoriques et les mesures. Ce
 sont des techniques qui visent à réduire l’ensemble des données en un
 jeu limité de caractéristiques utiles pour contraindre les modèles
 théoriques.</p>
-<p>[1] A contrario, la physique théorique utilise parfois des expériences
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="stats-exp"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>A contrario, la physique théorique utilise parfois des expériences
 de pensée qui font appel à notre intuition sur le monde afin de, par
 exemple, rejeter une théorie qui contredirait cette intuition.</p>
+</dd>
+</dl>
 </section>
 
     <script type="text/x-thebe-config">

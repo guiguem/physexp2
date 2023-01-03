@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -54,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Concepts de statistiques en physique expérimentale" href="../chap3/chap3.html" />
+    <link rel="next" title="Ajustement de modèles sur des données" href="../chap3/chap3.html" />
     <link rel="prev" title="Loi de probabilité usuelles" href="loi-proba.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -108,6 +109,11 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orga/orga.html">
+   Informations générales
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap1/chap1.html">
    Concepts de statistiques en physique expérimentale
@@ -167,10 +173,74 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap3/chap3.html">
-   Concepts de statistiques en physique expérimentale
+   Ajustement de modèles sur des données
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/principe.html">
+     Principe de l’ajustement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-sans-erreur.html">
+     Ajustement avec des données sans erreurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-avec-erreur.html">
+     Ajustement avec des données avec erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendix/outils-python.html">
+   Aide avec python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/python-base.html">
+     Les bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/variables.html">
+     Types de variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/conditions.html">
+     Conditionalité, répétition et fonctions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules.html">
+     Importation et utilisation de modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/io.html">
+     Lecture et écriture de fichiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/modules_utiles.html">
+     Modules utiles
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -367,8 +437,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#label-sec-propagation-erreurs-propagation-des-erreurs">
-   \label{sec:propagation-erreurs}Propagation des erreurs
+  <a class="reference internal nav-link" href="#propagation-des-erreurs">
+   Propagation des erreurs
   </a>
  </li>
 </ul>
@@ -411,8 +481,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#label-sec-propagation-erreurs-propagation-des-erreurs">
-   \label{sec:propagation-erreurs}Propagation des erreurs
+  <a class="reference internal nav-link" href="#propagation-des-erreurs">
+   Propagation des erreurs
   </a>
  </li>
 </ul>
@@ -430,155 +500,165 @@ title="Print to PDF"
 <p>Comme nous l’avons discuté dans le chapitre précédent, un des objectifs de la physique expérimentale est d’estimer les paramètres physiques des modèles que l’on considère, et ce avec une certaine précision.
 En effet si on se donne un modèle donnant la distribution de mesures expérimentales en fonction d’un ou plusieurs paramètres, on va vouloir tester la validité de ce modèle en estimant tout d’abord les valeurs des paramètres de ce modèle.
 Ces estimations sont obtenues à partir d’un échantillon de mesures de certaines quantités issues d’une ou plusieurs expériences.
-En général, on va associer à chaque estimation une \textbf{incertitude} (aussi appelée \textbf{erreur}) qui caractérise la précision que l’on \textit{pense} avoir sur cette estimation.
+En général, on va associer à chaque estimation une <strong>incertitude</strong> (aussi appelée <strong>erreur</strong>) qui caractérise la précision que l’on \textit{pense} avoir sur cette estimation.
 Cette incertitude permet aussi de comparer deux estimations, ou bien une estimation et une valeur théorique attendue et décider si elles sont en accord.</p>
 <section id="notion-destimateurs">
 <h2>Notion d’estimateurs<a class="headerlink" href="#notion-destimateurs" title="Permalink to this headline">#</a></h2>
-<p>Un \textbf{estimateur} <span class="math notranslate nohighlight">\(\hat{A}\)</span> d’un paramètre physique <span class="math notranslate nohighlight">\(A\)</span> est une fonction des mesures expérimentales <span class="math notranslate nohighlight">\(\vec{x}\)</span> qui renvoie une valeur approchée de la vraie valeur <span class="math notranslate nohighlight">\(A_0\)</span> de <span class="math notranslate nohighlight">\(A\)</span>.
+<p>Un <strong>estimateur</strong> <span class="math notranslate nohighlight">\(\hat{A}\)</span> d’un paramètre physique <span class="math notranslate nohighlight">\(A\)</span> est une fonction des mesures expérimentales <span class="math notranslate nohighlight">\(\vec{x}\)</span> qui renvoie une valeur approchée de la vraie valeur <span class="math notranslate nohighlight">\(A_0\)</span> de <span class="math notranslate nohighlight">\(A\)</span>.
 Puisque <span class="math notranslate nohighlight">\(\hat{A}\)</span> est une fonction de mesures, c’est une variable aléatoire avec une pdf associée <span class="math notranslate nohighlight">\(f_{\hat{A}}\)</span>.</p>
 <p>Intuitivement, on peut voir que la valeur moyenne de cet estimateur <span class="math notranslate nohighlight">\(\int a\times f_{\hat{A}}\mathrm{d}a\)</span> doit être proche (ou égale) de sa valeur vraie et que la pdf de cet estimateur doit être relativement peu étalé afin qu’une réalisation de cet estimateur (avec des mesures expérimentales de <span class="math notranslate nohighlight">\(\vec{x}\)</span>) ait de grandes chances d’être proche de la valeur vraie.</p>
-<p>Un bon estimateur doit donc respecter plusieurs propriétés:
-\begin{itemize}
-\item Un estimateur doit converger vers la valeur vraie du paramètre associé.
-Si on considère un échantillon de mesures <span class="math notranslate nohighlight">\(\vec{x}\)</span> de taille infinie, l’estimation de <span class="math notranslate nohighlight">\(A\)</span> avec <span class="math notranslate nohighlight">\(\hat{A}\)</span> doit être strictement égale à la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span>:
-\begin{equation}
-\lim _{n\rightarrow \infty} \hat{A} = A_0.
-\end{equation}
-\item L’estimateur ne doit pas être biaisé, c’est à dire que la moyenne (en probabilité) de <span class="math notranslate nohighlight">\(\hat{A}\)</span> (que l’on note <span class="math notranslate nohighlight">\(\bar{\hat{A}}\)</span> et calcule avec l’équation \eqref{eq:esperance}) doit être égale à la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span>.
-On définit le biais comme l’écart entre la valeur moyenne et la valeur vraie:
-\begin{equation}\label{eq:def-biais}
+<p>Un bon estimateur doit donc respecter plusieurs propriétés:</p>
+<ul class="simple">
+<li><p>Un estimateur doit converger vers la valeur vraie du paramètre associé.
+Si on considère un échantillon de mesures <span class="math notranslate nohighlight">\(\vec{x}\)</span> de taille infinie, l’estimation de <span class="math notranslate nohighlight">\(A\)</span> avec <span class="math notranslate nohighlight">\(\hat{A}\)</span> doit être strictement égale à la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span>:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-8602191d-949a-4708-8303-bb91aa548f94">
+<span class="eqno">(37)<a class="headerlink" href="#equation-8602191d-949a-4708-8303-bb91aa548f94" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \lim _{n\rightarrow \infty} \hat{A} = A_0.
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>L’estimateur ne doit pas être biaisé, c’est à dire que la moyenne (en probabilité) de <span class="math notranslate nohighlight">\(\hat{A}\)</span> (que l’on note <span class="math notranslate nohighlight">\(\bar{\hat{A}}\)</span> et calcule avec l’équation <a class="reference internal" href="proba.html#equation-esperance">(16)</a>) doit être égale à la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span>.
+On définit le biais comme l’écart entre la valeur moyenne et la valeur vraie:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-def-biais">
+<span class="eqno">(38)<a class="headerlink" href="#equation-def-biais" title="Permalink to this equation">#</a></span>\[ 
 b(\hat{A}) = \mathbb{E}(\hat{A}) - A_0.
-\end{equation}
-Un estimateur peut être non biaisé asymptotiquement, c’est-à-dire non biaisé pour une taille d’échantillon infinie.
-Cette propriété et la précédente sont reliées: on peut démontrer qu’un estimateur convergent vers la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span> est non biaisé asymptotiquement.
-\item Un estimateur doit être efficace, c’est-à-dire qu’il doit converger le plus rapidement possible vers la vraie valeur du paramètre <span class="math notranslate nohighlight">\(A\)</span>.
-Grossièrement, plus un estimateur converge rapidement, plus son étalement diminue rapidement à mesure que la taille de l’échantillon de mesures <span class="math notranslate nohighlight">\(\vec{x}\)</span> augmente.
-\end{itemize}</p>
+\]</div>
+<p>Un estimateur peut être non biaisé asymptotiquement, c’est-à-dire non biaisé pour une taille d’échantillon infinie.
+Cette propriété et la précédente sont reliées: on peut démontrer qu’un estimateur convergent vers la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span> est non biaisé asymptotiquement.</p>
+<ul class="simple">
+<li><p>Un estimateur doit être efficace, c’est-à-dire qu’il doit converger le plus rapidement possible vers la vraie valeur du paramètre <span class="math notranslate nohighlight">\(A\)</span>.
+Grossièrement, plus un estimateur converge rapidement, plus son étalement diminue rapidement à mesure que la taille de l’échantillon de mesures <span class="math notranslate nohighlight">\(\vec{x}\)</span> augmente.</p></li>
+</ul>
 </section>
 <section id="definition-dun-erreur">
 <h2>Définition d’un erreur<a class="headerlink" href="#definition-dun-erreur" title="Permalink to this headline">#</a></h2>
 <p>Souvent, quand on parle d’estimation d’un paramètre, on sous-entend que l’estimation donne une unique valeur numérique du paramètre estimé.
-Ce type d’estimation renvoie à l’idée que l’estimateur est la \textit{valeur centrale de la série de mesures}: les estimateurs associés sont appelés \textbf{estimateurs paramétriques} et doivent respecter les propriétés de la section précédente.</p>
+Ce type d’estimation renvoie à l’idée que l’estimateur est la \textit{valeur centrale de la série de mesures}: les estimateurs associés sont appelés <strong>estimateurs paramétriques</strong> et doivent respecter les propriétés de la section précédente.</p>
 <p>Au lieu de donner une valeur unique estimant le paramètre <span class="math notranslate nohighlight">\(A\)</span>, on pourrait aussi définir un intervalle <span class="math notranslate nohighlight">\([a_1, a_2]\)</span> qui contient vraisemblablement la valeur vraie.
 La largeur de cet intervalle correspond à la précision de la mesure ou des mesures que l’on a fait.
-Par exemple, lorsqu’on utilise un pèse-personne pour estimer sa masse, la valeur affichée va être de <span class="math notranslate nohighlight">\(71.3~\mathrm{kg}\pm 0.1~\mathrm{kg}\)</span>, où le <span class="math notranslate nohighlight">\(\pm 0.1~\mathrm{kg}\)</span> est la précision de la balance avancée par le constructeur de la balance: cela définit donc un intervalle <span class="math notranslate nohighlight">\([ 71.2~\mathrm{kg}, 71.4~\mathrm{kg}]\)</span> dans lequel il est vraisemblable que notre vraie masse se trouve réellement.
-Ce type d’estimation du paramètre se nomme \textbf{estimation par intervalle}.</p>
-<p>La définition d’un intervalle contenant vraisemblablement la valeur vraie revient finalement à définir une valeur centrale de l’intervalle comme étant la valeur de l’estimateur <span class="math notranslate nohighlight">\(\hat{A}\)</span> et une \textbf{erreur} sur cet estimateur, notée généralement <span class="math notranslate nohighlight">\(\sigma _{\hat{A}}\)</span>, correspondant à l’étalement des valeurs vraisemblables de <span class="math notranslate nohighlight">\(A_0\)</span>.
+Par exemple, lorsqu’on utilise un pèse-personne pour estimer sa masse, la valeur affichée va être de <span class="math notranslate nohighlight">\(71.3 mathrm{kg}\pm 0.1 mathrm{kg}\)</span>, où le <span class="math notranslate nohighlight">\(\pm 0.1 mathrm{kg}\)</span> est la précision de la balance avancée par le constructeur de la balance: cela définit donc un intervalle <span class="math notranslate nohighlight">\([ 71.2 mathrm{kg}, 71.4 mathrm{kg}]\)</span> dans lequel il est vraisemblable que notre vraie masse se trouve réellement.
+Ce type d’estimation du paramètre se nomme <strong>estimation par intervalle</strong>.</p>
+<p>La définition d’un intervalle contenant vraisemblablement la valeur vraie revient finalement à définir une valeur centrale de l’intervalle comme étant la valeur de l’estimateur <span class="math notranslate nohighlight">\(\hat{A}\)</span> et une <strong>erreur</strong> sur cet estimateur, notée généralement <span class="math notranslate nohighlight">\(\sigma _{\hat{A}}\)</span>, correspondant à l’étalement des valeurs vraisemblables de <span class="math notranslate nohighlight">\(A_0\)</span>.
 Si cet étalement tend vers 0 lorsque la taille de l’échantillon tend vers l’infini ou</p>
-<div class="amsmath math notranslate nohighlight" id="equation-958dc99e-02ff-4f65-ba70-e42204547b74">
-<span class="eqno">(26)<a class="headerlink" href="#equation-958dc99e-02ff-4f65-ba70-e42204547b74" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2c75187b-37c2-4214-af54-4068f2faad34">
+<span class="eqno">(39)<a class="headerlink" href="#equation-2c75187b-37c2-4214-af54-4068f2faad34" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \lim _{n\rightarrow \infty} \sigma _{\hat{A}}^2 = 0,
 \end{equation}\]</div>
 <p>l’estimateur <span class="math notranslate nohighlight">\(\hat{A}\)</span> est convergent: dans la limite infinie, on a alors un estimateur dont la moyenne est la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span> et de variance nulle donc cet estimateur donne la vraie valeur de <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p>Un point important à remarquer est qu’à chaque estimation de l’intervalle est associée notre certitude de la présence de la valeur vraie dans cet intervalle: être sûr et certain n’est bien évidemment pas la même chose qu’en être sur à 50~% ou pas sûr du tout.
-Aussi, un intervalle correspondant à un niveau de certitude de 95~% relativement large pourrait être équivalent à un niveau de taille plus faible avec une certitude associée plus faible.
-Généralement, en sciences expérimentales, les intervalles que l’on définit ont une certitude associée de 68~%: ce choix à priori arbitraire est en fait relié aux intervalles pour des pdf gaussiennes.
+<p>Un point important à remarquer est qu’à chaque estimation de l’intervalle est associée notre certitude de la présence de la valeur vraie dans cet intervalle: être sûr et certain n’est bien évidemment pas la même chose qu’en être sur à 50 % ou pas sûr du tout.
+Aussi, un intervalle correspondant à un niveau de certitude de 95 % relativement large pourrait être équivalent à un niveau de taille plus faible avec une certitude associée plus faible.
+Généralement, en sciences expérimentales, les intervalles que l’on définit ont une certitude associée de 68 %: ce choix à priori arbitraire est en fait relié aux intervalles pour des pdf gaussiennes.
 Cependant nous n’aborderons pas en détails cette notion, mais il est important de garder en tête cela lorsque l’on mesure des quantités en physique expérimentale: à quel point est on sûr que l’intervalle que l’on vient de définir contient la valeur vraie du paramètre?</p>
 </section>
 <section id="quelques-exemples-destimateurs-empiriques">
 <h2>Quelques exemples d’estimateurs empiriques<a class="headerlink" href="#quelques-exemples-destimateurs-empiriques" title="Permalink to this headline">#</a></h2>
 <p>Un estimateur très répandu est celui de l’estimateur <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> de la moyenne d’un échantillon de valeurs <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> non corrélée entre elles.
 Si chaque valeur <span class="math notranslate nohighlight">\(x_i\)</span> est une réalisation d’une même variable <span class="math notranslate nohighlight">\(X\)</span>, les <span class="math notranslate nohighlight">\(x_i\)</span> valent en moyenne <span class="math notranslate nohighlight">\(\mathbb{E}(x_i) = \mu\)</span> et ont une variance <span class="math notranslate nohighlight">\(var(x_i) = \sigma ^2\)</span>.
-On peut vérifier que cet estimateur, appelé \textbf{estimateur de la moyenne empirique} n’est pas biaisé.
+On peut vérifier que cet estimateur, appelé <strong>estimateur de la moyenne empirique</strong> n’est pas biaisé.
 En effet, on peut démontrer</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6c8a1d77-747a-407a-a8af-7f6165f7da12">
-<span class="eqno">(27)<a class="headerlink" href="#equation-6c8a1d77-747a-407a-a8af-7f6165f7da12" title="Permalink to this equation">#</a></span>\[\begin{equation}\label{eq:estimateur-moyenne}
+<div class="math notranslate nohighlight" id="equation-estimateur-moyenne">
+<span class="eqno">(40)<a class="headerlink" href="#equation-estimateur-moyenne" title="Permalink to this equation">#</a></span>\[
     \mathbb{E}(\hat{\mu}) = \mathbb{E}\left( \frac{1}{n}\sum _i x_i \right) = \frac{1}{n}\sum _i \mathbb{E}(x_i) = \frac{1}{n} \sum _i \mu = \mu,
-\end{equation}\]</div>
-<p>ce qui veut dire que le biais de cet estimateur est nul d’après l’équation \eqref{eq:def-biais}:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e986afa2-b13d-441a-b2f8-527faef26ad6">
-<span class="eqno">(28)<a class="headerlink" href="#equation-e986afa2-b13d-441a-b2f8-527faef26ad6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\]</div>
+<p>ce qui veut dire que le biais de cet estimateur est nul d’après l’équation <a class="reference internal" href="#equation-def-biais">(38)</a>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-95616287-cec2-4d67-b4d3-3ed4107b0d0f">
+<span class="eqno">(41)<a class="headerlink" href="#equation-95616287-cec2-4d67-b4d3-3ed4107b0d0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     b(\hat{\mu}) = \mathbb{E}(\hat{\mu}) - \mu = 0.
 \end{equation}\]</div>
-<p>On peut étudier la vitesse de convergence de cet estimateur en calculant la variance de cet estimateur\footnote{
-Pour réaliser ce calcul, on utilise l’hypothèse d’indépendance des valeurs <span class="math notranslate nohighlight">\(x_i\)</span> afin de pouvoir écrire <span class="math notranslate nohighlight">\(var \left( \sum _i x_i \right) = \sum _i var \left(  x_i  \right)\)</span>.}:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1961f0df-22ab-4684-81fc-d69c1f140bcb">
-<span class="eqno">(29)<a class="headerlink" href="#equation-1961f0df-22ab-4684-81fc-d69c1f140bcb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>On peut étudier la vitesse de convergence de cet estimateur en calculant la variance de cet estimateur [^detail-var]:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6ef8b1f5-a829-4396-b8b4-985f20b89f3c">
+<span class="eqno">(42)<a class="headerlink" href="#equation-6ef8b1f5-a829-4396-b8b4-985f20b89f3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \sigma ^2 _{\hat{\mu}} = var\left( \hat{\mu} \right) = var \left( \frac{1}{n} \sum _i x_i  \right) = \frac{1}{n^2} \sum _i var \left(  x_i  \right) = \frac{1}{n^2}  \sum _i \sigma ^2 = \frac{\sigma^2}{n}.
 \end{equation}\]</div>
 <p>On voit donc que pour un échantillon de taille infinie, la variance de cet estimateur vaut zéro, ce qui en fait un estimateur convergent.
 On peut aussi remarquer la vitesse de convergence de cet estimateur.
 En effet, l’incertitude notée <span class="math notranslate nohighlight">\(\Delta \hat{\mu}\)</span> sur cet estimateur vaut:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a1a7ad3-089f-4b4d-8e83-883334576bd3">
-<span class="eqno">(30)<a class="headerlink" href="#equation-4a1a7ad3-089f-4b4d-8e83-883334576bd3" title="Permalink to this equation">#</a></span>\[\begin{equation}\label{eq:erreur-moyenne}
+<div class="math notranslate nohighlight" id="equation-erreur-moyenne">
+<span class="eqno">(43)<a class="headerlink" href="#equation-erreur-moyenne" title="Permalink to this equation">#</a></span>\[
     \Delta \hat{\mu} = \frac{\sigma}{\sqrt{n}},
-\end{equation}\]</div>
+\]</div>
 <p>avec <span class="math notranslate nohighlight">\(\sigma\)</span> représentant l’erreur sur les valeurs des <span class="math notranslate nohighlight">\(x_i\)</span>.
 Cela veut dire que l’incertitude <span class="math notranslate nohighlight">\(\Delta \hat{\mu}\)</span> sur une moyenne est toujours plus faible que celle sur les valeurs individuelles et qu’il est toujours possible d’améliorer l’incertitude <span class="math notranslate nohighlight">\(\Delta \hat{\mu}\)</span>: si on augmente la taille de l’échantillon par un facteur 4, on réduit l’incertitude sur la moyenne par un facteur 2.</p>
 <p>Un autre estimateur empirique d’intérêt est celui de la variance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3dbc9424-5b06-4b6c-949c-8c00d07213c2">
-<span class="eqno">(31)<a class="headerlink" href="#equation-3dbc9424-5b06-4b6c-949c-8c00d07213c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f6dbde7-f830-4c36-b2af-4a537cac7541">
+<span class="eqno">(44)<a class="headerlink" href="#equation-1f6dbde7-f830-4c36-b2af-4a537cac7541" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \hat{\sigma} ^2 = \frac{1}{n-1} \sum _{i=0} ^n (x_i - \bar{x})^2.
 \end{equation}\]</div>
 <p>De façon similaire à la moyenne, on peut démontrer que cet estimateur est non biaisé avec une moyenne <span class="math notranslate nohighlight">\(\mu _{\hat{\sigma}^2} = \sigma ^2\)</span> correspondant à la valeur vraie.
-On peut remarquer que cet estimateur diffère de la définition statistique de la variance donnée par l’équation \eqref{eq:def-variance-stats} par un facteur <span class="math notranslate nohighlight">\(\frac{n}{n-1}\)</span>: cela semble assez évident puisque si le nombre de mesures vaut <span class="math notranslate nohighlight">\(n=1\)</span>, on ne peut pas estimer la variance de l’échantillon.
-Il est important aussi de noter que cet estimateur de la variance ne correspond pas à l’erreur sur la moyenne que nous avons établie avec l’équation \eqref{eq:erreur-moyenne}: en effet, celui-ci ne diminue pas lorsque <span class="math notranslate nohighlight">\(n\)</span> augmente, mais correspond véritablement à la variance de la variable aléatoire de mesure.</p>
+On peut remarquer que cet estimateur diffère de la définition statistique de la variance donnée par l’équation <a class="reference internal" href="../chap1/caracterisation_representation.html#equation-def-variance-stats">(9)</a> par un facteur <span class="math notranslate nohighlight">\(\frac{n}{n-1}\)</span>: cela semble assez évident puisque si le nombre de mesures vaut <span class="math notranslate nohighlight">\(n=1\)</span>, on ne peut pas estimer la variance de l’échantillon.
+Il est important aussi de noter que cet estimateur de la variance ne correspond pas à l’erreur sur la moyenne que nous avons établie avec l’équation <a class="reference internal" href="#equation-erreur-moyenne">(43)</a>: en effet, celui-ci ne diminue pas lorsque <span class="math notranslate nohighlight">\(n\)</span> augmente, mais correspond véritablement à la variance de la variable aléatoire de mesure.</p>
 </section>
 <section id="classification-des-erreurs">
 <h2>Classification des erreurs<a class="headerlink" href="#classification-des-erreurs" title="Permalink to this headline">#</a></h2>
-<p>L’estimateur de la moyenne \eqref{eq:estimateur-moyenne} est un estimateur qui converge vers la valeur moyenne vraie de la variable aléatoire associée.
+<p>L’estimateur de la moyenne <a class="reference internal" href="#equation-estimateur-moyenne">(40)</a> est un estimateur qui converge vers la valeur moyenne vraie de la variable aléatoire associée.
 Si on répète les mesures, les échantillons obtenus vont vraisemblablement se répartir autour de cette valeur vraie: certaines valeurs seront au dessus et certains en dessous.</p>
-<p>L’erreur que l’on fait alors sur la moyenne \eqref{eq:erreur-moyenne} est appelée \textbf{erreur statistique}, puisque due à la statistique de l’échantillon collecté.
-Ce type d’erreur se distingue des erreurs dites \textbf{systématiques} qui se caractérisent par le fait que des mesures répétées vont donner \textbf{systématiquement} des valeurs supérieures à la valeur vraie ou bien des valeurs inférieures à la valeur vraie.
+<p>L’erreur que l’on fait alors sur la moyenne <a class="reference internal" href="#equation-erreur-moyenne">(43)</a> est appelée <strong>erreur statistique</strong>, puisque due à la statistique de l’échantillon collecté.
+Ce type d’erreur se distingue des erreurs dites <strong>systématiques</strong> qui se caractérisent par le fait que des mesures répétées vont donner <strong>systématiquement</strong> des valeurs supérieures à la valeur vraie ou bien des valeurs inférieures à la valeur vraie.
 Si l’on faisait la moyenne de mesures entachées par des erreurs systématiques, celle-ci ne va pas tendre vers la valeur vraie de la moyenne, mais vers une valeur systématiquement plus grande ou plus faible que la valeur vraie correspondant à un biais.</p>
 <p>Il est souvent difficile de détecter ce type d’erreur puisqu’on ne connait généralement pas la valeur vraie (c’est d’ailleurs pour la déterminer que l’on fait des mesures…).
 Il est donc nécessaire de réfléchir aux phénomènes physiques qui peuvent causer ce type d’erreurs: il est en effet parfois possible de corriger ces biais.
-Si cela n’est pas possible ou bien si l’on n’est pas très sur de la correction que l’on fait, on va alors associer à l’estimateur une valeur correspondant à une estimation de notre incertitude sur ce biais: on l’appellera \textbf{incertitude systématique}.
-Cette valeur s’ajoutera alors à la valeur sur l’incertitude statistique, par exemple celle donnée par l’équation \eqref{eq:erreur-moyenne} dans le cas de l’estimateur de la moyenne.</p>
-<p>Les erreurs systématiques peuvent donc provenir de plusieurs sources:
-\begin{itemize}
-\item la résolution du détecteur due à la précision de lecture de l’évaluateur (lecture d’une distance grâce à une règle graduée plus ou moins finement, lecture d’une quantité sur un instrument dont le cadrant affiche des valeurs changeantes);
-\item des facteurs environnementaux causant des effets sur le dispositif de mesure (par exemple, les changements de température de la pièce entre le matin et l’après-midi peuvent causer des variabilités dans la mesure d’une même quantité par un instrument);
-\item la variabilité de la calibration de l’instrument de mesure (en recalibrant l’instrument et mesurant la même quantité, la valeur donnée par l’instrument pourrait changer);
-\item la dérive ou le vieillissement d’un instrument;
-\item les erreurs de l’expérimentateur lors du report des mesures (souvent les plus dures à déceler…).
-\end{itemize}</p>
+Si cela n’est pas possible ou bien si l’on n’est pas très sur de la correction que l’on fait, on va alors associer à l’estimateur une valeur correspondant à une estimation de notre incertitude sur ce biais: on l’appellera <strong>incertitude systématique</strong>.
+Cette valeur s’ajoutera alors à la valeur sur l’incertitude statistique, par exemple celle donnée par l’équation <a class="reference internal" href="#equation-erreur-moyenne">(43)</a> dans le cas de l’estimateur de la moyenne.</p>
+<p>Les erreurs systématiques peuvent donc provenir de plusieurs sources:</p>
+<ul class="simple">
+<li><p>la résolution du détecteur due à la précision de lecture de l’évaluateur (lecture d’une distance grâce à une règle graduée plus ou moins finement, lecture d’une quantité sur un instrument dont le cadrant affiche des valeurs changeantes);</p></li>
+<li><p>des facteurs environnementaux causant des effets sur le dispositif de mesure (par exemple, les changements de température de la pièce entre le matin et l’après-midi peuvent causer des variabilités dans la mesure d’une même quantité par un instrument);</p></li>
+<li><p>la variabilité de la calibration de l’instrument de mesure (en recalibrant l’instrument et mesurant la même quantité, la valeur donnée par l’instrument pourrait changer);</p></li>
+<li><p>la dérive ou le vieillissement d’un instrument;</p></li>
+<li><p>les erreurs de l’expérimentateur lors du report des mesures (souvent les plus dures à déceler…).</p></li>
+</ul>
 </section>
-<section id="label-sec-propagation-erreurs-propagation-des-erreurs">
-<h2>\label{sec:propagation-erreurs}Propagation des erreurs<a class="headerlink" href="#label-sec-propagation-erreurs-propagation-des-erreurs" title="Permalink to this headline">#</a></h2>
+<section id="propagation-des-erreurs">
+<span id="content-propagation-erreurs"></span><h2>Propagation des erreurs<a class="headerlink" href="#propagation-des-erreurs" title="Permalink to this headline">#</a></h2>
 <p>Lorsque des mesures sont faites, les quantités d’intérêt doivent être calculées à l’aide de formules ou de fonctions impliquant ces données.
-Cependant ces fonctions ont souvent des paramètres qui possèdent des incertitudes qu’il faut prendre en compte ou \textbf{propager} dans le calcul de l’incertitude sur la grandeur d’intérêt.
+Cependant ces fonctions ont souvent des paramètres qui possèdent des incertitudes qu’il faut prendre en compte ou <strong>propager</strong> dans le calcul de l’incertitude sur la grandeur d’intérêt.
 Si, par exemple, la quantité d’intérêt <span class="math notranslate nohighlight">\(z\)</span> dépend d’une mesure <span class="math notranslate nohighlight">\(x\)</span> par la fonction <span class="math notranslate nohighlight">\(f(x)\)</span> avec <span class="math notranslate nohighlight">\(y\)</span> est un paramètre de cette fonction, l’incertitude sur <span class="math notranslate nohighlight">\(z\)</span> sera <span class="math notranslate nohighlight">\(\Delta z = \Delta f(x,\Delta x, y, \Delta y)\)</span>.</p>
 <p>Une bonne approximation pour le calcul de l’incertitude <span class="math notranslate nohighlight">\(\Delta f\)</span> sur la quantité <span class="math notranslate nohighlight">\(f\)</span> dépendant de <span class="math notranslate nohighlight">\(n\)</span> variables <span class="math notranslate nohighlight">\(x_i\)</span> est donnée par</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfc19db4-5050-494f-9a78-a24134bcdcb9">
-<span class="eqno">(32)<a class="headerlink" href="#equation-dfc19db4-5050-494f-9a78-a24134bcdcb9" title="Permalink to this equation">#</a></span>\[\begin{equation}\label{sec:propagation-erreur-correlee}
+<div class="math notranslate nohighlight" id="equation-propagation-erreur-correlee">
+<span class="eqno">(45)<a class="headerlink" href="#equation-propagation-erreur-correlee" title="Permalink to this equation">#</a></span>\[ 
   \Delta f^2 = \sum _{i=1}^n \left(\frac{\partial f}{\partial x_i}\right) ^2 \Delta x_i ^2 + 2 \sum _{i, j&lt;i} cov(x_i, x_j) \left\vert \frac{\partial f}{\partial x_i} \frac{\partial f}{\partial x_j} \right\vert.
-\end{equation}\]</div>
+\]</div>
 <p>Si les variables <span class="math notranslate nohighlight">\(x_i\)</span> ne sont pas corrélées entre elles (i.e. <span class="math notranslate nohighlight">\(cov (x_i, x_j)=0\)</span>), alors l’expression se simplifie en</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d47dbad-c9a5-4103-954c-77fe1b3e4323">
-<span class="eqno">(33)<a class="headerlink" href="#equation-6d47dbad-c9a5-4103-954c-77fe1b3e4323" title="Permalink to this equation">#</a></span>\[\begin{equation}\label{sec:propagation-erreur-non-correlee}
+<div class="math notranslate nohighlight" id="equation-propagation-erreur-non-correlee">
+<span class="eqno">(46)<a class="headerlink" href="#equation-propagation-erreur-non-correlee" title="Permalink to this equation">#</a></span>\[
   \Delta f^2 = \sum _{i=1}^n \left(\frac{\partial f}{\partial x_i}\right) ^2 \Delta x_i ^2.
-\end{equation}\]</div>
+\]</div>
 <div class="admonition-exemple admonition">
 <p class="admonition-title">Exemple</p>
-<p>Quelques exemples de formules classiques de propagation d’incertitudes où on néglige les corrélations entre les variables:
-\begin{itemize}
-\item[-] pour <span class="math notranslate nohighlight">\(f(x,y) = x+y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-deae5123-16f4-4fa7-ba2d-c5b3f7cf1bb4">
-<span class="eqno">(34)<a class="headerlink" href="#equation-deae5123-16f4-4fa7-ba2d-c5b3f7cf1bb4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Quelques exemples de formules classiques de propagation d’incertitudes où on néglige les corrélations entre les variables:</p>
+<ul>
+<li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x+y\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6d0a088f-f184-4e92-b390-c2ad256fcaf1">
+<span class="eqno">(47)<a class="headerlink" href="#equation-6d0a088f-f184-4e92-b390-c2ad256fcaf1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \Delta f^2 = \Delta x^2 + \Delta y^2;
   \end{equation}\]</div>
-<p>\item[-] pour <span class="math notranslate nohighlight">\(f(x,y) = x-y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7727d427-bcc9-4f15-a1be-03a89c7ab0a8">
-<span class="eqno">(35)<a class="headerlink" href="#equation-7727d427-bcc9-4f15-a1be-03a89c7ab0a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+</li>
+<li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x-y\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e725056d-2fca-4a3a-9817-c5d54f2df312">
+<span class="eqno">(48)<a class="headerlink" href="#equation-e725056d-2fca-4a3a-9817-c5d54f2df312" title="Permalink to this equation">#</a></span>\[\begin{equation}
    \Delta f^2 = \Delta x^2 + \Delta y^2;
   \end{equation}\]</div>
-<p>\item[-] pour <span class="math notranslate nohighlight">\(f(x,y) = x\times y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b584bdf-fcae-43e8-beb0-01208a76ea57">
-<span class="eqno">(36)<a class="headerlink" href="#equation-7b584bdf-fcae-43e8-beb0-01208a76ea57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+</li>
+<li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x\times y\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-115b46fd-a8f4-4690-9bb4-c338fff68e77">
+<span class="eqno">(49)<a class="headerlink" href="#equation-115b46fd-a8f4-4690-9bb4-c338fff68e77" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f^2}{f^2} = \frac{\Delta x^2}{x^2} + \frac{\Delta y^2}{y^2};
   \end{equation}\]</div>
-<p>\item[-] pour <span class="math notranslate nohighlight">\(f(x,y) = \frac{x}{y}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6b5bc330-b999-4b86-9668-a97b5cf840a9">
-<span class="eqno">(37)<a class="headerlink" href="#equation-6b5bc330-b999-4b86-9668-a97b5cf840a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+</li>
+<li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = \frac{x}{y}\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1a0b7cb6-574b-432b-ac3a-8e734d1332fb">
+<span class="eqno">(50)<a class="headerlink" href="#equation-1a0b7cb6-574b-432b-ac3a-8e734d1332fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f^2}{f^2} = \frac{\Delta x^2}{x^2} + \frac{\Delta y^2}{y^2};
   \end{equation}\]</div>
-<p>\item[-] pour <span class="math notranslate nohighlight">\(f(x) = x^n\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0d789bb-a86a-4367-901c-54d878f8b2c5">
-<span class="eqno">(38)<a class="headerlink" href="#equation-a0d789bb-a86a-4367-901c-54d878f8b2c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+</li>
+<li><p>pour <span class="math notranslate nohighlight">\(f(x) = x^n\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3e5f7098-d620-4c8b-a2cd-cf4b54740f83">
+<span class="eqno">(51)<a class="headerlink" href="#equation-3e5f7098-d620-4c8b-a2cd-cf4b54740f83" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f}{f} = n\frac{\Delta x}{x}.
   \end{equation}\]</div>
-<p>\end{itemize}</p>
+</li>
+</ul>
 </div>
 <p>Il y a d’autres méthodes pour propager les erreurs sur une quantité; notamment, QExPy propose une méthode par Monte Carlo qui permet d’évaluer cette quantité quelque soit la fonction <span class="math notranslate nohighlight">\(f\)</span>.</p>
 <p>Il y a d’autres méthodes pour propager les erreurs sur une quantité; notamment, QExPy propose une méthode par Monte Carlo qui permet d’évaluer cette quantité quelque soit la fonction <span class="math notranslate nohighlight">\(f\)</span>.</p>
@@ -622,7 +702,7 @@ Si, par exemple, la quantité d’intérêt <span class="math notranslate nohigh
     <a class='right-next' id="next-link" href="../chap3/chap3.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Concepts de statistiques en physique expérimentale</p>
+        <p class="prev-next-title">Ajustement de modèles sur des données</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

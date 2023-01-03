@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Les bases &#8212; physexp2</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Types de variables" href="variables.html" />
+    <link rel="prev" title="Aide avec python" href="outils-python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">physexp2</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orga/orga.html">
+   Informations générales
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap1/chap1.html">
+   Concepts de statistiques en physique expérimentale
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/stats.html">
+     La place des statistiques en physique expérimentale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/population.html">
+     Population, probabilité et échantillon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/ensemble.html">
+     Définition ensembliste et propriétés des probabilités
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap1/caracterisation_representation.html">
+     Représentation et caractérisation des échantillons de données
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap2/chap2.html">
+   Lois de probabilités et mesures expérimentales
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/proba.html">
+     Probabilité
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/loi-proba.html">
+     Loi de probabilité usuelles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap2/erreur.html">
+     Notion d’erreur sur une mesure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chap3/chap3.html">
+   Ajustement de modèles sur des données
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/principe.html">
+     Principe de l’ajustement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-sans-erreur.html">
+     Ajustement avec des données sans erreurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chap3/fit-avec-erreur.html">
+     Ajustement avec des données avec erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="outils-python.html">
+   Aide avec python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Les bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="variables.html">
+     Types de variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="conditions.html">
+     Conditionalité, répétition et fonctions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules.html">
+     Importation et utilisation de modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="io.html">
+     Lecture et écriture de fichiers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules_utiles.html">
+     Modules utiles
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/guiguem/physexp2/main?urlpath=tree/docs/appendix/python-base.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/guiguem/physexp2"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/appendix/python-base.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-principes">
+   Les principes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-et-assignation-de-valeurs">
+   Variables et assignation de valeurs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impression-a-lecran">
+   Impression à l’écran
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Les bases</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-principes">
+   Les principes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-et-assignation-de-valeurs">
+   Variables et assignation de valeurs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impression-a-lecran">
+   Impression à l’écran
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="les-bases">
+<h1>Les bases<a class="headerlink" href="#les-bases" title="Permalink to this headline">#</a></h1>
+<p>Cette section présente les bases de la synthax de Python.</p>
+<section id="les-principes">
+<h2>Les principes<a class="headerlink" href="#les-principes" title="Permalink to this headline">#</a></h2>
+<p>Python, apparu dans les années 1990, est un langage de programmation généraliste et interprété: le programme écrit par l’utilisateur est lu et exécuté ligne par ligne sans compilation <a class="footnote-reference brackets" href="#diff-c" id="id1">1</a>.
+La version 3 de Python a été mise en place en 2008 avec des releases régulières, l’une des dernières releases étant la version 3.9.0b4 en juillet 2020.
+Python est utilisé très largement par la communauté scientifique, des grandes entreprises comme Google et Amazon et dans de nombreux sites web ou logiciels comme Reddit et LibreOffice.</p>
+<p>Python se caractérise par une synthaxe épurée et lisible avec une indentation, des mots-clés spécifiques (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>…) et la possibilité de faire de la programmation objet avec plus de flexibilités que dans d’autres langages orientés objets (comme C++).</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition de l&#39;annuaire</span>
+<span class="n">unAnnuaire</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Laurent&#39;</span><span class="p">:</span> <span class="mi">6389565</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">:</span> <span class="mi">6356785</span><span class="p">}</span>
+<span class="c1"># Affichage des noms et numeros de telephone</span>
+<span class="k">for</span> <span class="n">unNom</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">unAnnuaire</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># boucle for lisant le contenu de unAnnuaire</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;le nom </span><span class="si">{}</span><span class="s2"> a pour numero de telephone </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">unNom</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>le nom Laurent a pour numero de telephone 6389565
+le nom Paul a pour numero de telephone 6356785
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans ce code, toutes les lignes commençant par un “#” ne sont pas évaluées; cet fonctionalité est très utilisé pour commenter le texte, c’est-à-dire apporter des informations supplémentaires pour pouvoir comprendre le code
+Ces commentaires peuvent aussi apparaitre à la fin de ligne de code (toujours après un “#”).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Important
+Nous n’insisterons jamais assez sur l’utilité de commenter son code, que ce soit lorsque ce code est personnel ou bien partagé avec d’autres personnes.
+En effet, il est très fréquent d’oublier la logique qui a été implémentée dans un code si celui-ci n’est pas commenté ou pire mal commenté!</p>
+</div>
+</section>
+<section id="variables-et-assignation-de-valeurs">
+<h2>Variables et assignation de valeurs<a class="headerlink" href="#variables-et-assignation-de-valeurs" title="Permalink to this headline">#</a></h2>
+<p>En Python, on utilise des <em>variables</em> auxquelles on va pouvoir associer des valeurs.
+On peut se représenter les variables comme des addresses dans la mémoire de l’ordinateur dans lequelles on peut sauver une valeur: il faut donc d’abord créer la variable dans la mémoire puis lui assigner une valeur grâce à l’<em>opérateur d’attribution</em> <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ici on a définit une variable <code class="docutils literal notranslate"><span class="pre">a</span></code> et on lui a assigné la valeur entière 2 grâce à <code class="docutils literal notranslate"><span class="pre">=</span></code>.
+Notons ici qu’il est possible d’assigner d’autres choses aux variables, comme des nombres décimaux <a class="footnote-reference brackets" href="#diff-int-dec" id="id2">2</a>, des morceaux de textes ou bien des listes (voir Section <a class="reference internal" href="variables.html#content-liste"><span class="std std-ref">Listes</span></a>).</p>
+<p>On peut alors accéder à cette variable et obtenir la valeur qu’elle contient pour par exemple l’utiliser pour créer d’autres variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ici, la première ligne de code créé la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> et lui assigne la valeur 2; la deuxième ligne créé une autre variable <code class="docutils literal notranslate"><span class="pre">b</span></code> et lui assigne la valeur <code class="docutils literal notranslate"><span class="pre">2*a</span></code> (donc 4): pour cela, Python va récupérer la valeur contenue par <code class="docutils literal notranslate"><span class="pre">a</span></code> et la multiplier par 2.</p>
+<p>Contrairement à d’autres langages de programmation, il n’est pas nécessaire de définir le type de la variable: Python reconnait que 2 est un entier et donc va traiter <code class="docutils literal notranslate"><span class="pre">a</span></code> comme tel.
+Cela permet beaucoup de flexibilités lors de l’assignement d’une valeur à des variables.</p>
+<p>Dans les deux exemples ci-dessus, nous avons défini des noms de variables très simples (<code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code>); il est possible de définir des nombres de variables plus complexes et portant plus de sens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">treize</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">nb_jour_par_an</span> <span class="o">=</span> <span class="mi">365</span>
+<span class="n">deuxfois2</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les noms de variables peuvent contenir certains caractères spéciaux <a class="footnote-reference brackets" href="#minus" id="id3">3</a> (comme <code class="docutils literal notranslate"><span class="pre">_</span></code>) ou bien des chiffres (tant que le nom de la variable ne commence pas par un chiffre) <a class="footnote-reference brackets" href="#french" id="id4">4</a>.</p>
+</section>
+<section id="impression-a-lecran">
+<h2>Impression à l’écran<a class="headerlink" href="#impression-a-lecran" title="Permalink to this headline">#</a></h2>
+<p>Il est possible d’afficher la valeur d’une variable grâce à la fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cette fonction <code class="docutils literal notranslate"><span class="pre">print(b)</span></code> va afficher à l’écran la valeur de la variable donnée comme <em>argument</em> (ici <code class="docutils literal notranslate"><span class="pre">b</span></code> et donc 4).
+Cette fonction peut prendre autant d’arguments que désiré et afficher toutes les valeurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a vaut&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;et b vaut&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a vaut 2 et b vaut 4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ici, on donne à la fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> 4 arguments.
+Les second et quatrième arguments sont des entiers, tandis que les premier et troisième arguments <code class="docutils literal notranslate"><span class="pre">&quot;a</span> <span class="pre">vaut&quot;</span></code> et <code class="docutils literal notranslate"><span class="pre">&quot;et</span> <span class="pre">b</span> <span class="pre">vaut&quot;</span></code> sont des <em>chaînes de caractères</em> ou <em>string</em> qui sont données entre guillemets afin que Python ne les confonde pas avec des variables.
+La fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> prend donc en entrée 4 arguments et affiche tous les valeurs des arguments un par un.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> peut afficher différents types de variables, et notamment des listes (voir Section <a class="reference internal" href="variables.html#content-liste"><span class="std std-ref">Listes</span></a>.</p>
+<p>Avec les nombres décimaux, il est parfois utile de formatter le nombre de décimales à afficher.
+Pour cela, il existe la méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> qui s’applique sur un string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="mf">3.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;arrondi(a)=</span><span class="si">{:.1f}</span><span class="s2">, arrondi(b)= </span><span class="si">{:.2f}</span><span class="s2">, arrondi(c)=</span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arrondi(a)=2.0, arrondi(b)= 1.50, arrondi(c)=0.6667
+</pre></div>
+</div>
+</div>
+</div>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> s’applique sur un <em>modèle de string</em> contenant des paires d’accolades; les arguments donnés à la méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> sont utilisés pour “remplacer” les paires d’accolades une par une.
+Ces paires d’accolades peuvent être vide (comme dans le tout premier exemple; à ce moment-là il n’y a pas de formattage particulier appliqué) ou bien définir le format de la valeur à imprimer.
+Une paire d’accolades <code class="docutils literal notranslate"><span class="pre">{:.1f}</span></code> va afficher seulement un chiffre après la virgule alors que <code class="docutils literal notranslate"><span class="pre">{:.4f}</span></code> va en afficher 4.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="diff-c"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Contrairement aux programmes en langage C ou C++ qui eux ont besoin d’être compilés en langage machine pour ensuite être exécutés.</p>
+</dd>
+<dt class="label" id="diff-int-dec"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>La différence entre des nombres entiers et décimaux est la présence du point: si une valeur numérique sans point est assignée à une variable (par exemple, 10), Python considèrera selon comme un nombre entier, alors que les nombres <span class="math notranslate nohighlight">\(10.\)</span> ou <span class="math notranslate nohighlight">\(10.0\)</span> seront considérés comme des nombres décimaux.
+Il est donc important de bien placer un point lorsque la valeur désiré est un nombre décimal.</p>
+</dd>
+<dt class="label" id="minus"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Le signe <code class="docutils literal notranslate"><span class="pre">-</span></code> ne peut être contenu dans le nom d’une variable, car il se confond avec le signe de la soustraction.</p>
+</dd>
+<dt class="label" id="french"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Notons ici que, Python n’étant pas écrit majoritairement par des francophones, les symboles comme “é” ou “à” ne sont pas interprétés dans le code comme dans des commentaires…</p>
+</dd>
+</dl>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="outils-python.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Aide avec python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="variables.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Types de variables</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mathieu Guigue<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,17 +1,18 @@
 
-## Population, probabilité et échantillon
+# Population, probabilité et échantillon
 
-### Expérience aléatoire
+## Expérience aléatoire
 
 On définit une **expérience aléatoire** comme un processus qui va donner
-des résultats imprévisibles à l'avance [2]. Il est important de remarquer
+des résultats imprévisibles à l'avance [^imprevisible]. Il est important de remarquer
 que dans le cadre des sciences expérimentales une expérience ne définit
 donc pas uniquement le phénomène physique que l'on étudie, mais aussi le
 matériel utilisé et la façon dont les données sont "reçues" par
 l'expérimentateur puisque les instruments de mesures sont aussi à
 l'origine de fluctuations statistiques ou d'erreurs de mesure.
 
-### Univers et évènements
+(content:univers)=
+## Univers et évènements
 
 L'ensemble des résultats possibles d'une expérience est appelé **univers
 des possibles**. Cet ensemble dépend bien de l'expérience, mais aussi de
@@ -28,7 +29,7 @@ d'univers liés à des expériences simples :
     pairs de 2 à 12.
 
 2.  Nous avons à notre disposition une pièce avec une tranche infiniment
-    fine[3]: on la lance et on regarde la face du dessus. Les résultats
+    fine[^tranche]: on la lance et on regarde la face du dessus. Les résultats
     possibles sont "pile" ou "face". Si en revanche la tranche n'est pas
     infiniment fine, les résultats possibles sont "pile", "face" ou
     "tranche".
@@ -68,7 +69,7 @@ l'univers pour lesquels $\mathrm{A}$ est vrai est noté $A$.
 $\overline{A}$ définit donc l'ensemble des éléments de l'univers pour
 lesquels $\mathcal{A}$ est faux.
 
-### Définition intuitive des probabilités
+## Définition intuitive des probabilités
 
 En général, nous n'avons pas accès à l'univers des possibles lui-même
 mais plutôt à des valeurs discrètes de celui-ci. Lorsqu'on choisit un
@@ -84,7 +85,9 @@ vont pas être obtenues avec la même fréquence. On appelle
 **probabilité** d'une valeur $x$ ou d'un ensemble de valeurs de
 l'univers des possibles la fréquence d'apparition de ces valeurs
 
-$$p(x) = \lim _{N\rightarrow \infty} \frac{n(x)}{N},$$
+$$
+p(x) = \lim _{N\rightarrow \infty} \frac{n(x)}{N},
+$$
 
 avec $n(x)$ le
 nombre d'occurrence de $x$ et $N$ le nombre de répétitions de
@@ -112,7 +115,7 @@ disponibles à un moment donné pour en déduire la probabilité d'un
 évènement futur : ces méthodes sont donc utiles notamment dans le cas où
 la reproduction des mesures est difficile.
 
-[2] Les expériences qui donnent toujours le même résultat sont a priori
+[^imprevisible]: Les expériences qui donnent toujours le même résultat sont a priori
 bien peu intéressantes.
 
-[3] Une pièce infiniment fine ne tombera jamais sur la tranche.
+[^tranche]: Une pièce infiniment fine ne tombera jamais sur la tranche.
