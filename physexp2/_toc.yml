@@ -5,6 +5,10 @@ format: jb-book
 root: index
 chapters:
 - file: orga/orga
+  sections:
+    - file: orga/objectif
+    - file: orga/TP
+    - file: orga/notation
 - file: chap1/chap1
   sections:
     - file: chap1/stats
