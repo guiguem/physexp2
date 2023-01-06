@@ -109,17 +109,39 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../orga/orga.html">
    Informations générales
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/objectif.html">
+     Objectifs pédagogiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/TP.html">
+     Organisation des Travaux pratiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/notation.html">
+     Évaluations
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap1/chap1.html">
    Concepts de statistiques en physique expérimentale
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -150,8 +172,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../chap2/chap2.html">
    Lois de probabilités et mesures expérimentales
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -177,8 +199,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../chap3/chap3.html">
    Ajustement de modèles sur des données
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -204,8 +226,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="outils-python.html">
    Aide avec python
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -594,12 +616,12 @@ Pour cela on peut tester si une clé est présente dans la liste des clés du di
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionaire</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;chat&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;chien&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 <span class="k">if</span> <span class="s2">&quot;chat&quot;</span> <span class="ow">in</span> <span class="n">dictionaire</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le nombre de chat que j&#39;ai est&quot;</span><span class="p">,</span> <span class="n">dictionaire</span><span class="p">[</span><span class="s2">&quot;chat&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;J&#39;ai&quot;</span><span class="p">,</span> <span class="n">dictionaire</span><span class="p">[</span><span class="s2">&quot;chat&quot;</span><span class="p">],</span> <span class="s2">&quot;chat(s)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le nombre de chat que j&#39;ai est 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>J&#39;ai 1 chat(s)
 </pre></div>
 </div>
 </div>
@@ -771,12 +793,9 @@ Element 9 a pour valeur: 1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.881
-0.221
-0.327
-0.834
-0.181
-Valeur 6 au dessus de 0.1: 0.08172055021366575
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.364
+0.685
+Valeur 3 au dessus de 0.1: 0.007360261025306292
 </pre></div>
 </div>
 </div>

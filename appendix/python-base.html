@@ -109,17 +109,39 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../orga/orga.html">
    Informations générales
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/objectif.html">
+     Objectifs pédagogiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/TP.html">
+     Organisation des Travaux pratiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/notation.html">
+     Évaluations
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap1/chap1.html">
    Concepts de statistiques en physique expérimentale
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -150,8 +172,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../chap2/chap2.html">
    Lois de probabilités et mesures expérimentales
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -177,8 +199,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../chap3/chap3.html">
    Ajustement de modèles sur des données
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -204,8 +226,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="outils-python.html">
    Aide avec python
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -586,10 +608,21 @@ La fonction <code class="docutils literal notranslate"><span class="pre">print()
 <p>La fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> peut afficher différents types de variables, et notamment des listes (voir Section <a class="reference internal" href="variables.html#content-liste"><span class="std std-ref">Listes</span></a>.</p>
 <p>Avec les nombres décimaux, il est parfois utile de formatter le nombre de décimales à afficher.
 Pour cela, il existe la méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> qui s’applique sur un string:</p>
-<p>a = 2.
-b = 3./2.
-c = 2./3.
-print(“arrondi(a)={:.1f}, arrondi(b)= {:.2f}, arrondi©={:.4f}”.format(a,b,c))</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mf">3.</span><span class="o">/</span><span class="mf">2.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="mf">3.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;arrondi(a)=</span><span class="si">{:.1f}</span><span class="s2">, arrondi(b)= </span><span class="si">{:.2f}</span><span class="s2">, arrondi(c)=</span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arrondi(a)=2.0, arrondi(b)= 1.50, arrondi(c)=0.6667
+</pre></div>
+</div>
+</div>
+</div>
 <p>La méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> s’applique sur un <em>modèle de string</em> contenant des paires d’accolades; les arguments donnés à la méthode <code class="docutils literal notranslate"><span class="pre">format()</span></code> sont utilisés pour “remplacer” les paires d’accolades une par une.
 Ces paires d’accolades peuvent être vide (comme dans le tout premier exemple; à ce moment-là il n’y a pas de formattage particulier appliqué) ou bien définir le format de la valeur à imprimer.
 Une paire d’accolades <code class="docutils literal notranslate"><span class="pre">{:.1f}</span></code> va afficher seulement un chiffre après la virgule alors que <code class="docutils literal notranslate"><span class="pre">{:.4f}</span></code> va en afficher 4.</p>

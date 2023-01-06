@@ -109,17 +109,39 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../orga/orga.html">
    Informations générales
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/objectif.html">
+     Objectifs pédagogiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/TP.html">
+     Organisation des Travaux pratiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/notation.html">
+     Évaluations
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="chap1.html">
    Concepts de statistiques en physique expérimentale
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -150,8 +172,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../chap2/chap2.html">
    Lois de probabilités et mesures expérimentales
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -177,8 +199,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../chap3/chap3.html">
    Ajustement de modèles sur des données
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -204,8 +226,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../appendix/outils-python.html">
    Aide avec python
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -683,7 +705,7 @@ Faisons une représentation temporelle des données.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f824f78f130&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9688cd22b0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/caracterisation_representation_2_1.png" src="../_images/caracterisation_representation_2_1.png" />
@@ -1007,15 +1029,15 @@ Corrélation=-0.32
 <section id="exercise-content">
 <p>Maintenant nous allons essayer de calculer la moyenne et la variance de l’échantillon en utilisant les données représentées par un histogramme.
 Notamment on peut calculer la moyenne de l’échantillon par la relation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-597819d5-437f-4d26-9e92-c2c575f00d1a">
-<span class="eqno">(15)<a class="headerlink" href="#equation-597819d5-437f-4d26-9e92-c2c575f00d1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-47a99044-eb95-45dc-bc58-11f9d0912c35">
+<span class="eqno">(15)<a class="headerlink" href="#equation-47a99044-eb95-45dc-bc58-11f9d0912c35" title="Permalink to this equation">#</a></span>\[\begin{equation}
     m = \sum _{i=0}^k f_i \frac{I_i + I_{i+1}}{2},
 \end{equation}\]</div>
 <p>avec <span class="math notranslate nohighlight">\(I_i\)</span> la bordure du bin <span class="math notranslate nohighlight">\(i\)</span> (<span class="math notranslate nohighlight">\(I_i\)</span> est la borne inférieure du bin <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(I_{i+1}\)</span> la borne supérieure du bin i) et <span class="math notranslate nohighlight">\(f_i\)</span> la fréquence du bin <span class="math notranslate nohighlight">\(i\)</span>.
 On prend <span class="math notranslate nohighlight">\(\frac{I_i + I_{i+1}}{2}\)</span> qui correspond au centre du bin <span class="math notranslate nohighlight">\(i\)</span>.
 De manière similaire, la variance se calcule grâce à la relation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4947df7a-a9f8-4f8c-ac2c-cd6151bf199d">
-<span class="eqno">(16)<a class="headerlink" href="#equation-4947df7a-a9f8-4f8c-ac2c-cd6151bf199d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f1f7461c-824f-4501-9511-f7dc54853348">
+<span class="eqno">(16)<a class="headerlink" href="#equation-f1f7461c-824f-4501-9511-f7dc54853348" title="Permalink to this equation">#</a></span>\[\begin{equation}
     v = \sum _{i=0}^k f_i \left ( \frac{I_i + I_{i+1}}{2} - m\right) ^2.
 \end{equation}\]</div>
 <p>Lorsqu’on trace un histogramme avec ```matplotlib par exemple en utilisant:</p>

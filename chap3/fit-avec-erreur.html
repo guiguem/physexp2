@@ -109,17 +109,39 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../orga/orga.html">
    Informations générales
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/objectif.html">
+     Objectifs pédagogiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/TP.html">
+     Organisation des Travaux pratiques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../orga/notation.html">
+     Évaluations
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../chap1/chap1.html">
    Concepts de statistiques en physique expérimentale
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -150,8 +172,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../chap2/chap2.html">
    Lois de probabilités et mesures expérimentales
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -177,8 +199,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="chap3.html">
    Ajustement de modèles sur des données
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -204,8 +226,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../appendix/outils-python.html">
    Aide avec python
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -655,8 +677,8 @@ Ecart-type = 2.402
 <h2>Extraction des meilleurs paramètres<a class="headerlink" href="#extraction-des-meilleurs-parametres" title="Permalink to this headline">#</a></h2>
 <p>Trouver les meilleurs paramètres d’un modèle selon les données collectées revient à maximiser la vraisemblance ou bien minimiser le <span class="math notranslate nohighlight">\(\chi ^2\)</span>.
 Cela peut se faire numériquement, par exemple, avec le module <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> ou bien analytiquement: en généralisant pour des paramètres <span class="math notranslate nohighlight">\(\vec{\theta}\)</span>, le système d’équations à résoudre est\footnote{Pour que ces paramètres minimisent bien le <span class="math notranslate nohighlight">\(\chi^2\)</span>, il faut aussi vérifier que <span class="math notranslate nohighlight">\(\left.\frac{\partial^2 \chi ^2}{\partial \vec{\theta}^2}\right\vert_{\vec{\theta}=\hat{\vec{\theta}}} &gt; 0\)</span>.}:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9dc5569e-3e7c-4181-a2bc-60c84e11366a">
-<span class="eqno">(73)<a class="headerlink" href="#equation-9dc5569e-3e7c-4181-a2bc-60c84e11366a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6989c212-ba28-45e8-8ad8-75877b8fbb6a">
+<span class="eqno">(73)<a class="headerlink" href="#equation-6989c212-ba28-45e8-8ad8-75877b8fbb6a" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \left.\frac{\partial \chi ^2}{\partial \vec{\theta}}\right\vert_{\vec{\theta}=\hat{\vec{\theta}}} = 0.
 \end{equation}\]</div>
 <!-- % Pour certains modèles, il est possible de trouver une expression analytique des meilleurs paramètres utilisant les valeurs des données. -->
@@ -842,14 +864,14 @@ Il est donc important de toujours comparer le résultat et notamment les erreurs
 <span id="content-chi2-histo"></span><h2>Ajustement d’un histogramme<a class="headerlink" href="#ajustement-dun-histogramme" title="Permalink to this headline">#</a></h2>
 <p>Lorsque les données suivant une certaine loi de probabilité <span class="math notranslate nohighlight">\(f(x;\vec{\theta})\)</span> sont rangées dans un histogramme, il est possible d’estimer les paramètres de cette densité de probabilité.
 Pour cela on construit la fonction de vraisemblance <a class="reference internal" href="#equation-vraisemblance">(70)</a> en supposant que le contenu de chaque classe <span class="math notranslate nohighlight">\(N_i\)</span> est distribué selon une loi poissonienne autour de la valeur vraie <span class="math notranslate nohighlight">\(f(x_i;\vec{\theta})\times \delta x\)</span> où <span class="math notranslate nohighlight">\(x_i\)</span> représente le centre de la classe et <span class="math notranslate nohighlight">\(\delta x\)</span> la largeur de la classe: on a alors</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71d44567-a0d6-4fd4-9f6a-a2c21414e4c5">
-<span class="eqno">(79)<a class="headerlink" href="#equation-71d44567-a0d6-4fd4-9f6a-a2c21414e4c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c7b8e852-5615-4ff3-b544-b27dc3415470">
+<span class="eqno">(79)<a class="headerlink" href="#equation-c7b8e852-5615-4ff3-b544-b27dc3415470" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \mathcal{L}(\vec{\theta}) = \prod _i \frac{e^{-f(x_i;\vec{\theta}) \delta x}\left(f(x_i;\vec{\theta}) \delta x\right)^{N_i}}{N_i !}.
 \end{equation}\]</div>
 <p>Dans le cas où le nombre de coups dans chaque classe est grand (<span class="math notranslate nohighlight">\(N_i&gt;25\)</span>), on peut faire l’approximation de la densité de Poisson par une loi normale d’écart type <span class="math notranslate nohighlight">\(\sigma _i = \sqrt{N_i}\)</span>.
 La maximisation de la fonction de vraisemblance est alors la minimisation du <span class="math notranslate nohighlight">\(\chi ^2\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d933a2a-b10f-4a9d-af6c-278f288734ff">
-<span class="eqno">(80)<a class="headerlink" href="#equation-3d933a2a-b10f-4a9d-af6c-278f288734ff" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2c847de-002e-4111-9b6c-fd9b59ed0711">
+<span class="eqno">(80)<a class="headerlink" href="#equation-d2c847de-002e-4111-9b6c-fd9b59ed0711" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \chi ^2 = \sum _i\frac{\left(N_i - f(x_i;\vec{\theta})\delta x\right)^2}{N_i}.
 \end{equation}\]</div>
 <hr class="footnotes docutils" />
