@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Ajustement avec des données sans erreurs &#8212; physexp2</title>
+    <title>Ajustement avec des données sans erreurs &#8212; Physique Expérimentale 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -93,14 +93,9 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
       
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">physexp2</h1>
+      <h1 class="site-logo" id="site-title">Physique Expérimentale 2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -357,19 +352,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/guiguem/physexp2"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-
-</a>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -443,8 +425,8 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="ajustement-avec-des-donnees-sans-erreurs">
 <span id="content-fit-no-error"></span><h1>Ajustement avec des données sans erreurs<a class="headerlink" href="#ajustement-avec-des-donnees-sans-erreurs" title="Permalink to this headline">#</a></h1>
 <p>S’il s’agit de réduire l’écart entre <span class="math notranslate nohighlight">\(N\)</span> points de données <span class="math notranslate nohighlight">\(\left\{y_i\right\}\)</span> obtenus pour des valeurs <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> et le modèle <span class="math notranslate nohighlight">\(f\)</span> évalué au valeurs <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span>, une quantité possible <a class="footnote-reference brackets" href="#excel" id="id1">1</a> est:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-158e66df-9515-42e4-8543-6d3ea1aa9639">
-<span class="eqno">(67)<a class="headerlink" href="#equation-158e66df-9515-42e4-8543-6d3ea1aa9639" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2a834c93-1c44-4f73-9117-0d7aaa8c594f">
+<span class="eqno">(67)<a class="headerlink" href="#equation-2a834c93-1c44-4f73-9117-0d7aaa8c594f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     R^2 =  1- \frac{\sum _{i=1}^N\left(f(x_i; \alpha,\beta,...) - y_i\right)^2}{\sum _{i=1}^N\left(\bar{y}-y_i\right)^2},
 \end{equation}\]</div>
 <p>où <span class="math notranslate nohighlight">\(\bar{y}\)</span> est la moyenne des mesures <span class="math notranslate nohighlight">\(\left\{y_i\right\}\)</span>.
@@ -499,13 +481,13 @@ La valeur de <span class="math notranslate nohighlight">\(R^2\)</span> obtenue p
 </tbody>
 </table>
 <p>Il s’agit de paires de deux mesures <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> reliées par la relation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d408b44-8c55-40b9-85a4-3af97b4598a3">
-<span class="eqno">(68)<a class="headerlink" href="#equation-5d408b44-8c55-40b9-85a4-3af97b4598a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb35d644-8b0d-4a49-b84c-717f5092d61d">
+<span class="eqno">(68)<a class="headerlink" href="#equation-cb35d644-8b0d-4a49-b84c-717f5092d61d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     y_i = a\times x_i + b.
 \end{equation}\]</div>
 <p>Le coefficient de détermination que l’on va minimiser vaut:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2235084-cf9d-4c72-a144-0dddf8294263">
-<span class="eqno">(69)<a class="headerlink" href="#equation-b2235084-cf9d-4c72-a144-0dddf8294263" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-412dbb48-3b4c-4a47-93a3-9926bb1b2a18">
+<span class="eqno">(69)<a class="headerlink" href="#equation-412dbb48-3b4c-4a47-93a3-9926bb1b2a18" title="Permalink to this equation">#</a></span>\[\begin{equation}
     R^2 =  1- \frac{\sum _{i=1}^N\left(a\times x_i+b - y_i\right)^2}{\sum _{i=1}^N\left(\bar{y}-y_i\right)^2}.
 \end{equation}\]</div>
 <p>Le graphique ci-dessus montre que le modèle  s’ajuste bien aux données; le coefficient de détermination <span class="math notranslate nohighlight">\(R^2\)</span> obtenu vaut 0.96.</p>
@@ -600,7 +582,7 @@ Valeur de R^2: 0.96
   
     By Mathieu Guigue<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2023.<br/>
 </p>
         </footer>
     </div>

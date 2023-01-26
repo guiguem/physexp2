@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Notion d’erreur sur une mesure &#8212; physexp2</title>
+    <title>Notion d’erreur sur une mesure &#8212; Physique Expérimentale 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -93,14 +93,9 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
       
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">physexp2</h1>
+      <h1 class="site-logo" id="site-title">Physique Expérimentale 2</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -357,19 +352,6 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/guiguem/physexp2"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-
-</a>
 
 <div class="menu-dropdown menu-dropdown-download-buttons">
   <button class="headerbtn menu-dropdown__trigger"
@@ -534,8 +516,8 @@ Puisque <span class="math notranslate nohighlight">\(\hat{A}\)</span> est une fo
 <li><p>Un estimateur doit converger vers la valeur vraie du paramètre associé.
 Si on considère un échantillon de mesures <span class="math notranslate nohighlight">\(\vec{x}\)</span> de taille infinie, l’estimation de <span class="math notranslate nohighlight">\(A\)</span> avec <span class="math notranslate nohighlight">\(\hat{A}\)</span> doit être strictement égale à la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span>:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-f7dd72af-89f1-435b-8331-289b5404974b">
-<span class="eqno">(48)<a class="headerlink" href="#equation-f7dd72af-89f1-435b-8331-289b5404974b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a6436f71-24e3-49eb-9b44-e29a1fffe527">
+<span class="eqno">(48)<a class="headerlink" href="#equation-a6436f71-24e3-49eb-9b44-e29a1fffe527" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \lim _{n\rightarrow \infty} \hat{A} = A_0.
 \end{equation}\]</div>
 <ul class="simple">
@@ -563,8 +545,8 @@ Par exemple, lorsqu’on utilise un pèse-personne pour estimer sa masse, la val
 Ce type d’estimation du paramètre se nomme <strong>estimation par intervalle</strong>.</p>
 <p>La définition d’un intervalle contenant vraisemblablement la valeur vraie revient finalement à définir une valeur centrale de l’intervalle comme étant la valeur de l’estimateur <span class="math notranslate nohighlight">\(\hat{A}\)</span> et une <strong>erreur</strong> sur cet estimateur, notée généralement <span class="math notranslate nohighlight">\(\sigma _{\hat{A}}\)</span>, correspondant à l’étalement des valeurs vraisemblables de <span class="math notranslate nohighlight">\(A_0\)</span>.
 Si cet étalement tend vers 0 lorsque la taille de l’échantillon tend vers l’infini ou</p>
-<div class="amsmath math notranslate nohighlight" id="equation-693b8867-a4fb-45d3-a684-0afcbc6af4e6">
-<span class="eqno">(50)<a class="headerlink" href="#equation-693b8867-a4fb-45d3-a684-0afcbc6af4e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c83b7f92-46cb-459d-8d9c-6e302cf47314">
+<span class="eqno">(50)<a class="headerlink" href="#equation-c83b7f92-46cb-459d-8d9c-6e302cf47314" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \lim _{n\rightarrow \infty} \sigma _{\hat{A}}^2 = 0,
 \end{equation}\]</div>
 <p>l’estimateur <span class="math notranslate nohighlight">\(\hat{A}\)</span> est convergent: dans la limite infinie, on a alors un estimateur dont la moyenne est la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span> et de variance nulle donc cet estimateur donne la vraie valeur de <span class="math notranslate nohighlight">\(A\)</span>.</p>
@@ -584,13 +566,13 @@ En effet, on peut démontrer</p>
     \mathbb{E}(\hat{\mu}) = \mathbb{E}\left( \frac{1}{n}\sum _i x_i \right) = \frac{1}{n}\sum _i \mathbb{E}(x_i) = \frac{1}{n} \sum _i \mu = \mu,
 \]</div>
 <p>ce qui veut dire que le biais de cet estimateur est nul d’après l’équation <a class="reference internal" href="#equation-def-biais">(49)</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5fece9b5-028e-479e-81e0-54515031b848">
-<span class="eqno">(52)<a class="headerlink" href="#equation-5fece9b5-028e-479e-81e0-54515031b848" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-44e40885-53d8-454a-ac52-f2327be0208a">
+<span class="eqno">(52)<a class="headerlink" href="#equation-44e40885-53d8-454a-ac52-f2327be0208a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     b(\hat{\mu}) = \mathbb{E}(\hat{\mu}) - \mu = 0.
 \end{equation}\]</div>
 <p>On peut étudier la vitesse de convergence de cet estimateur en calculant la variance de cet estimateur [^detail-var]:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d2b1074-7b59-41e5-a4ce-81342ee18970">
-<span class="eqno">(53)<a class="headerlink" href="#equation-4d2b1074-7b59-41e5-a4ce-81342ee18970" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-326d2342-16cf-4eac-8f9d-b446b78f699e">
+<span class="eqno">(53)<a class="headerlink" href="#equation-326d2342-16cf-4eac-8f9d-b446b78f699e" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \sigma ^2 _{\hat{\mu}} = var\left( \hat{\mu} \right) = var \left( \frac{1}{n} \sum _i x_i  \right) = \frac{1}{n^2} \sum _i var \left(  x_i  \right) = \frac{1}{n^2}  \sum _i \sigma ^2 = \frac{\sigma^2}{n}.
 \end{equation}\]</div>
 <p>On voit donc que pour un échantillon de taille infinie, la variance de cet estimateur vaut zéro, ce qui en fait un estimateur convergent.
@@ -603,8 +585,8 @@ En effet, l’incertitude notée <span class="math notranslate nohighlight">\(\D
 <p>avec <span class="math notranslate nohighlight">\(\sigma\)</span> représentant l’erreur sur les valeurs des <span class="math notranslate nohighlight">\(x_i\)</span>.
 Cela veut dire que l’incertitude <span class="math notranslate nohighlight">\(\Delta \hat{\mu}\)</span> sur une moyenne est toujours plus faible que celle sur les valeurs individuelles et qu’il est toujours possible d’améliorer l’incertitude <span class="math notranslate nohighlight">\(\Delta \hat{\mu}\)</span>: si on augmente la taille de l’échantillon par un facteur 4, on réduit l’incertitude sur la moyenne par un facteur 2.</p>
 <p>Un autre estimateur empirique d’intérêt est celui de la variance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-86ec86c8-bd8a-4058-ae93-595bb0a6ee08">
-<span class="eqno">(55)<a class="headerlink" href="#equation-86ec86c8-bd8a-4058-ae93-595bb0a6ee08" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9dbcdfbb-eab2-4c7f-ac89-3e57ec2c8701">
+<span class="eqno">(55)<a class="headerlink" href="#equation-9dbcdfbb-eab2-4c7f-ac89-3e57ec2c8701" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \hat{\sigma} ^2 = \frac{1}{n-1} \sum _{i=0} ^n (x_i - \bar{x})^2.
 \end{equation}\]</div>
 <p>De façon similaire à la moyenne, on peut démontrer que cet estimateur est non biaisé avec une moyenne <span class="math notranslate nohighlight">\(\mu _{\hat{\sigma}^2} = \sigma ^2\)</span> correspondant à la valeur vraie.
@@ -651,32 +633,32 @@ Si, par exemple, la quantité d’intérêt <span class="math notranslate nohigh
 <p>Quelques exemples de formules classiques de propagation d’incertitudes où on néglige les corrélations entre les variables:</p>
 <ul>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x+y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41c1d449-f3fd-41a4-8384-b6412070f288">
-<span class="eqno">(58)<a class="headerlink" href="#equation-41c1d449-f3fd-41a4-8384-b6412070f288" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-42053d2a-4313-44d4-8d2c-85b9a6146300">
+<span class="eqno">(58)<a class="headerlink" href="#equation-42053d2a-4313-44d4-8d2c-85b9a6146300" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \Delta f^2 = \Delta x^2 + \Delta y^2;
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x-y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53e3c7b7-2913-43e2-9767-9a57c30c026e">
-<span class="eqno">(59)<a class="headerlink" href="#equation-53e3c7b7-2913-43e2-9767-9a57c30c026e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6ee944c9-3cbb-48f3-8a36-5f3212173f4d">
+<span class="eqno">(59)<a class="headerlink" href="#equation-6ee944c9-3cbb-48f3-8a36-5f3212173f4d" title="Permalink to this equation">#</a></span>\[\begin{equation}
    \Delta f^2 = \Delta x^2 + \Delta y^2;
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x\times y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e8343f4-819c-42e6-a92b-2f4b02832d96">
-<span class="eqno">(60)<a class="headerlink" href="#equation-8e8343f4-819c-42e6-a92b-2f4b02832d96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d9b6fec-3e39-4456-85be-3baec4f3b17d">
+<span class="eqno">(60)<a class="headerlink" href="#equation-5d9b6fec-3e39-4456-85be-3baec4f3b17d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f^2}{f^2} = \frac{\Delta x^2}{x^2} + \frac{\Delta y^2}{y^2};
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = \frac{x}{y}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9428c69e-6542-411e-b09b-e2e5da9dcfb6">
-<span class="eqno">(61)<a class="headerlink" href="#equation-9428c69e-6542-411e-b09b-e2e5da9dcfb6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d6cf9f45-9407-4ba0-8e54-557cb2d80c5b">
+<span class="eqno">(61)<a class="headerlink" href="#equation-d6cf9f45-9407-4ba0-8e54-557cb2d80c5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f^2}{f^2} = \frac{\Delta x^2}{x^2} + \frac{\Delta y^2}{y^2};
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x) = x^n\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c42d4b76-83a7-4504-b7d3-ae9c4a064e89">
-<span class="eqno">(62)<a class="headerlink" href="#equation-c42d4b76-83a7-4504-b7d3-ae9c4a064e89" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6134e51f-fd8d-44c4-9623-96bb9141fd1a">
+<span class="eqno">(62)<a class="headerlink" href="#equation-6134e51f-fd8d-44c4-9623-96bb9141fd1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f}{f} = n\frac{\Delta x}{x}.
   \end{equation}\]</div>
 </li>
@@ -691,8 +673,8 @@ Si, par exemple, la quantité d’intérêt <span class="math notranslate nohigh
 <p>La police utilise généralement des sortes de pistolets radar pour mesurer la vitesse des voitures et détecter celles avec un excès de vitesse.
 Ce pistolet envoie des ondes radio de fréquence <span class="math notranslate nohighlight">\(f_0\)</span> se déplacant avec une vitesse proche de celle de la lumoière <span class="math notranslate nohighlight">\(c\)</span> sur une voiture et mesure la fréquence <span class="math notranslate nohighlight">\(f\)</span> de l’onde réfléchie.
 Celle-ci sera différente à cause de l’effet Döppler selon l’équation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85879026-6ee1-47ba-b2be-d057d2caf622">
-<span class="eqno">(63)<a class="headerlink" href="#equation-85879026-6ee1-47ba-b2be-d057d2caf622" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a8537c57-de75-4e6c-84fb-ce2abd765798">
+<span class="eqno">(63)<a class="headerlink" href="#equation-a8537c57-de75-4e6c-84fb-ce2abd765798" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f = f_0 \left( 1- \frac{v}{c}\right),
 \end{equation}\]</div>
 <p>avec <span class="math notranslate nohighlight">\(v\)</span> la vitesse de la voiture.
@@ -753,8 +735,8 @@ Avec une méthode de propagation des erreurs, trouver une relation permettant d�
 <section id="solution-content">
 <ol>
 <li><p>A partir de l’équation \eqref{eq:def-tau_n}, on trouve:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf005d01-9a3e-4e3c-ae85-f612fdfbf156">
-<span class="eqno">(66)<a class="headerlink" href="#equation-bf005d01-9a3e-4e3c-ae85-f612fdfbf156" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-959cb4e1-7563-4589-8365-9c717bd102b7">
+<span class="eqno">(66)<a class="headerlink" href="#equation-959cb4e1-7563-4589-8365-9c717bd102b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
         \lambda = \sqrt{\frac{1}{3}\left(\frac{5163.7~\mathrm{s}}{\tau}-1\right)}.
     \end{equation}\]</div>
 <p>On peut alors faire une propagation d’erreur pour trouver l’erreur sur <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
@@ -856,7 +838,7 @@ A(1980)=-0.10+-0.01
 A(1989)=-0.116+-0.002
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f4298f70250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f4e9771bb80&gt;
 </pre></div>
 </div>
 <img alt="../_images/erreur_4_2.png" src="../_images/erreur_4_2.png" />
@@ -940,7 +922,7 @@ A(1989)=-0.116+-0.002
   
     By Mathieu Guigue<br/>
   
-      &copy; Copyright 2022.<br/>
+      &copy; Copyright 2023.<br/>
 </p>
         </footer>
     </div>

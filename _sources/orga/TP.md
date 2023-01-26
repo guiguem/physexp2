@@ -40,7 +40,7 @@ Le matériel utilisé pour ces TP est très simple.
 
 - Plusieurs mesures se feront à l'aide de smartphones et de l'application [Phyphox](https://phyphox.org/), téléchargeable gratuitement [^phyphox].
 
-Matériel utilisé:
+**Liste détaillée du matériel utilisé:**
 
 - TP "Distribution du tirage de dés": un ou deux dés à 6 faces
 - TP "Mesure du coefficient de rebond d'une balle": balle de ping, règle, 1 smartphone avec Phyphox
