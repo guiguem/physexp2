@@ -9,5 +9,6 @@ scipy
 pyppeteer
 sphinxcontrib-tikz
 sphinxcontrib-bibtex
+sphinx-jupyterbook-latex
 qexpy
 sphinx_exercise

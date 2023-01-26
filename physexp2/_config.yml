@@ -5,10 +5,10 @@
 
 #######################################################################################
 # Book settings
-title                       : physexp2  # The title of the book. Will be placed in the left navbar.
+title                       : Physique Expérimentale 2  # The title of the book. Will be placed in the left navbar.
 author                      : Mathieu Guigue  # The author of the book
-copyright                   : "2022"  # Copyright year to be placed in the footer
-logo                        : logo.png  # A path to the book logo
+copyright                   : "2023"  # Copyright year to be placed in the footer
+logo                        : ""  # A path to the book logo
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -22,6 +22,7 @@ sphinx:
     - sphinxcontrib.tikz
     - sphinx_exercise
     - sphinxcontrib.bibtex
+    - sphinx_jupyterbook_latex
   bibtex_bibfiles:
     - references.bib
 
@@ -45,6 +46,9 @@ parse:
 latex:
   latex_documents:
     targetname: book.tex
+  latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
+  latex_theme: howto
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
@@ -60,5 +64,5 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: false
-  use_repository_button: true
+  use_repository_button: false
   home_page_in_navbar: false
