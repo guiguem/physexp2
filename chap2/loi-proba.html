@@ -538,8 +538,8 @@ Cela correspond au tirage d’une pièce avec comme résultat pile ou face.
 Pour chaque résultat on associe une valeur 0 ou 1: pour un succès, <span class="math notranslate nohighlight">\(X=1\)</span> et pour un échec, <span class="math notranslate nohighlight">\(X=0\)</span>.
 La probabilité d’obtenir un succès vaut <span class="math notranslate nohighlight">\(p\)</span>, celle d’obtenir un échec vaut donc <span class="math notranslate nohighlight">\(1-p\)</span>.
 La loi de probabilité, aussi appelé <strong>loi de Bernoulli</strong> de paramètre <span class="math notranslate nohighlight">\(p\)</span>, peut alors s’écrire:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd18e145-dc6e-4c8b-8aea-3daa528edd22">
-<span class="eqno">(31)<a class="headerlink" href="#equation-dd18e145-dc6e-4c8b-8aea-3daa528edd22" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-054cc77a-13b3-4876-92fd-f86b17f2b370">
+<span class="eqno">(31)<a class="headerlink" href="#equation-054cc77a-13b3-4876-92fd-f86b17f2b370" title="Permalink to this equation">#</a></span>\[\begin{equation}
     P(x;p) = p^x(1-p)^{1-x}.
 \end{equation}\]</div>
 </section>
@@ -548,28 +548,28 @@ La loi de probabilité, aussi appelé <strong>loi de Bernoulli</strong> de param
 <p>Si on répète <span class="math notranslate nohighlight">\(n\)</span> fois une expérience de Bernoulli de façon indépendante et on compte le nombre de succès parmi ces <span class="math notranslate nohighlight">\(n\)</span> tentatives, la probabilité d’obtenir <span class="math notranslate nohighlight">\(k\)</span> succès (et donc <span class="math notranslate nohighlight">\(n-k\)</span> échecs) est donnée par la loi binomiale.
 L’ordre des succès et échecs n’important pas, le nombre de combinaisons de <span class="math notranslate nohighlight">\(k\)</span> succès parmi <span class="math notranslate nohighlight">\(n\)</span> tentatives correspond au coefficient binomial <span class="math notranslate nohighlight">\(\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</span> et la probabilité pour chaque combinaison vaut <span class="math notranslate nohighlight">\(p^k (1-p)^{n-k}\)</span>.
 La probabilité binomiale vaut donc:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45ba918c-188d-490e-9150-f8171566cc91">
-<span class="eqno">(32)<a class="headerlink" href="#equation-45ba918c-188d-490e-9150-f8171566cc91" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d8b2d128-27a0-40ee-8b88-2631196e4d42">
+<span class="eqno">(32)<a class="headerlink" href="#equation-d8b2d128-27a0-40ee-8b88-2631196e4d42" title="Permalink to this equation">#</a></span>\[\begin{equation}
     P(k; n,p) = \binom{n}{k}p^k (1-p)^{n-k}.
 \end{equation}\]</div>
 <p>Le nombre moyen de succès <span class="math notranslate nohighlight">\(\bar{k}\)</span> parmi <span class="math notranslate nohighlight">\(n\)</span> lancers est donné par:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-934b506d-c5ee-42f2-8060-c62f0cf10ec8">
-<span class="eqno">(33)<a class="headerlink" href="#equation-934b506d-c5ee-42f2-8060-c62f0cf10ec8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc95ecf4-58e0-4fb5-9ff2-f7ca0a6dbf3a">
+<span class="eqno">(33)<a class="headerlink" href="#equation-cc95ecf4-58e0-4fb5-9ff2-f7ca0a6dbf3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \bar{k} = \mathbb{E}(k) = \sum _{k=0}^N k\times P(k; n,p) = n\times p
 \end{equation}\]</div>
 <p>et la variance du nombre de succès vaut:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bd6a665-4a33-471b-9ead-6d5e1943a487">
-<span class="eqno">(34)<a class="headerlink" href="#equation-2bd6a665-4a33-471b-9ead-6d5e1943a487" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-95467085-e145-4d47-a9f3-c7de7b8e2eb0">
+<span class="eqno">(34)<a class="headerlink" href="#equation-95467085-e145-4d47-a9f3-c7de7b8e2eb0" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \sigma_k^2 = \sum _{k=0}^N (k-\bar{k})^2\times P(k; n,p) = np(1-p).
 \end{equation}\]</div>
 <p>Lorsqu’on souhaite extraire la probabilité <span class="math notranslate nohighlight">\(p\)</span> de succès à partir de <span class="math notranslate nohighlight">\(k\)</span> succès parmi <span class="math notranslate nohighlight">\(n\)</span> essais, on peut utiliser la relation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9a964d1-8855-46ab-95bd-0bf3c503b2a7">
-<span class="eqno">(35)<a class="headerlink" href="#equation-d9a964d1-8855-46ab-95bd-0bf3c503b2a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-29090018-8894-4970-97fc-bccb752de0d4">
+<span class="eqno">(35)<a class="headerlink" href="#equation-29090018-8894-4970-97fc-bccb752de0d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \bar{p} = \frac{k}{n}.
 \end{equation}\]</div>
 <p>On voit donc que <span class="math notranslate nohighlight">\(\mathbb{E}(\bar{p}) = \mathbb{E}(k/n) = p\)</span> et que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-82c2373e-03ec-4a06-844a-0adcf0ad04fe">
-<span class="eqno">(36)<a class="headerlink" href="#equation-82c2373e-03ec-4a06-844a-0adcf0ad04fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb68b353-20bf-4930-801a-964bac9ded3d">
+<span class="eqno">(36)<a class="headerlink" href="#equation-cb68b353-20bf-4930-801a-964bac9ded3d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \sigma_{p} = \frac{\sigma_k}{n} = \sqrt{\frac{p(1-p)}{n}}.
 \end{equation}\]</div>
 </section>
@@ -578,22 +578,22 @@ La probabilité binomiale vaut donc:</p>
 <p>La loi de Poisson s’applique aux processus de comptage pour lesquels on compte le nombre de succès pendant une durée de temps fixée.
 Si on divise la durée de temps <span class="math notranslate nohighlight">\(\Delta t\)</span> en <span class="math notranslate nohighlight">\(N\)</span> morceaux et on note <span class="math notranslate nohighlight">\(p\)</span> la probabilité d’avoir un succès pendant cette période, le nombre moyen de succès est alors <span class="math notranslate nohighlight">\(Np\)</span> et est donc proportionnel à <span class="math notranslate nohighlight">\(\Delta t\)</span>.
 Cette approche est valide lorsque la probabilité de succès <span class="math notranslate nohighlight">\(p\)</span> est faible (mais avec <span class="math notranslate nohighlight">\(\lambda = Np\)</span> non nul): dans ce cas, la probabilité d’observer <span class="math notranslate nohighlight">\(k\)</span> succès pendant <span class="math notranslate nohighlight">\(N\)</span> morceaux suit une loi binomiale:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af782503-b0f1-4640-b195-a7e4a7166252">
-<span class="eqno">(37)<a class="headerlink" href="#equation-af782503-b0f1-4640-b195-a7e4a7166252" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5ab4341e-da3b-4d1b-8b15-00f0f2c0934f">
+<span class="eqno">(37)<a class="headerlink" href="#equation-5ab4341e-da3b-4d1b-8b15-00f0f2c0934f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     P(k; n,p) = \binom{n}{k}p^k (1-p)^{n-k} = \frac{n!\lambda ^k}{k!(n-k)!n^k}\left( 1-\frac{\lambda}{n} \right) ^{n-k}.
 \end{equation}\]</div>
 <p>Or si <span class="math notranslate nohighlight">\(p\)</span> est très petit devant 1, <span class="math notranslate nohighlight">\(N\)</span> est très grand devant 1 et alors</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8290462-3c05-49a8-ab2b-a3791858cf56">
-<span class="eqno">(38)<a class="headerlink" href="#equation-b8290462-3c05-49a8-ab2b-a3791858cf56" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b16a606-7ec9-44de-8b86-d7bf2986b24a">
+<span class="eqno">(38)<a class="headerlink" href="#equation-7b16a606-7ec9-44de-8b86-d7bf2986b24a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{n!}{(n-k)!n^k} \approx \frac{n^k}{n^k} = 1
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-82b84522-b473-4a86-9f26-d47f040a17b4">
-<span class="eqno">(39)<a class="headerlink" href="#equation-82b84522-b473-4a86-9f26-d47f040a17b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8038d0e2-ff1f-4c49-890e-f2b9fd90be5f">
+<span class="eqno">(39)<a class="headerlink" href="#equation-8038d0e2-ff1f-4c49-890e-f2b9fd90be5f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \left( 1-\frac{\lambda}{n} \right) ^{n-k} \approx \left( 1-\frac{\lambda}{n} \right) ^{n} \approx \left(\exp -\frac{\lambda}{n}\right)^n = e^{-\lambda}.
 \end{equation}\]</div>
 <p>On a donc la définition de la loi de probabilité de Poisson:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d0449f8-cf07-47c1-892b-ee0c2e8e8630">
-<span class="eqno">(40)<a class="headerlink" href="#equation-2d0449f8-cf07-47c1-892b-ee0c2e8e8630" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de05bb6d-3331-4564-a59a-73cf4ce86f81">
+<span class="eqno">(40)<a class="headerlink" href="#equation-de05bb6d-3331-4564-a59a-73cf4ce86f81" title="Permalink to this equation">#</a></span>\[\begin{equation}
     P(k; \lambda) = \lim _{n\rightarrow \infty; p\rightarrow 0} P(k; n,p) = \frac{e^{-\lambda}\lambda ^k}{k!}.
 \end{equation}\]</div>
 <p>La figure ci-dessous montre des distributions de Poisson avec plusieurs valeurs du paramètre <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
@@ -625,13 +625,13 @@ Cette approche est valide lorsque la probabilité de succès <span class="math n
 <p>On remarque que la distribution n’est pas symétrique autour de la valeur de <span class="math notranslate nohighlight">\(\lambda\)</span>, pour les valeurs de <span class="math notranslate nohighlight">\(\lambda\)</span> faibles; cependant à partir de <span class="math notranslate nohighlight">\(\lambda=10\)</span>, on peut voir que la distribution devient relativement symétrique et de forme gaussienne (voir section <a class="reference external" href="#loi-normale-ou-loi-de-gauss">Loi normale ou loi de Gauss</a>).</p>
 <p>Les caractéristiques de la loi de Poisson découle de celles de la loi binomiale.
 En utilisant le fait que <span class="math notranslate nohighlight">\(\lambda = np\)</span> et que <span class="math notranslate nohighlight">\(p \ll 1\)</span>, le nombre moyen de succès <span class="math notranslate nohighlight">\(\bar{k}\)</span> est donné par:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bc6c5be8-9a11-4182-b899-e0d337e9ad81">
-<span class="eqno">(41)<a class="headerlink" href="#equation-bc6c5be8-9a11-4182-b899-e0d337e9ad81" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0d7f7ebe-3b3d-46dd-b4da-b6cd683907ac">
+<span class="eqno">(41)<a class="headerlink" href="#equation-0d7f7ebe-3b3d-46dd-b4da-b6cd683907ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \bar{k} = \mathbb{E}(k) = \sum _{k=0}^{\infty} k\times P(k; \lambda) = \lambda
 \end{equation}\]</div>
 <p>et la variance du nombre de succès vaut:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f01d6eb8-1ebc-41a8-8b35-8a5241ba3d2a">
-<span class="eqno">(42)<a class="headerlink" href="#equation-f01d6eb8-1ebc-41a8-8b35-8a5241ba3d2a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-532d58a3-6418-4468-a5dd-d4caad98f7c4">
+<span class="eqno">(42)<a class="headerlink" href="#equation-532d58a3-6418-4468-a5dd-d4caad98f7c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \sigma_k^2 = \sum _{k=0}^\infty (k-\bar{k})^2\times P(k; \lambda) = \lambda.
 \end{equation}\]</div>
 <p>L’écart-type d’une distribution de Poisson vaut donc <span class="math notranslate nohighlight">\(\sqrt{\sigma _k ^2} = \sqrt{\lambda}\)</span>.</p>
@@ -655,15 +655,15 @@ Si le nombre d’oeufs est <span class="math notranslate nohighlight">\(n\)</spa
 <section id="solution-content">
 <ol>
 <li><p>La loi de Poisson décrit la probabilité d’obtenir <span class="math notranslate nohighlight">\(k\)</span> sachant que le nombre moyen est <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e64aeebd-763c-43f0-8ec0-cbc1699c65a1">
-<span class="eqno">(43)<a class="headerlink" href="#equation-e64aeebd-763c-43f0-8ec0-cbc1699c65a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b30a99f3-1c67-42df-a714-0efb8f762219">
+<span class="eqno">(43)<a class="headerlink" href="#equation-b30a99f3-1c67-42df-a714-0efb8f762219" title="Permalink to this equation">#</a></span>\[\begin{equation}
         \mathcal{P}(k;\lambda) = \frac{e^{-\lambda}\lambda ^k}{k!}.
     \end{equation}\]</div>
 <p>Ici, le nombre moyen d’oeufs est donc <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 </li>
 <li><p>C’est une loi binomiale:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c6ec1cb-c9ac-40fe-9094-a890866ae1a9">
-<span class="eqno">(44)<a class="headerlink" href="#equation-1c6ec1cb-c9ac-40fe-9094-a890866ae1a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ebf0d3f0-26b5-43ce-a1c2-c7de1b6292be">
+<span class="eqno">(44)<a class="headerlink" href="#equation-ebf0d3f0-26b5-43ce-a1c2-c7de1b6292be" title="Permalink to this equation">#</a></span>\[\begin{equation}
         \mathcal{B}(k;n) = \left(\begin{matrix}
             n\\
             k
@@ -696,8 +696,8 @@ On remarque qu’il faut au moins <span class="math notranslate nohighlight">\(r
 <h3>Loi uniforme<a class="headerlink" href="#loi-uniforme" title="Permalink to this headline">#</a></h3>
 <p>La loi uniforme consiste à ce que toutes les intervalles de taille <span class="math notranslate nohighlight">\(\mathrm{d}x\)</span> sont équiprobables sur une gamme donnée.
 Plus précisément, la loi uniforme <span class="math notranslate nohighlight">\(f(x)\)</span> sur l’intervalle <span class="math notranslate nohighlight">\(\left[ a,b \right]\)</span> est définie par deux paramètres <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-678dc173-334c-46e5-b06e-38e0b48bbcb8">
-<span class="eqno">(45)<a class="headerlink" href="#equation-678dc173-334c-46e5-b06e-38e0b48bbcb8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0b1de2ec-591d-4788-917c-5654ed6eef3f">
+<span class="eqno">(45)<a class="headerlink" href="#equation-0b1de2ec-591d-4788-917c-5654ed6eef3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f(x;a,b) = \frac{1}{b-a}
 \end{equation}\]</div>
 <p>pour <span class="math notranslate nohighlight">\(a&lt;x&lt;b\)</span> et nulle ailleurs.</p>
@@ -707,15 +707,15 @@ Plus précisément, la loi uniforme <span class="math notranslate nohighlight">\
 <h3>Loi normale ou loi de Gauss<a class="headerlink" href="#loi-normale-ou-loi-de-gauss" title="Permalink to this headline">#</a></h3>
 <p>Cette loi est l’une des plus utilisées en statistique, car elle définit de nombreux processus aléatoires et est le résultat de plusieurs théorèmes majeurs comme le théorème centrale limite.
 Cette loi est définie par deux paramètres <span class="math notranslate nohighlight">\(\mu\)</span> et <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bcb241b0-bdbc-4694-abfe-8c99d4ab1550">
-<span class="eqno">(46)<a class="headerlink" href="#equation-bcb241b0-bdbc-4694-abfe-8c99d4ab1550" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bee26aae-cebb-4e69-be63-f770516be540">
+<span class="eqno">(46)<a class="headerlink" href="#equation-bee26aae-cebb-4e69-be63-f770516be540" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 \end{equation}\]</div>
 <p>La moyenne de cette distribution est <span class="math notranslate nohighlight">\(\mu\)</span> et sa variance est <span class="math notranslate nohighlight">\(\sigma ^2\)</span>.
 Notons que la médiane et le mode de cette distribution sont égaux à la moyenne.</p>
 <p>En sciences expérimentales, il est souvent plus simple de déterminer l’écart-type en utilisant la <strong>largeur à mi-hauteur</strong> (<strong>FWHM</strong> ou <strong>Full Width Half Maximum</strong>): elle est déterminée par la relation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2e8e977-772f-4f1b-ac0e-3dc78b5bed22">
-<span class="eqno">(47)<a class="headerlink" href="#equation-d2e8e977-772f-4f1b-ac0e-3dc78b5bed22" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-679a35e0-c5b4-4eed-bdc6-fe3093b56b52">
+<span class="eqno">(47)<a class="headerlink" href="#equation-679a35e0-c5b4-4eed-bdc6-fe3093b56b52" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f(\mu+\mathrm{FWHM}/2; \mu, \sigma) = \frac{1}{2} f(\mu; \mu, \sigma) \Rightarrow \mathrm{FWHM} = 2\sqrt{2\ln 2}\sigma \approx 2.35 \sigma.
 \end{equation}\]</div>
 <p>La forme de la distribution gaussienne ainsi que la largeur à mi-hauteur sont représentées sur la figure ci-dessous.</p>
@@ -761,7 +761,7 @@ Notons que la médiane et le mode de cette distribution sont égaux à la moyenn
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chap2"
         },
         predefinedOutput: true
