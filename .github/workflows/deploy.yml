@@ -32,6 +32,7 @@ jobs:
         conda list
       # Build the book
     - name: Build the book
+      shell: bash -l {0}
       run: |
         $CONDA_PREFIX/bin/jupyter-book build physexp2
 
