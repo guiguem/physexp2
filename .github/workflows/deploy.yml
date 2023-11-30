@@ -23,7 +23,8 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         activate-conda: true
-    - run: conda --version
+    - run: conda config --append channels conda-forge
+    - run: conda config --show channels
     - name: Install dependencies
       run: |
         conda env create -f env.yaml   
