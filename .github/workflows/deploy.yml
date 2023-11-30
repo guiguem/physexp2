@@ -23,7 +23,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         activate-environment: physexp2_notebook
-        environment-file: env.yml
+        environment-file: env.yaml
         auto-activate-base: false
       # Build the book
     - name: Build the book
