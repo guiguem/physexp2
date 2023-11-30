@@ -32,7 +32,7 @@ jobs:
       # Build the book
     - name: Build the book
       run: |
-        conda activate physexp2_notebook && jupyter-book build physexp2
+        conda env activate physexp2_notebook && jupyter-book build physexp2
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
