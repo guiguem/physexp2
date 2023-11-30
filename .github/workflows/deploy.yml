@@ -26,6 +26,10 @@ jobs:
         environment-file: env.yaml
         auto-activate-base: false
         channels: conda-forge
+    - shell: bash -l {0}
+      run: |
+        conda info
+        conda list
       # Build the book
     - name: Build the book
       run: |
