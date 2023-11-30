@@ -1,4 +1,6 @@
-# physexp2
+# Support de cours pour Physique Expérimentale 2 (2PY215)
+
+https://guiguem.github.io/physexp2/
 
 ## Docker
 
