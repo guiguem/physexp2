@@ -25,6 +25,7 @@ jobs:
         activate-environment: physexp2_notebook
         environment-file: env.yaml
         auto-activate-base: false
+        channels: conda-forge
       # Build the book
     - name: Build the book
       run: |
