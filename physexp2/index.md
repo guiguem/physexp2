@@ -1,5 +1,7 @@
 # Physique Expérimentale 2: Introduction à l’analyse de données et aux statistiques pour la physique
 
+## Contexte de cette UE
+
 L'analyse de données qui consiste à transformer des données en mesures occupe une place centrale dans tout travail scientifique.
 Qu'elle se base sur des opérations mathématiques ou bien des concepts statistiques plus complexes, c'est une étape obligatoire pour comparer les résultats obtenus avec des prédictions faites par des modèles physiques.
 Malheureusement cette discipline reste relativement marginale dans la plupart des cursus de physique à l'Université.

@@ -10,14 +10,12 @@ author                      : Mathieu Guigue  # The author of the book
 copyright                   : "2023"  # Copyright year to be placed in the footer
 logo                        : ""  # A path to the book logo
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
-execute:
-  execute_notebooks: force
-
 sphinx:
-  # config:
+  config:
   #   hide_solutions: True
+    nb_execution_mode: force
+    latex_elements:
+      babel  : "\\usepackage[french]{babel}\n"
   extra_extensions:
     - sphinxcontrib.tikz
     - sphinx_exercise
@@ -48,7 +46,8 @@ latex:
     targetname: book.tex
   latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
   use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
-  latex_theme: howto
+  latex_theme: manual
+  language: fr
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:

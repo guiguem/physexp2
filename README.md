@@ -13,6 +13,7 @@ jupyter-book build physexp2/
 ## Conda environment
 
 ```Bash
-conda create -f env.yaml
-jupyter-book build physexp2/
+conda env create -f env.yaml --solver libmamba
+jupyter-book build physexp2/ # for html build
+jupyter-book build physexp2/ --builder pdflatex # for latex build
 ```
