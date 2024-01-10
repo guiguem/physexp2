@@ -36,17 +36,17 @@ jobs:
       run: |
         $CONDA_PREFIX/bin/jupyter-book build physexp2
 
-    - name: Build the book as pdf
-      shell: bash -l {0}
-      run: |
-        $CONDA_PREFIX/bin/jupyter-book build physexp2 --builder=pdflatex
+    # - name: Build the book as pdf
+    #   shell: bash -l {0}
+    #   run: |
+    #     $CONDA_PREFIX/bin/jupyter-book build physexp2 --builder=pdflatex
 
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v3
-      with:
-        name: book.pdf
-        path: physexp2/_build/latex/book.pdf
-        retention-days: 5
+    # - name: 'Upload Artifact'
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: book.pdf
+    #     path: physexp2/_build/latex/book.pdf
+    #     retention-days: 5
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
