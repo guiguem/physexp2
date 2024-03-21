@@ -34,7 +34,7 @@ jobs:
     - name: Build the book as html
       shell: bash -l {0}
       run: |
-        $CONDA_PREFIX/bin/jupyter-book build physexp2 -all
+        $CONDA_PREFIX/bin/jupyter-book build physexp2 --all
 
     # - name: Build the book as pdf
     #   shell: bash -l {0}
