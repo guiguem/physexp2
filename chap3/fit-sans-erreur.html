@@ -425,8 +425,8 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="ajustement-avec-des-donnees-sans-erreurs">
 <span id="content-fit-no-error"></span><h1>Ajustement avec des données sans erreurs<a class="headerlink" href="#ajustement-avec-des-donnees-sans-erreurs" title="Permalink to this headline">#</a></h1>
 <p>S’il s’agit de réduire l’écart entre <span class="math notranslate nohighlight">\(N\)</span> points de données <span class="math notranslate nohighlight">\(\left\{y_i\right\}\)</span> obtenus pour des valeurs <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> et le modèle <span class="math notranslate nohighlight">\(f\)</span> évalué au valeurs <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span>, une quantité possible <a class="footnote-reference brackets" href="#excel" id="id1">1</a> est:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-075796a2-fc5a-4eed-b2c2-d48f17e12b20">
-<span class="eqno">(67)<a class="headerlink" href="#equation-075796a2-fc5a-4eed-b2c2-d48f17e12b20" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0fe1287e-f1b8-4668-a967-aeee3e25bf10">
+<span class="eqno">(67)<a class="headerlink" href="#equation-0fe1287e-f1b8-4668-a967-aeee3e25bf10" title="Permalink to this equation">#</a></span>\[\begin{equation}
     R^2 =  1- \frac{\sum _{i=1}^N\left(f(x_i; \alpha,\beta,...) - y_i\right)^2}{\sum _{i=1}^N\left(\bar{y}-y_i\right)^2},
 \end{equation}\]</div>
 <p>où <span class="math notranslate nohighlight">\(\bar{y}\)</span> est la moyenne des mesures <span class="math notranslate nohighlight">\(\left\{y_i\right\}\)</span>.
@@ -481,13 +481,13 @@ La valeur de <span class="math notranslate nohighlight">\(R^2\)</span> obtenue p
 </tbody>
 </table>
 <p>Il s’agit de paires de deux mesures <span class="math notranslate nohighlight">\(x_i\)</span> et <span class="math notranslate nohighlight">\(y_i\)</span> reliées par la relation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e55d50ee-eb8f-462c-810a-9838ecff505f">
-<span class="eqno">(68)<a class="headerlink" href="#equation-e55d50ee-eb8f-462c-810a-9838ecff505f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1044171f-2a58-49ef-8ae1-7a8b88c40085">
+<span class="eqno">(68)<a class="headerlink" href="#equation-1044171f-2a58-49ef-8ae1-7a8b88c40085" title="Permalink to this equation">#</a></span>\[\begin{equation}
     y_i = a\times x_i + b.
 \end{equation}\]</div>
 <p>Le coefficient de détermination que l’on va minimiser vaut:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d88e7f3-3246-43f9-be90-85d994117bfb">
-<span class="eqno">(69)<a class="headerlink" href="#equation-4d88e7f3-3246-43f9-be90-85d994117bfb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-297496bd-47a1-4447-8995-ce299fc20e80">
+<span class="eqno">(69)<a class="headerlink" href="#equation-297496bd-47a1-4447-8995-ce299fc20e80" title="Permalink to this equation">#</a></span>\[\begin{equation}
     R^2 =  1- \frac{\sum _{i=1}^N\left(a\times x_i+b - y_i\right)^2}{\sum _{i=1}^N\left(\bar{y}-y_i\right)^2}.
 \end{equation}\]</div>
 <p>Le graphique ci-dessus montre que le modèle  s’ajuste bien aux données; le coefficient de détermination <span class="math notranslate nohighlight">\(R^2\)</span> obtenu vaut 0.96.</p>
@@ -516,16 +516,11 @@ La valeur de <span class="math notranslate nohighlight">\(R^2\)</span> obtenue p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># importer maplotlib</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fonction minimisant R^2: y = 0.27*x+1.00
+Valeur de R^2: 0.96
 </pre></div>
 </div>
+<img alt="../_images/fit-sans-erreur_2_1.png" src="../_images/fit-sans-erreur_2_1.png" />
 </div>
 </div>
 <p>Le coefficient de détermination <span class="math notranslate nohighlight">\(R^2\)</span> correspond à la corrélation entre les valeurs prédites par le modèle et les données obtenues: c’est donc un bon indicateur pour l’accord entre des données et un modèle, notamment dans le cas où l’on n’a pas d’erreurs sur les points de données.</p>
