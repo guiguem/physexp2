@@ -36,7 +36,7 @@ Le matériel utilisé pour ces TP est très simple.
 
 - Vous aurez bien sur besoin d'un ordinateur et du logiciel [Jupyter](https://jupyter.org).
   Des instructions sur comment utiliser Jupyter sont disponibles [ici](https://phys-mod.github.io/source/pages/info-outils-numeriques.html#jupyter-notebooks) sur le site de l'UE "Modélisation Numérique en Physique".
-  Notamment vous pouvez utiliser le JupyterHub de Capsule disponible depuis la [page Moodle de l'UE](https://moodle-sciences-23.sorbonne-universite.fr/course/view.php?id=3495).
+  Notamment vous pouvez utiliser le JupyterHub de Capsule disponible depuis la [page Moodle de l'UE](https://moodle-sciences-24.sorbonne-universite.fr/mod/lti/view.php?id=159463).
 
 - Plusieurs mesures se feront à l'aide de smartphones et de l'application [Phyphox](https://phyphox.org/), téléchargeable gratuitement [^phyphox].
 
