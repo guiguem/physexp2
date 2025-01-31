@@ -516,8 +516,8 @@ Puisque <span class="math notranslate nohighlight">\(\hat{A}\)</span> est une fo
 <li><p>Un estimateur doit converger vers la valeur vraie du paramètre associé.
 Si on considère un échantillon de mesures <span class="math notranslate nohighlight">\(\vec{x}\)</span> de taille infinie, l’estimation de <span class="math notranslate nohighlight">\(A\)</span> avec <span class="math notranslate nohighlight">\(\hat{A}\)</span> doit être strictement égale à la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span>:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-05bea364-2714-4c8d-b469-f6584d104b01">
-<span class="eqno">(48)<a class="headerlink" href="#equation-05bea364-2714-4c8d-b469-f6584d104b01" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5e016879-54c1-4d1a-8702-210be0d1f0c2">
+<span class="eqno">(48)<a class="headerlink" href="#equation-5e016879-54c1-4d1a-8702-210be0d1f0c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \lim _{n\rightarrow \infty} \hat{A} = A_0.
 \end{equation}\]</div>
 <ul class="simple">
@@ -545,8 +545,8 @@ Par exemple, lorsqu’on utilise un pèse-personne pour estimer sa masse, la val
 Ce type d’estimation du paramètre se nomme <strong>estimation par intervalle</strong>.</p>
 <p>La définition d’un intervalle contenant vraisemblablement la valeur vraie revient finalement à définir une valeur centrale de l’intervalle comme étant la valeur de l’estimateur <span class="math notranslate nohighlight">\(\hat{A}\)</span> et une <strong>erreur</strong> sur cet estimateur, notée généralement <span class="math notranslate nohighlight">\(\sigma _{\hat{A}}\)</span>, correspondant à l’étalement des valeurs vraisemblables de <span class="math notranslate nohighlight">\(A_0\)</span>.
 Si cet étalement tend vers 0 lorsque la taille de l’échantillon tend vers l’infini ou</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7789cdab-5d57-4817-8c10-e29c6a3c24cf">
-<span class="eqno">(50)<a class="headerlink" href="#equation-7789cdab-5d57-4817-8c10-e29c6a3c24cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4cee214e-1eb9-4ff6-ba97-e761208002b1">
+<span class="eqno">(50)<a class="headerlink" href="#equation-4cee214e-1eb9-4ff6-ba97-e761208002b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \lim _{n\rightarrow \infty} \sigma _{\hat{A}}^2 = 0,
 \end{equation}\]</div>
 <p>l’estimateur <span class="math notranslate nohighlight">\(\hat{A}\)</span> est convergent: dans la limite infinie, on a alors un estimateur dont la moyenne est la valeur vraie <span class="math notranslate nohighlight">\(A_0\)</span> et de variance nulle donc cet estimateur donne la vraie valeur de <span class="math notranslate nohighlight">\(A\)</span>.</p>
@@ -566,13 +566,13 @@ En effet, on peut démontrer</p>
     \mathbb{E}(\hat{\mu}) = \mathbb{E}\left( \frac{1}{n}\sum _i x_i \right) = \frac{1}{n}\sum _i \mathbb{E}(x_i) = \frac{1}{n} \sum _i \mu = \mu,
 \]</div>
 <p>ce qui veut dire que le biais de cet estimateur est nul d’après l’équation <a class="reference internal" href="#equation-def-biais">(49)</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-434e8f91-3dfc-4001-9164-eab612f56896">
-<span class="eqno">(52)<a class="headerlink" href="#equation-434e8f91-3dfc-4001-9164-eab612f56896" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-71ecfb6c-b8eb-4a36-b1ff-5e20e8344e7b">
+<span class="eqno">(52)<a class="headerlink" href="#equation-71ecfb6c-b8eb-4a36-b1ff-5e20e8344e7b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     b(\hat{\mu}) = \mathbb{E}(\hat{\mu}) - \mu = 0.
 \end{equation}\]</div>
 <p>On peut étudier la vitesse de convergence de cet estimateur en calculant la variance de cet estimateur [^detail-var]:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5478094-b33b-4a2c-9e2e-c3f2138b705f">
-<span class="eqno">(53)<a class="headerlink" href="#equation-e5478094-b33b-4a2c-9e2e-c3f2138b705f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c70f7c71-0595-4756-81d3-b8048de205da">
+<span class="eqno">(53)<a class="headerlink" href="#equation-c70f7c71-0595-4756-81d3-b8048de205da" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \sigma ^2 _{\hat{\mu}} = var\left( \hat{\mu} \right) = var \left( \frac{1}{n} \sum _i x_i  \right) = \frac{1}{n^2} \sum _i var \left(  x_i  \right) = \frac{1}{n^2}  \sum _i \sigma ^2 = \frac{\sigma^2}{n}.
 \end{equation}\]</div>
 <p>On voit donc que pour un échantillon de taille infinie, la variance de cet estimateur vaut zéro, ce qui en fait un estimateur convergent.
@@ -585,8 +585,8 @@ En effet, l’incertitude notée <span class="math notranslate nohighlight">\(\D
 <p>avec <span class="math notranslate nohighlight">\(\sigma\)</span> représentant l’erreur sur les valeurs des <span class="math notranslate nohighlight">\(x_i\)</span>.
 Cela veut dire que l’incertitude <span class="math notranslate nohighlight">\(\Delta \hat{\mu}\)</span> sur une moyenne est toujours plus faible que celle sur les valeurs individuelles et qu’il est toujours possible d’améliorer l’incertitude <span class="math notranslate nohighlight">\(\Delta \hat{\mu}\)</span>: si on augmente la taille de l’échantillon par un facteur 4, on réduit l’incertitude sur la moyenne par un facteur 2.</p>
 <p>Un autre estimateur empirique d’intérêt est celui de la variance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e409a85c-7b47-473d-a210-e9f39b0bd7ab">
-<span class="eqno">(55)<a class="headerlink" href="#equation-e409a85c-7b47-473d-a210-e9f39b0bd7ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1fa33db1-277e-413c-880a-cf376bea0dde">
+<span class="eqno">(55)<a class="headerlink" href="#equation-1fa33db1-277e-413c-880a-cf376bea0dde" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \hat{\sigma} ^2 = \frac{1}{n-1} \sum _{i=0} ^n (x_i - \bar{x})^2.
 \end{equation}\]</div>
 <p>De façon similaire à la moyenne, on peut démontrer que cet estimateur est non biaisé avec une moyenne <span class="math notranslate nohighlight">\(\mu _{\hat{\sigma}^2} = \sigma ^2\)</span> correspondant à la valeur vraie.
@@ -633,32 +633,32 @@ Si, par exemple, la quantité d’intérêt <span class="math notranslate nohigh
 <p>Quelques exemples de formules classiques de propagation d’incertitudes où on néglige les corrélations entre les variables:</p>
 <ul>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x+y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51bce902-cb19-41e8-abc0-861042582a94">
-<span class="eqno">(58)<a class="headerlink" href="#equation-51bce902-cb19-41e8-abc0-861042582a94" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3d606adb-3a09-4ac6-b3e4-4755f0af3c69">
+<span class="eqno">(58)<a class="headerlink" href="#equation-3d606adb-3a09-4ac6-b3e4-4755f0af3c69" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \Delta f^2 = \Delta x^2 + \Delta y^2;
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x-y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa6187d8-a2d5-49cb-951e-cca25a5e4d78">
-<span class="eqno">(59)<a class="headerlink" href="#equation-fa6187d8-a2d5-49cb-951e-cca25a5e4d78" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a36e7770-795c-4ec3-a7af-63e243efb47f">
+<span class="eqno">(59)<a class="headerlink" href="#equation-a36e7770-795c-4ec3-a7af-63e243efb47f" title="Permalink to this equation">#</a></span>\[\begin{equation}
    \Delta f^2 = \Delta x^2 + \Delta y^2;
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = x\times y\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54b279cc-3062-40df-900e-90595d43edd1">
-<span class="eqno">(60)<a class="headerlink" href="#equation-54b279cc-3062-40df-900e-90595d43edd1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a5805944-ce61-4c31-bc48-e573963f5bc9">
+<span class="eqno">(60)<a class="headerlink" href="#equation-a5805944-ce61-4c31-bc48-e573963f5bc9" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f^2}{f^2} = \frac{\Delta x^2}{x^2} + \frac{\Delta y^2}{y^2};
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x,y) = \frac{x}{y}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-199ec786-cc9b-46a7-b735-f876172e26ca">
-<span class="eqno">(61)<a class="headerlink" href="#equation-199ec786-cc9b-46a7-b735-f876172e26ca" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-42039ddd-1a9d-4fa1-bf8e-68b935593613">
+<span class="eqno">(61)<a class="headerlink" href="#equation-42039ddd-1a9d-4fa1-bf8e-68b935593613" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f^2}{f^2} = \frac{\Delta x^2}{x^2} + \frac{\Delta y^2}{y^2};
   \end{equation}\]</div>
 </li>
 <li><p>pour <span class="math notranslate nohighlight">\(f(x) = x^n\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-500c9bcf-744c-4b71-978a-024f64d45e1f">
-<span class="eqno">(62)<a class="headerlink" href="#equation-500c9bcf-744c-4b71-978a-024f64d45e1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-11ff64fa-80b1-46b2-aac8-798db70f4a24">
+<span class="eqno">(62)<a class="headerlink" href="#equation-11ff64fa-80b1-46b2-aac8-798db70f4a24" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\Delta f}{f} = n\frac{\Delta x}{x}.
   \end{equation}\]</div>
 </li>
@@ -672,8 +672,8 @@ Si, par exemple, la quantité d’intérêt <span class="math notranslate nohigh
 <p>La police utilise généralement des sortes de pistolets radar pour mesurer la vitesse des voitures et détecter celles avec un excès de vitesse.
 Ce pistolet envoie des ondes radio de fréquence <span class="math notranslate nohighlight">\(f_0\)</span> se déplacant avec une vitesse proche de celle de la lumoière <span class="math notranslate nohighlight">\(c\)</span> sur une voiture et mesure la fréquence <span class="math notranslate nohighlight">\(f\)</span> de l’onde réfléchie.
 Celle-ci sera différente à cause de l’effet Döppler selon l’équation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ee47b2e8-0702-4dfa-9f28-c64150071976">
-<span class="eqno">(63)<a class="headerlink" href="#equation-ee47b2e8-0702-4dfa-9f28-c64150071976" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5f46dccb-8302-4491-969a-06ee70016c15">
+<span class="eqno">(63)<a class="headerlink" href="#equation-5f46dccb-8302-4491-969a-06ee70016c15" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f = f_0 \left( 1- \frac{v}{c}\right),
 \end{equation}\]</div>
 <p>avec <span class="math notranslate nohighlight">\(v\)</span> la vitesse de la voiture.
@@ -734,8 +734,8 @@ Avec une méthode de propagation des erreurs, trouver une relation permettant d�
 <section id="solution-content">
 <ol>
 <li><p>A partir de l’équation \eqref{eq:def-tau_n}, on trouve:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8cdd0181-09ef-4678-a0e3-ab8f596d4625">
-<span class="eqno">(66)<a class="headerlink" href="#equation-8cdd0181-09ef-4678-a0e3-ab8f596d4625" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15b25e43-b799-4390-9f33-2609bff8b9f3">
+<span class="eqno">(66)<a class="headerlink" href="#equation-15b25e43-b799-4390-9f33-2609bff8b9f3" title="Permalink to this equation">#</a></span>\[\begin{equation}
         \lambda = \sqrt{\frac{1}{3}\left(\frac{5163.7~\mathrm{s}}{\tau}-1\right)}.
     \end{equation}\]</div>
 <p>On peut alors faire une propagation d’erreur pour trouver l’erreur sur <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
@@ -837,7 +837,7 @@ A(1980)=-0.10+-0.01
 A(1989)=-0.116+-0.002
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7ff4e0645c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f0c51cdfdc0&gt;
 </pre></div>
 </div>
 <img alt="../_images/erreur_4_2.png" src="../_images/erreur_4_2.png" />

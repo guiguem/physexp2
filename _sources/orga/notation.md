@@ -2,6 +2,7 @@
 
 A la fin de chaque séance de TP, les compte-rendus sous la forme de calepins Jupyter sont à déposer sur Moodle.
 Les calepins doivent inclure :
+
 - les explications sur le TP et les expériences réalisées
 - les résultats, les figures et les valeurs numériques des mesures
 - le code python permettant l'analyse des résultats
@@ -13,11 +14,7 @@ Pensez à mettre les fichiers de données avec le compte-rendu lors du dépôt!
 
 La notation pour chaque compte-rendu se fait sur 4 volets :
 
-1. **Python**
-    - Savoir coder avec une syntaxe appropriée, savoir débugger
-    - Lisibilité du code et présence de commentaires
-    - Utiliser des prints et formats numériques de sortie adaptés pour que les résultats de la cellule compilée soient lisibles
-2. **Compte-rendu**
+1. **Compte-rendu et Python**
     - Présence d'une introduction et d'une conclusion
     - Explication des buts et des démarches employées (protocole suivi, simulations réalisées)
     - Présentations des résultats intermédiaires et finaux :
@@ -29,11 +26,17 @@ La notation pour chaque compte-rendu se fait sur 4 volets :
         - Présence d'un titre approprié et de titres (et unités) aux axes
         - Présence d'une légende pour des graphes avec plusieurs jeux de données
         - Présence de barres d'erreurs (si existantes)
-3. **Compréhension du cours**
+    - Savoir coder avec une syntaxe appropriée, savoir débugger
+    - Lisibilité du code et présence de commentaires
+    - Utiliser des `print` et formats numériques de sortie adaptés pour que les résultats de la cellule soient lisibles
+2. **Compréhension du cours et des concepts**
     - Exploitation des concepts de cours
     - Utilisation appropriée des noms, des formules et du vocabulaire
-4. **Compréhension du TP**
+3. **Avancement dans le TP**
     - Compréhension globale de la logique du TP et des observations
+4. **Investissement personnel et ponctualité**
+    - Préparation des TP
+    - *Retard: -2 points*
 
 La note finale est la moyenne des 6 notes de TP.
 

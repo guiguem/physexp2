@@ -667,8 +667,8 @@ g(y) = \sum _i \frac{f(x)}{\vert \phi_i ' (x)\vert} = \sum _i \frac{f(\phi ^{-1}
 <p class="admonition-title"><span class="caption-number">Exercise 5 </span></p>
 <section id="exercise-content">
 <p>En utilisant une distribution de nombres aléatoires distribués uniformément, on veut produire une distribution de loi sinusoidale:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2b462aa-529d-4637-b6e7-9fb8ead6abd4">
-<span class="eqno">(20)<a class="headerlink" href="#equation-f2b462aa-529d-4637-b6e7-9fb8ead6abd4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-64d4776f-4531-46ea-8cd3-3eb258d42a31">
+<span class="eqno">(20)<a class="headerlink" href="#equation-64d4776f-4531-46ea-8cd3-3eb258d42a31" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f(x) = \frac{1}{2}\sin(x).
 \end{equation}\]</div>
 <p>On choisira un intervalle compris entre 0 et <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
@@ -690,8 +690,8 @@ $<span class="math notranslate nohighlight">\(
 \int _0 ^{\pi} f(x)\mathrm{d}x = \frac{1}{2} \int _0 ^{\pi} \sin(x)\mathrm{d}x = \frac{1}{2} \left[ -\cos(\pi) + \cos(0) \right] = 1
 \)</span>$</p></li>
 <li><p>Le calcul est direct:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88abc83e-e8e0-45bb-88c6-c5d312452b8d">
-<span class="eqno">(21)<a class="headerlink" href="#equation-88abc83e-e8e0-45bb-88c6-c5d312452b8d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6cfb9813-10bc-4002-bd01-77b72949b7ef">
+<span class="eqno">(21)<a class="headerlink" href="#equation-6cfb9813-10bc-4002-bd01-77b72949b7ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
         F(x) = \int _0 ^x \frac{1}{2}\sin (x')\mathrm{d}x' = \left[ -\frac{1}{2}\cos (x') \right]_0 ^x = \frac{1}{2}-\frac{1}{2}\cos(x).
     \end{equation}\]</div>
 </li>
@@ -736,8 +736,8 @@ En utilisant l’équation <a class="reference internal" href="#equation-chgt-va
 \]</div>
 <p>On peut démontrer que la fonction <span class="math notranslate nohighlight">\(\phi (x) = G^{-1}(x)\)</span> est une solution de l’équation précédente.
 En effet, si <span class="math notranslate nohighlight">\(G\)</span> est une fonction strictement croissante, elle est bijective; alors:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8083d81-2b78-4287-9264-1c2d5b28624e">
-<span class="eqno">(23)<a class="headerlink" href="#equation-f8083d81-2b78-4287-9264-1c2d5b28624e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-db242ac5-fbb6-4ec2-9411-8e9bd29f1c48">
+<span class="eqno">(23)<a class="headerlink" href="#equation-db242ac5-fbb6-4ec2-9411-8e9bd29f1c48" title="Permalink to this equation">#</a></span>\[\begin{equation}
     1 = \frac{\mathrm{d}x}{\mathrm{d}x} = \frac{\mathrm{d}\phi^{-1} (y)}{\mathrm{d}x} = \frac{\mathrm{d}G (y)}{\mathrm{d}y} \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}G (y)}{\mathrm{d}y} \frac{\mathrm{d}\phi(x)}{\mathrm{d}x},
 \end{equation}\]</div>
 <p>ce qui correspond à l’équation <a class="reference internal" href="#equation-generation-loi">(22)</a>.</p>
@@ -746,8 +746,8 @@ En effet, si <span class="math notranslate nohighlight">\(G\)</span> est une fon
 <p class="admonition-title">Exemple</p>
 <p>On souhaite générer aléatoirement des nombres selon la distribution <span class="math notranslate nohighlight">\(f(x) = 3x^2\)</span> sur l’intervalle <span class="math notranslate nohighlight">\(\left[0,1\right]\)</span> à partir d’une loi uniforme (générée par exemple à partir de la fonction <code class="docutils literal notranslate"><span class="pre">numpy.random.rand()</span></code>).</p>
 <p>On commence par vérifier que la pdf <span class="math notranslate nohighlight">\(f\)</span> est bien normalisée:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8d68e8a2-278e-4d21-9087-01d1948ff7f5">
-<span class="eqno">(24)<a class="headerlink" href="#equation-8d68e8a2-278e-4d21-9087-01d1948ff7f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dce95157-0b7e-4b61-8864-11530dafc7bc">
+<span class="eqno">(24)<a class="headerlink" href="#equation-dce95157-0b7e-4b61-8864-11530dafc7bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \int _0 ^{1} 3x^2 \mathrm{d}x = 3 \left[ \frac{1}{3}x^3 \right] _0 ^1 = 1-0 = 1.
 \end{equation}\]</div>
 <p>La fonction cumulative <span class="math notranslate nohighlight">\(F\)</span> est <span class="math notranslate nohighlight">\(F(x) = \int _0 ^x 3x'^2\mathrm{d}x' = x^3\)</span> et donc <span class="math notranslate nohighlight">\(F^{-1}(x) = x^{1/3}\)</span>.
@@ -791,32 +791,32 @@ Pour cela, on définit l’<strong>espérance mathématique</strong> d’une fon
 <p>Cette quantité correspond à la moyenne de <span class="math notranslate nohighlight">\(g(x)\)</span> pondérée par la pdf <span class="math notranslate nohighlight">\(f(x)\)</span>; c’est pourquoi on appelle parfois l’espérance la <strong>moyenne</strong> de <span class="math notranslate nohighlight">\(g(X)\)</span>.
 La fonction <span class="math notranslate nohighlight">\(g(x)\)</span> peut être ce que l’on veut: les fonctions polynomiales <span class="math notranslate nohighlight">\(g(x) = x^n\)</span> sont particulièrement intéressantes et leurs moments <span class="math notranslate nohighlight">\(\mathbb{E}[X^n]\)</span> sont appelés <strong>moments d’ordre <span class="math notranslate nohighlight">\(n\)</span></strong>.</p>
 <p>On définit la <strong>moyenne</strong> de <span class="math notranslate nohighlight">\(X\)</span> (i.e. <span class="math notranslate nohighlight">\(g(x) = x\)</span>) la quantité</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b15d193-91b8-412f-922a-4215d56ffaeb">
-<span class="eqno">(26)<a class="headerlink" href="#equation-4b15d193-91b8-412f-922a-4215d56ffaeb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5228375b-8f61-4eff-90c6-f19d04fa2fb9">
+<span class="eqno">(26)<a class="headerlink" href="#equation-5228375b-8f61-4eff-90c6-f19d04fa2fb9" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathbb{E}[X] = \mu _1 = \int _{-\infty} ^{\infty} x\times f(x) \mathrm{d}x.
 \end{equation}\]</div>
 <p>Cette définition s’étend aux probabilités discrètes.
 Dans ce cas, elle correspond parfaitement à la définition de la moyenne statistique définie par l’équation \eqref{eq:moyenne-stats}: si on considère <span class="math notranslate nohighlight">\(n\)</span> mesures de <span class="math notranslate nohighlight">\(X\)</span> notées <span class="math notranslate nohighlight">\(\left\{ x_i \right\}\)</span> toutes équiprobables <span class="math notranslate nohighlight">\(p(x_i) = \frac{1}{n}\)</span>, on a:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-86b62a21-1f41-4f13-9514-6f20955fdea5">
-<span class="eqno">(27)<a class="headerlink" href="#equation-86b62a21-1f41-4f13-9514-6f20955fdea5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-45774d01-436a-4313-9afc-8a92098e1b3c">
+<span class="eqno">(27)<a class="headerlink" href="#equation-45774d01-436a-4313-9afc-8a92098e1b3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mu _1 = \sum _{i=0}^n x_i p(x_i) = \frac{1}{n} \sum _{i=0}^n x_i = \overline{x}.
 \end{equation}\]</div>
 <p>Cela signifie que la moyenne de mesures correspond bien à la espérance de la variable aléatoire associée.</p>
 <p>La variable <span class="math notranslate nohighlight">\(X' = X-\mu _1\)</span> est de moyenne nulle: on l’appelle donc <strong>variable centrée</strong>.
 On peut alors définir l’étalement de la distribution <span class="math notranslate nohighlight">\(f\)</span> en considérant l’espérance de la variable centrée au carré <span class="math notranslate nohighlight">\(\mathbb{E}[X'^2]\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8882035a-43e9-4c6f-a458-27e0e129f03a">
-<span class="eqno">(28)<a class="headerlink" href="#equation-8882035a-43e9-4c6f-a458-27e0e129f03a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b550f85a-171c-48bc-a349-de9afce49289">
+<span class="eqno">(28)<a class="headerlink" href="#equation-b550f85a-171c-48bc-a349-de9afce49289" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathbb{E}[X'^2] = \sigma ^2 = \int _{-\infty} ^{\infty} (x - \mu_1) ^2\times f(x) \mathrm{d}x = \int _{-\infty} ^{\infty} (x^2 - \mu_1^2) \times f(x) \mathrm{d}x = \mathbb{E}[X^2] - \mathbb{E}[X]^2.
 \end{equation}\]</div>
 <p>On reconnait là la forme de l’équation \eqref{eq:variance-stats}; l’<strong>écart-type</strong> <span class="math notranslate nohighlight">\(\sigma = \sqrt{\mathbb{E}[X'^2]}\)</span> est donc la mesure de la dispersion de <span class="math notranslate nohighlight">\(X\)</span> autour de la valeur moyenne <span class="math notranslate nohighlight">\(\mu _1\)</span>.</p>
 <p>La <strong>médiane</strong> de la variable <span class="math notranslate nohighlight">\(X\)</span>, notée <span class="math notranslate nohighlight">\(\mathrm{med}(X)\)</span> se définit comme:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a270fb75-21d9-4d73-b007-6d1faf5eed77">
-<span class="eqno">(29)<a class="headerlink" href="#equation-a270fb75-21d9-4d73-b007-6d1faf5eed77" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9e17f070-6655-4fc3-86a2-c5cba05668c2">
+<span class="eqno">(29)<a class="headerlink" href="#equation-9e17f070-6655-4fc3-86a2-c5cba05668c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \int _{-\infty} ^{\mathrm{med}(X)} f(x)\mathrm{d}x = \int _{\mathrm{med}(X)} ^{\infty} f(x)\mathrm{d}x = \frac{1}{2}.
 \end{equation}\]</div>
 <p>Le <strong>mode</strong> de la variable <span class="math notranslate nohighlight">\(X\)</span> est la valeur <span class="math notranslate nohighlight">\(x\)</span> qui maximise la pdf <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb83e315-f9b4-490e-b8d1-63567bc1624d">
-<span class="eqno">(30)<a class="headerlink" href="#equation-cb83e315-f9b4-490e-b8d1-63567bc1624d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f97c7dfb-a643-4c33-95c3-9d659b60a1a4">
+<span class="eqno">(30)<a class="headerlink" href="#equation-f97c7dfb-a643-4c33-95c3-9d659b60a1a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathrm{mode}(X) = \arg _{x\in [-\infty, \infty]} f(x).
 \end{equation}\]</div>
 <p>La figure ci-dessous donne un exemple de moyenne (ligne verticale orange) et de mode (ligne verticale bleue) pour une distribution de probabilité arbitraire.</p>
